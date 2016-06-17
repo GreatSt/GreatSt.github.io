@@ -1,9 +1,196 @@
 <!DOCTYPE html>
 <html>
 
+<head>
+  <title>Summer project</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script type="text/javascript" src="http://visjs.org/dist/vis.js"></script>
+  <script type="text/javascript" src="./algorithms.js"></script>
+  <link href="http://visjs.org/dist/vis.css" rel="stylesheet" type="text/css" />
+
+  <style type="text/css">
+    #mynetwork {
+      width: 250px;
+      height: 250px;
+      border: 3px solid lightgray;
+    }
+  </style>
+</head>
+
 <body>
 	<h1>Hello World</h1>
-	<p>I'm hosted with GitHub Pages.</p>
+	<p>I'm hosted with GitHub Pages. And below you can see something even more unfinished...</p>
+    
+    <p>
+  Create a simple network with some nodes and edges.
+</p>
+
+<div id="mynetwork"></div>
+
+<button id="button1" onclick="animateButtonPressed()">Animate</button>
+<button id="button2" onclick="step.pressed()">Step</button>
+<button id="button3" onclick="restartButton()">Restart</button>
+
+<script type="text/javascript">
+
+  var decreaseColor = 0,
+      increaseBy = 1,
+      countPulses = 0,
+      whatToDoNext = [],
+      seqEvent = [],
+      isAnimating = false,
+      animationSpeed = 500,
+      step = new StepButton();
+
+  // create an array with nodes
+  var nodes = new vis.DataSet([
+    {id: 1, label: 'Node 1'},
+    {id: 2, label: 'Node 2'},
+    {id: 3, label: 'Node 3'},
+    {id: 4, label: 'Node 4'},
+    {id: 5, label: 'Node 5'}
+  ]);
+
+  // create an array with edges
+  var edges = new vis.DataSet([
+    {from: 1, to: 3},
+    {from: 1, to: 2},
+    {from: 2, to: 4},
+    {from: 2, to: 5},
+    {from: 3, to: 4}
+  ]);
+
+  // create a network
+  var container = document.getElementById('mynetwork');
+  var data = {
+    nodes: nodes,
+    edges: edges
+  };
+  var options = {};
+  var network = new vis.Network(container, data, options);
+
+  var algorithm = new Algo(); // From my algorithms.js
+  
+  var animateButtonPressed = function(){
+    animateVisualization(0, seqEvent.length);
+  }
+  
+  var restartButton = function restartButton(){
+    step.reset();
+    var allEdges = edges.get();
+    var allNodes = nodes.get();
+    for(var i = 0; i < allEdges.length; i++){
+        edges.update({id:allEdges[i].id, color: 'mediumblue'});
+    }
+    for(var i = 0; i < allEdges.length; i++){
+        nodes.update({id:allNodes[i].id, color: {border : 'mediumblue', background : 'white'}});
+    }
+  }
+  
+  restartButton();
+  
+  function StepButton(){
+    var currentIdx = 0;
+    var nextStep = 1;
+    this.pressed = function(){
+        console.log("A small step for a man");
+        if(nextStep <= seqEvent.length){
+            animateVisualization(currentIdx, nextStep);
+            currentIdx++;
+            nextStep++;
+        }
+        else
+            console.log("I only said one step god damn it!");
+    };
+    this.reset = function(){
+        currentIdx = 0;
+        nextStep = 1;
+    };
+    
+  }
+
+  var animateVisualization = function(index, length){ // TODO Gör index global och vänta tills animationen kallar tillbaka.
+    console.log("Index :" + index + ", Length" + length)
+    if (seqEvent[index].isNode){
+        // Animate: brighten current node
+        selectNode(seqEvent[index].id);
+    }
+    else{
+        // Animate: walking the edge
+        selectEdge(seqEvent[index].id);
+    }
+
+    if(index < length-1){
+      setTimeout(function(){ animateVisualization(index+1, length); }, animationSpeed);
+    }
+  }
+
+  var selectNode = function(nodeID){
+    nodes.update({id:nodeID, color: {background: '#ffffff'}});
+    console.log(parseInt(nodes.get(nodeID).color.background.replace('#',''), 16));
+    fadeColor(function(colour){nodes.update({id:nodeID, color: {background: colour}});})
+    nodes.update({id:nodeID, color: {border: 'red'}});
+  }
+
+  var selectEdge = function(edgeID){
+    console.log("Edge " + edgeID + " is colored.");
+    fadeEdge(function(colour){edges.update({id:edgeID, color: colour});}, 0,0xDC);
+    //edges.update({id:edgeID, color: 'Red'});
+  }
+
+// colorFunc should be a function and set the color. startColor and endColor should be in hex
+  var fadeColor = function(colorFunc){
+    var updates = animationSpeed/20; // Byt namn på animationSpeed
+    var colorChange = Math.round(255/updates);
+    var decreaseColor = 255;
+    
+    var id = setInterval(frame, 20)
+    function frame(){
+        if(decreaseColor < 0){
+            clearInterval(id)
+        }
+        else{
+            var sColor = '#ff'+(255-decreaseColor).toString(16)+(255-decreaseColor).toString(16);
+            colorFunc(sColor);
+            decreaseColor -= colorChange;
+        }
+    }
+  }
+  
+  var fadeEdge = function(colorFunc, startR, startB){
+    var updates = animationSpeed/20; // Byt namn på animationSpeed
+    var colorChangeR = Math.round(255/updates);
+    var colorChangeB = Math.round(startB/updates);
+    var incR = startR,
+        decB = 0;
+    
+    var id = setInterval(frame, 20)
+    function frame(){
+        if(incR > 255){
+            clearInterval(id);
+            colorFunc('#ff0000');
+        }
+        else{
+            var sColor = '#'+('0'+(startR+incR).toString(16)).slice(-2)+'00'+('0'+(startB+decB).toString(16)).slice(-2);
+            console.log("The color of the edge is " + sColor);
+            colorFunc(sColor);
+            if(incR < 255){
+                incR += colorChangeR;
+            }
+            if(decB > -startB+colorChangeB){
+                decB -= colorChangeB;
+            }
+            else{
+                decB = -startB;
+            }
+            
+        }
+    }
+  }
+
+  window.onload = algorithm.myBFS(edges, 1);
+</script>
 </body>
 
 </html>
