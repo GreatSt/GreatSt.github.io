@@ -10,8 +10,11 @@
   		background-color: #EFF0EE
   	}
 
-  	h1 {
+  	h1, h2, p {
   		margin-left: 2vw;
+  	}
+
+  	h1 {
   		font-size: 2.5em;
   	}
 
@@ -42,19 +45,28 @@
 	.active {
 	    background-color: #F46001;
 	}
+
+	.mail {
+		text-decoration: none;
+	}
+
+	.mail:hover {
+		text-decoration: underline;
+	}
   </style>
 </head>
 
 <body>
 
 	<ul>
-	  	<li><a class="active" href="#Home">Home</a></li>
+	  	<li><a href="index.html">Home</a></li>
 	  	<li><a href="cv_page.html">CV</a></li>
-	  	<li><a href="contact.html">Contact</a></li>
+	  	<li><a class="active" href="#Contact">Contact</a></li>
 	  	<li style="float:right"><a href="#Secret">Smith</a></li>
 	</ul>
 
-	<h1>My web page!</h1>
+	<h2>Simon Smith</h2>
+	<p>email: <a class="mail" href="mailto:simon_smith@outlook.com">Simon_Smith@outlook.com</a></p>
 </body>
 
 </html>
