@@ -2,61 +2,29 @@
 <html>
 
 <head>
-  <title>Summer project</title>
-  <meta name="theme-color" content="#F46001">
-  <!-- Icon for chrome v49 android <link rel="icon" sizes="192x192" href="nice-highres.png"> -->
-
-  <style type="text/css">
-  	body {
-  		margin: 0px;
-  		background-color: #EFF0EE
-  	}
-
-  	h1 {
-  		margin-left: 2vw;
-  		font-size: 2.5em;
-  	}
-
-  	ul {
-	    list-style-type: none;
-	    margin: 0;
-	    padding: 0;
-	    overflow: hidden;
-	    background-color: #333;
-	}
-
-	li {
-	    float: left;
-	}
-
-	li a {
-	    display: block;
-	    color: white;
-	    text-align: center;
-	    padding: 14px 16px;
-	    text-decoration: none;
-	}
-
-	li a:hover:not(.active) {
-	    background-color: #111;
-	}
-
-	.active {
-	    background-color: #F46001;
-	}
-  </style>
+  	<title>Summer project</title>
+  	<meta name="theme-color" content="#F46001">
+  	<!-- Icon for chrome v49 android <link rel="icon" sizes="192x192" href="nice-highres.png"> -->
+  	<link rel="stylesheet" type="text/css" href="style.css">
+  	<link rel="import" id="template-file" href="frame.html">
+	
 </head>
 
 <body>
-
-	<ul>
+	<ul id="content">
 	  	<li><a class="active" href="#Home">Home</a></li>
 	  	<li><a href="cv_page.html">CV</a></li>
 	  	<li><a href="contact.html">Contact</a></li>
 	  	<li style="float:right"><a href="#Secret">Smith</a></li>
 	</ul>
-
 	<h1>My web page!</h1>
+	<!--
+	<script>
+		var getImport  = document.querySelector('#template-file');
+		var getContent = getImport.import.querySelector('#content');
+	    document.body.appendChild(document.importNode(getContent, true));
+	</script>
+	-->
 </body>
 
 </html>
