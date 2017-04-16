@@ -15263,69 +15263,6 @@ var _debois$elm_mdl$Material_Color$primaryContrast = _debois$elm_mdl$Material_Co
 var _debois$elm_mdl$Material_Color$accent = _debois$elm_mdl$Material_Color$C('accent');
 var _debois$elm_mdl$Material_Color$accentContrast = _debois$elm_mdl$Material_Color$C('accent-contrast');
 
-var _debois$elm_mdl$Material_Scheme$scheme = F2(
-	function (primary, accent) {
-		return A2(
-			_elm_lang$core$String$join,
-			'\n',
-			A2(
-				_elm_lang$core$List$map,
-				function (url) {
-					return A2(
-						_elm_lang$core$Basics_ops['++'],
-						'@import url(',
-						A2(_elm_lang$core$Basics_ops['++'], url, ');'));
-				},
-				{
-					ctor: '::',
-					_0: A2(
-						_elm_lang$core$Basics_ops['++'],
-						'https://code.getmdl.io/1.3.0/',
-						A2(_debois$elm_mdl$Material_Color$scheme, primary, accent)),
-					_1: {
-						ctor: '::',
-						_0: 'https://fonts.googleapis.com/icon?family=Material+Icons',
-						_1: {
-							ctor: '::',
-							_0: 'https://fonts.googleapis.com/css?family=Roboto:400,300,500|Roboto+Mono|Roboto+Condensed:400,700&subset=latin,latin-ext',
-							_1: {ctor: '[]'}
-						}
-					}
-				}));
-	});
-var _debois$elm_mdl$Material_Scheme$topWithScheme = F3(
-	function (primary, accent, content) {
-		return A2(
-			_elm_lang$html$Html$div,
-			{ctor: '[]'},
-			{
-				ctor: '::',
-				_0: A3(
-					_elm_lang$html$Html$node,
-					'style',
-					{
-						ctor: '::',
-						_0: _elm_lang$html$Html_Attributes$type_('text/css'),
-						_1: {ctor: '[]'}
-					},
-					{
-						ctor: '::',
-						_0: _elm_lang$html$Html$text(
-							A2(_debois$elm_mdl$Material_Scheme$scheme, primary, accent)),
-						_1: {ctor: '[]'}
-					}),
-				_1: {
-					ctor: '::',
-					_0: content,
-					_1: {ctor: '[]'}
-				}
-			});
-	});
-var _debois$elm_mdl$Material_Scheme$top = function (content) {
-	return A3(_debois$elm_mdl$Material_Scheme$topWithScheme, _debois$elm_mdl$Material_Color$Grey, _debois$elm_mdl$Material_Color$Grey, content);
-};
-
-var _simsmith$doesnotexist$Main$mainColor = _debois$elm_mdl$Material_Color$DeepOrange;
 var _simsmith$doesnotexist$Main$model = {count: 0, mdl: _debois$elm_mdl$Material$model, selectedTab: 0};
 var _simsmith$doesnotexist$Main$Model = F3(
 	function (a, b, c) {
@@ -15460,82 +15397,78 @@ var _simsmith$doesnotexist$Main$viewBody = function (model) {
 	}
 };
 var _simsmith$doesnotexist$Main$view = function (model) {
-	return A3(
-		_debois$elm_mdl$Material_Scheme$topWithScheme,
-		_simsmith$doesnotexist$Main$mainColor,
-		_debois$elm_mdl$Material_Color$Red,
-		A4(
-			_debois$elm_mdl$Material_Layout$render,
-			_simsmith$doesnotexist$Main$Mdl,
-			model.mdl,
-			{
+	return A4(
+		_debois$elm_mdl$Material_Layout$render,
+		_simsmith$doesnotexist$Main$Mdl,
+		model.mdl,
+		{
+			ctor: '::',
+			_0: _debois$elm_mdl$Material_Layout$fixedHeader,
+			_1: {
 				ctor: '::',
-				_0: _debois$elm_mdl$Material_Layout$fixedHeader,
+				_0: _debois$elm_mdl$Material_Layout$selectedTab(model.selectedTab),
 				_1: {
 					ctor: '::',
-					_0: _debois$elm_mdl$Material_Layout$selectedTab(model.selectedTab),
-					_1: {
-						ctor: '::',
-						_0: _debois$elm_mdl$Material_Layout$onSelectTab(_simsmith$doesnotexist$Main$SelectTab),
-						_1: {ctor: '[]'}
-					}
+					_0: _debois$elm_mdl$Material_Layout$onSelectTab(_simsmith$doesnotexist$Main$SelectTab),
+					_1: {ctor: '[]'}
 				}
-			},
-			{
-				header: {
-					ctor: '::',
-					_0: A2(
-						_elm_lang$html$Html$p,
-						{
-							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$style(
-								{
+			}
+		},
+		{
+			header: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$p,
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$style(
+							{
+								ctor: '::',
+								_0: {ctor: '_Tuple2', _0: 'padding-left', _1: '5mm'},
+								_1: {
 									ctor: '::',
-									_0: {ctor: '_Tuple2', _0: 'padding-left', _1: '5mm'},
+									_0: {ctor: '_Tuple2', _0: 'padding-top', _1: '5mm'},
 									_1: {
 										ctor: '::',
-										_0: {ctor: '_Tuple2', _0: 'padding-top', _1: '5mm'},
-										_1: {
-											ctor: '::',
-											_0: {ctor: '_Tuple2', _0: 'font-size', _1: '200%'},
-											_1: {ctor: '[]'}
-										}
+										_0: {ctor: '_Tuple2', _0: 'font-size', _1: '200%'},
+										_1: {ctor: '[]'}
 									}
-								}),
-							_1: {ctor: '[]'}
-						},
-						{
-							ctor: '::',
-							_0: _elm_lang$html$Html$text('Simon Smith'),
-							_1: {ctor: '[]'}
-						}),
-					_1: {ctor: '[]'}
-				},
-				drawer: {ctor: '[]'},
-				tabs: {
-					ctor: '_Tuple2',
-					_0: {
-						ctor: '::',
-						_0: _elm_lang$html$Html$text('Main'),
-						_1: {
-							ctor: '::',
-							_0: _elm_lang$html$Html$text('Extra'),
-							_1: {ctor: '[]'}
-						}
+								}
+							}),
+						_1: {ctor: '[]'}
 					},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text('Simon Smith'),
+						_1: {ctor: '[]'}
+					}),
+				_1: {ctor: '[]'}
+			},
+			drawer: {ctor: '[]'},
+			tabs: {
+				ctor: '_Tuple2',
+				_0: {
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('Main'),
 					_1: {
 						ctor: '::',
-						_0: _debois$elm_mdl$Material_Color$background(
-							A2(_debois$elm_mdl$Material_Color$color, _simsmith$doesnotexist$Main$mainColor, _debois$elm_mdl$Material_Color$S400)),
+						_0: _elm_lang$html$Html$text('Extra'),
 						_1: {ctor: '[]'}
 					}
 				},
-				main: {
+				_1: {
 					ctor: '::',
-					_0: _simsmith$doesnotexist$Main$viewBody(model),
+					_0: _debois$elm_mdl$Material_Color$background(
+						A2(_debois$elm_mdl$Material_Color$color, _debois$elm_mdl$Material_Color$DeepOrange, _debois$elm_mdl$Material_Color$S400)),
 					_1: {ctor: '[]'}
 				}
-			}));
+			},
+			main: {
+				ctor: '::',
+				_0: _simsmith$doesnotexist$Main$viewBody(model),
+				_1: {ctor: '[]'}
+			}
+		});
 };
 var _simsmith$doesnotexist$Main$main = _elm_lang$html$Html$program(
 	{

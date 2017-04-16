@@ -1,15 +1,8 @@
-{- This file re-implements the Elm Counter example (1 counter) with elm-mdl
-   buttons. Use this as a starting point for using elm-mdl components in your own
-   app.
--}
-
-
 module Main exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (href, class, style)
 import Material
-import Material.Scheme
 import Material.Button as Button
 import Material.Options as Options exposing (css)
 import Material.Layout as Layout
@@ -84,38 +77,28 @@ type alias Mdl =
     Material.Model
 
 
-mainColor : Color.Hue
-mainColor =
-    Color.DeepOrange
-
-
 view : Model -> Html Msg
 view model =
-    Material.Scheme.topWithScheme mainColor Color.Red <|
-        Layout.render Mdl
-            model.mdl
-            [ Layout.fixedHeader
-            , Layout.selectedTab model.selectedTab
-            , Layout.onSelectTab SelectTab
-            ]
-            { header =
-                [ p
-                    [ style
-                        [ ( "padding-left", "5mm" )
-                        , ( "padding-top", "5mm" )
-                        , ( "font-size", "200%" )
-                        ]
+    Layout.render Mdl
+        model.mdl
+        [ Layout.fixedHeader
+        , Layout.selectedTab model.selectedTab
+        , Layout.onSelectTab SelectTab
+        ]
+        { header =
+            [ p
+                [ style
+                    [ ( "padding-left", "5mm" )
+                    , ( "padding-top", "5mm" )
+                    , ( "font-size", "200%" )
                     ]
-                    [ text "Simon Smith" ]
                 ]
-            , drawer = []
-            , tabs = ( [ text "Main", text "Extra" ], [ Color.background (Color.color mainColor Color.S400) ] )
-            , main = [ viewBody model ]
-            }
-
-
-
--- This used to be the `view`
+                [ text "Simon Smith" ]
+            ]
+        , drawer = []
+        , tabs = ( [ text "Main", text "Extra" ], [ Color.background (Color.color Color.DeepOrange Color.S400) ] )
+        , main = [ viewBody model ]
+        }
 
 
 viewBody : Model -> Html Msg
@@ -168,12 +151,6 @@ viewCounter model =
             [ Options.onClick Reset ]
             [ text "Reset" ]
         ]
-
-
-
--- Load Google Mdl CSS. You'll likely want to do that not in code as we
--- do here, but rather in your master .html file. See the documentation
--- for the `Material` module for details.
 
 
 main : Program Never Model Msg
