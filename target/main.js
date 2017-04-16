@@ -15263,15 +15263,16 @@ var _debois$elm_mdl$Material_Color$primaryContrast = _debois$elm_mdl$Material_Co
 var _debois$elm_mdl$Material_Color$accent = _debois$elm_mdl$Material_Color$C('accent');
 var _debois$elm_mdl$Material_Color$accentContrast = _debois$elm_mdl$Material_Color$C('accent-contrast');
 
-var _simsmith$doesnotexist$Main$model = {count: 0, mdl: _debois$elm_mdl$Material$model, selectedTab: 0};
-var _simsmith$doesnotexist$Main$Model = F3(
+var _simsmith$doesnotexist$Model$initModel = {count: 0, mdl: _debois$elm_mdl$Material$model, selectedTab: 0};
+var _simsmith$doesnotexist$Model$Model = F3(
 	function (a, b, c) {
 		return {count: a, mdl: b, selectedTab: c};
 	});
-var _simsmith$doesnotexist$Main$Mdl = function (a) {
+
+var _simsmith$doesnotexist$UpdateMsg$Mdl = function (a) {
 	return {ctor: 'Mdl', _0: a};
 };
-var _simsmith$doesnotexist$Main$update = F2(
+var _simsmith$doesnotexist$UpdateMsg$update = F2(
 	function (msg, model) {
 		var _p0 = msg;
 		switch (_p0.ctor) {
@@ -15292,7 +15293,7 @@ var _simsmith$doesnotexist$Main$update = F2(
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
 			case 'Mdl':
-				return A3(_debois$elm_mdl$Material$update, _simsmith$doesnotexist$Main$Mdl, _p0._0, model);
+				return A3(_debois$elm_mdl$Material$update, _simsmith$doesnotexist$UpdateMsg$Mdl, _p0._0, model);
 			default:
 				return A2(
 					_elm_lang$core$Platform_Cmd_ops['!'],
@@ -15302,12 +15303,13 @@ var _simsmith$doesnotexist$Main$update = F2(
 					{ctor: '[]'});
 		}
 	});
-var _simsmith$doesnotexist$Main$SelectTab = function (a) {
+var _simsmith$doesnotexist$UpdateMsg$SelectTab = function (a) {
 	return {ctor: 'SelectTab', _0: a};
 };
-var _simsmith$doesnotexist$Main$Reset = {ctor: 'Reset'};
-var _simsmith$doesnotexist$Main$Increase = {ctor: 'Increase'};
-var _simsmith$doesnotexist$Main$viewCounter = function (model) {
+var _simsmith$doesnotexist$UpdateMsg$Reset = {ctor: 'Reset'};
+var _simsmith$doesnotexist$UpdateMsg$Increase = {ctor: 'Increase'};
+
+var _simsmith$doesnotexist$View$viewCounter = function (model) {
 	return A2(
 		_elm_lang$html$Html$div,
 		{
@@ -15322,71 +15324,91 @@ var _simsmith$doesnotexist$Main$viewCounter = function (model) {
 		},
 		{
 			ctor: '::',
-			_0: _elm_lang$html$Html$text(
-				A2(
-					_elm_lang$core$Basics_ops['++'],
-					'Confusion count: ',
-					_elm_lang$core$Basics$toString(model.count))),
+			_0: A2(
+				_elm_lang$html$Html$h1,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('Welcome to this humble page.'),
+					_1: {ctor: '[]'}
+				}),
 			_1: {
 				ctor: '::',
-				_0: A5(
-					_debois$elm_mdl$Material_Button$render,
-					_simsmith$doesnotexist$Main$Mdl,
-					{
-						ctor: '::',
-						_0: 0,
-						_1: {ctor: '[]'}
-					},
-					model.mdl,
-					{
-						ctor: '::',
-						_0: _debois$elm_mdl$Material_Options$onClick(_simsmith$doesnotexist$Main$Increase),
-						_1: {
-							ctor: '::',
-							_0: A2(_debois$elm_mdl$Material_Options$css, 'margin', '0 24px'),
-							_1: {ctor: '[]'}
-						}
-					},
-					{
-						ctor: '::',
-						_0: _elm_lang$html$Html$text('Increase'),
-						_1: {ctor: '[]'}
-					}),
+				_0: _elm_lang$html$Html$text(
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						'Confusion count: ',
+						_elm_lang$core$Basics$toString(model.count))),
 				_1: {
 					ctor: '::',
 					_0: A5(
 						_debois$elm_mdl$Material_Button$render,
-						_simsmith$doesnotexist$Main$Mdl,
+						_simsmith$doesnotexist$UpdateMsg$Mdl,
 						{
 							ctor: '::',
-							_0: 1,
+							_0: 0,
 							_1: {ctor: '[]'}
 						},
 						model.mdl,
 						{
 							ctor: '::',
-							_0: _debois$elm_mdl$Material_Options$onClick(_simsmith$doesnotexist$Main$Reset),
-							_1: {ctor: '[]'}
+							_0: _debois$elm_mdl$Material_Options$onClick(_simsmith$doesnotexist$UpdateMsg$Increase),
+							_1: {
+								ctor: '::',
+								_0: A2(_debois$elm_mdl$Material_Options$css, 'margin', '0 24px'),
+								_1: {ctor: '[]'}
+							}
 						},
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html$text('Reset'),
+							_0: _elm_lang$html$Html$text('Increase'),
 							_1: {ctor: '[]'}
 						}),
-					_1: {ctor: '[]'}
+					_1: {
+						ctor: '::',
+						_0: A5(
+							_debois$elm_mdl$Material_Button$render,
+							_simsmith$doesnotexist$UpdateMsg$Mdl,
+							{
+								ctor: '::',
+								_0: 1,
+								_1: {ctor: '[]'}
+							},
+							model.mdl,
+							{
+								ctor: '::',
+								_0: _debois$elm_mdl$Material_Options$onClick(_simsmith$doesnotexist$UpdateMsg$Reset),
+								_1: {ctor: '[]'}
+							},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text('Reset'),
+								_1: {ctor: '[]'}
+							}),
+						_1: {ctor: '[]'}
+					}
 				}
 			}
 		});
 };
-var _simsmith$doesnotexist$Main$viewBody = function (model) {
-	var _p1 = model.selectedTab;
-	switch (_p1) {
+var _simsmith$doesnotexist$View$viewBody = function (model) {
+	var _p0 = model.selectedTab;
+	switch (_p0) {
 		case 0:
-			return _simsmith$doesnotexist$Main$viewCounter(model);
+			return _simsmith$doesnotexist$View$viewCounter(model);
 		case 1:
 			return A2(
 				_elm_lang$html$Html$h1,
-				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$style(
+						{
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'margin', _1: '0 24px'},
+							_1: {ctor: '[]'}
+						}),
+					_1: {ctor: '[]'}
+				},
 				{
 					ctor: '::',
 					_0: _elm_lang$html$Html$text('To be continued...'),
@@ -15396,10 +15418,10 @@ var _simsmith$doesnotexist$Main$viewBody = function (model) {
 			return _elm_lang$html$Html$text('404');
 	}
 };
-var _simsmith$doesnotexist$Main$view = function (model) {
+var _simsmith$doesnotexist$View$view = function (model) {
 	return A4(
 		_debois$elm_mdl$Material_Layout$render,
-		_simsmith$doesnotexist$Main$Mdl,
+		_simsmith$doesnotexist$UpdateMsg$Mdl,
 		model.mdl,
 		{
 			ctor: '::',
@@ -15409,7 +15431,7 @@ var _simsmith$doesnotexist$Main$view = function (model) {
 				_0: _debois$elm_mdl$Material_Layout$selectedTab(model.selectedTab),
 				_1: {
 					ctor: '::',
-					_0: _debois$elm_mdl$Material_Layout$onSelectTab(_simsmith$doesnotexist$Main$SelectTab),
+					_0: _debois$elm_mdl$Material_Layout$onSelectTab(_simsmith$doesnotexist$UpdateMsg$SelectTab),
 					_1: {ctor: '[]'}
 				}
 			}
@@ -15465,17 +15487,18 @@ var _simsmith$doesnotexist$Main$view = function (model) {
 			},
 			main: {
 				ctor: '::',
-				_0: _simsmith$doesnotexist$Main$viewBody(model),
+				_0: _simsmith$doesnotexist$View$viewBody(model),
 				_1: {ctor: '[]'}
 			}
 		});
 };
+
 var _simsmith$doesnotexist$Main$main = _elm_lang$html$Html$program(
 	{
-		init: {ctor: '_Tuple2', _0: _simsmith$doesnotexist$Main$model, _1: _elm_lang$core$Platform_Cmd$none},
-		view: _simsmith$doesnotexist$Main$view,
+		init: {ctor: '_Tuple2', _0: _simsmith$doesnotexist$Model$initModel, _1: _elm_lang$core$Platform_Cmd$none},
+		view: _simsmith$doesnotexist$View$view,
 		subscriptions: _elm_lang$core$Basics$always(_elm_lang$core$Platform_Sub$none),
-		update: _simsmith$doesnotexist$Main$update
+		update: _simsmith$doesnotexist$UpdateMsg$update
 	})();
 
 var Elm = {};
