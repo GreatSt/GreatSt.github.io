@@ -15309,36 +15309,68 @@ var _simsmith$doesnotexist$UpdateMsg$SelectTab = function (a) {
 var _simsmith$doesnotexist$UpdateMsg$Reset = {ctor: 'Reset'};
 var _simsmith$doesnotexist$UpdateMsg$Increase = {ctor: 'Increase'};
 
+var _simsmith$doesnotexist$View$margin = F2(
+	function (top, lef) {
+		return _elm_lang$html$Html_Attributes$style(
+			{
+				ctor: '::',
+				_0: {
+					ctor: '_Tuple2',
+					_0: 'margin',
+					_1: A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(top),
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							'px ',
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								_elm_lang$core$Basics$toString(lef),
+								'px')))
+				},
+				_1: {ctor: '[]'}
+			});
+	});
 var _simsmith$doesnotexist$View$viewCounter = function (model) {
 	return A2(
 		_elm_lang$html$Html$div,
 		{
 			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$style(
-				{
-					ctor: '::',
-					_0: {ctor: '_Tuple2', _0: 'padding', _1: '2rem'},
-					_1: {ctor: '[]'}
-				}),
+			_0: A2(_simsmith$doesnotexist$View$margin, 24, 24),
 			_1: {ctor: '[]'}
 		},
 		{
 			ctor: '::',
-			_0: A2(
-				_elm_lang$html$Html$h1,
-				{ctor: '[]'},
-				{
-					ctor: '::',
-					_0: _elm_lang$html$Html$text('Welcome to this humble page.'),
-					_1: {ctor: '[]'}
-				}),
+			_0: _elm_lang$html$Html$text(
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					'Confusion count: ',
+					_elm_lang$core$Basics$toString(model.count))),
 			_1: {
 				ctor: '::',
-				_0: _elm_lang$html$Html$text(
-					A2(
-						_elm_lang$core$Basics_ops['++'],
-						'Confusion count: ',
-						_elm_lang$core$Basics$toString(model.count))),
+				_0: A5(
+					_debois$elm_mdl$Material_Button$render,
+					_simsmith$doesnotexist$UpdateMsg$Mdl,
+					{
+						ctor: '::',
+						_0: 0,
+						_1: {ctor: '[]'}
+					},
+					model.mdl,
+					{
+						ctor: '::',
+						_0: _debois$elm_mdl$Material_Options$onClick(_simsmith$doesnotexist$UpdateMsg$Increase),
+						_1: {
+							ctor: '::',
+							_0: A2(_debois$elm_mdl$Material_Options$css, 'margin', '0 12px'),
+							_1: {ctor: '[]'}
+						}
+					},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text('Increase'),
+						_1: {ctor: '[]'}
+					}),
 				_1: {
 					ctor: '::',
 					_0: A5(
@@ -15346,67 +15378,112 @@ var _simsmith$doesnotexist$View$viewCounter = function (model) {
 						_simsmith$doesnotexist$UpdateMsg$Mdl,
 						{
 							ctor: '::',
-							_0: 0,
+							_0: 1,
 							_1: {ctor: '[]'}
 						},
 						model.mdl,
 						{
 							ctor: '::',
-							_0: _debois$elm_mdl$Material_Options$onClick(_simsmith$doesnotexist$UpdateMsg$Increase),
-							_1: {
-								ctor: '::',
-								_0: A2(_debois$elm_mdl$Material_Options$css, 'margin', '0 24px'),
-								_1: {ctor: '[]'}
-							}
+							_0: _debois$elm_mdl$Material_Options$onClick(_simsmith$doesnotexist$UpdateMsg$Reset),
+							_1: {ctor: '[]'}
 						},
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html$text('Increase'),
+							_0: _elm_lang$html$Html$text('Reset'),
 							_1: {ctor: '[]'}
 						}),
-					_1: {
-						ctor: '::',
-						_0: A5(
-							_debois$elm_mdl$Material_Button$render,
-							_simsmith$doesnotexist$UpdateMsg$Mdl,
-							{
-								ctor: '::',
-								_0: 1,
-								_1: {ctor: '[]'}
-							},
-							model.mdl,
-							{
-								ctor: '::',
-								_0: _debois$elm_mdl$Material_Options$onClick(_simsmith$doesnotexist$UpdateMsg$Reset),
-								_1: {ctor: '[]'}
-							},
-							{
-								ctor: '::',
-								_0: _elm_lang$html$Html$text('Reset'),
-								_1: {ctor: '[]'}
-							}),
-						_1: {ctor: '[]'}
-					}
+					_1: {ctor: '[]'}
 				}
 			}
 		});
+};
+var _simsmith$doesnotexist$View$aboutMeText = {
+	ctor: '::',
+	_0: _elm_lang$html$Html$text('This little page is made with Elm! At the moment there is not much to see here. In the mean time take a look at '),
+	_1: {
+		ctor: '::',
+		_0: A2(
+			_elm_lang$html$Html$a,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$href('https://www.dropbox.com/s/7jsn4f4n6a05jbh/resume.pdf?dl=0'),
+				_1: {ctor: '[]'}
+			},
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html$text('my resume'),
+				_1: {ctor: '[]'}
+			}),
+		_1: {
+			ctor: '::',
+			_0: _elm_lang$html$Html$text(' or maybe '),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$a,
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$href('https://github.com/SimSmith/SimSmith.github.io'),
+						_1: {ctor: '[]'}
+					},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text('the source code'),
+						_1: {ctor: '[]'}
+					}),
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$html$Html$text(' for this page.'),
+					_1: {ctor: '[]'}
+				}
+			}
+		}
+	}
 };
 var _simsmith$doesnotexist$View$viewBody = function (model) {
 	var _p0 = model.selectedTab;
 	switch (_p0) {
 		case 0:
-			return _simsmith$doesnotexist$View$viewCounter(model);
+			return A2(
+				_elm_lang$html$Html$div,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$h2,
+						{
+							ctor: '::',
+							_0: A2(_simsmith$doesnotexist$View$margin, 10, 24),
+							_1: {ctor: '[]'}
+						},
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html$text('Welcome to this humble page.'),
+							_1: {ctor: '[]'}
+						}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$p,
+							{
+								ctor: '::',
+								_0: A2(_simsmith$doesnotexist$View$margin, 24, 24),
+								_1: {ctor: '[]'}
+							},
+							_simsmith$doesnotexist$View$aboutMeText),
+						_1: {
+							ctor: '::',
+							_0: _simsmith$doesnotexist$View$viewCounter(model),
+							_1: {ctor: '[]'}
+						}
+					}
+				});
 		case 1:
 			return A2(
 				_elm_lang$html$Html$h1,
 				{
 					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$style(
-						{
-							ctor: '::',
-							_0: {ctor: '_Tuple2', _0: 'margin', _1: '0 24px'},
-							_1: {ctor: '[]'}
-						}),
+					_0: A2(_simsmith$doesnotexist$View$margin, 12, 24),
 					_1: {ctor: '[]'}
 				},
 				{
