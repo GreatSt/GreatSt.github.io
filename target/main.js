@@ -15502,20 +15502,23 @@ var _simsmith$doesnotexist$View$grids = A2(
 		ctor: '::',
 		_0: A2(
 			_debois$elm_mdl$Material_Grid$cell,
-			_simsmith$doesnotexist$View$bStyle(
-				{
+			{
+				ctor: '::',
+				_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$All, 12),
+				_1: {
 					ctor: '::',
-					_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$All, 4),
+					_0: A2(_debois$elm_mdl$Material_Options$css, 'text-align', 'center'),
 					_1: {ctor: '[]'}
-				}),
+				}
+			},
 			{
 				ctor: '::',
 				_0: A2(
-					_elm_lang$html$Html$h4,
+					_elm_lang$html$Html$h1,
 					{ctor: '[]'},
 					{
 						ctor: '::',
-						_0: _elm_lang$html$Html$text('Size 4'),
+						_0: _elm_lang$html$Html$text('To be continued...'),
 						_1: {ctor: '[]'}
 					}),
 				_1: {ctor: '[]'}
@@ -15527,11 +15530,15 @@ var _simsmith$doesnotexist$View$grids = A2(
 				_simsmith$doesnotexist$View$bStyle(
 					{
 						ctor: '::',
-						_0: A2(_debois$elm_mdl$Material_Grid$offset, _debois$elm_mdl$Material_Grid$All, 2),
+						_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Desktop, 4),
 						_1: {
 							ctor: '::',
-							_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$All, 4),
-							_1: {ctor: '[]'}
+							_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Tablet, 4),
+							_1: {
+								ctor: '::',
+								_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Phone, 4),
+								_1: {ctor: '[]'}
+							}
 						}
 					}),
 				{
@@ -15541,21 +15548,10 @@ var _simsmith$doesnotexist$View$grids = A2(
 						{ctor: '[]'},
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html$text('Size 4'),
+							_0: _elm_lang$html$Html$text('Eduacation'),
 							_1: {ctor: '[]'}
 						}),
-					_1: {
-						ctor: '::',
-						_0: A2(
-							_elm_lang$html$Html$p,
-							{ctor: '[]'},
-							{
-								ctor: '::',
-								_0: _elm_lang$html$Html$text('This cell is offset by 2'),
-								_1: {ctor: '[]'}
-							}),
-						_1: {ctor: '[]'}
-					}
+					_1: {ctor: '[]'}
 				}),
 			_1: {
 				ctor: '::',
@@ -15564,8 +15560,16 @@ var _simsmith$doesnotexist$View$grids = A2(
 					_simsmith$doesnotexist$View$bStyle(
 						{
 							ctor: '::',
-							_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$All, 6),
-							_1: {ctor: '[]'}
+							_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Desktop, 4),
+							_1: {
+								ctor: '::',
+								_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Tablet, 4),
+								_1: {
+									ctor: '::',
+									_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Phone, 4),
+									_1: {ctor: '[]'}
+								}
+							}
 						}),
 					{
 						ctor: '::',
@@ -15574,7 +15578,7 @@ var _simsmith$doesnotexist$View$grids = A2(
 							{ctor: '[]'},
 							{
 								ctor: '::',
-								_0: _elm_lang$html$Html$text('Size 6'),
+								_0: _elm_lang$html$Html$text('Work Experience'),
 								_1: {ctor: '[]'}
 							}),
 						_1: {ctor: '[]'}
@@ -15586,11 +15590,15 @@ var _simsmith$doesnotexist$View$grids = A2(
 						_simsmith$doesnotexist$View$bStyle(
 							{
 								ctor: '::',
-								_0: A2(_debois$elm_mdl$Material_Grid$offset, _debois$elm_mdl$Material_Grid$All, 0),
+								_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Desktop, 4),
 								_1: {
 									ctor: '::',
-									_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$All, 2),
-									_1: {ctor: '[]'}
+									_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Tablet, 4),
+									_1: {
+										ctor: '::',
+										_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Phone, 4),
+										_1: {ctor: '[]'}
+									}
 								}
 							}),
 						{
@@ -15600,21 +15608,10 @@ var _simsmith$doesnotexist$View$grids = A2(
 								{ctor: '[]'},
 								{
 									ctor: '::',
-									_0: _elm_lang$html$Html$text('Size 2'),
+									_0: _elm_lang$html$Html$text('Software Skills'),
 									_1: {ctor: '[]'}
 								}),
-							_1: {
-								ctor: '::',
-								_0: A2(
-									_elm_lang$html$Html$p,
-									{ctor: '[]'},
-									{
-										ctor: '::',
-										_0: _elm_lang$html$Html$text('Offset 0'),
-										_1: {ctor: '[]'}
-									}),
-								_1: {ctor: '[]'}
-							}
+							_1: {ctor: '[]'}
 						}),
 					_1: {
 						ctor: '::',
@@ -15623,13 +15620,13 @@ var _simsmith$doesnotexist$View$grids = A2(
 							_simsmith$doesnotexist$View$bStyle(
 								{
 									ctor: '::',
-									_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Tablet, 6),
+									_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Desktop, 4),
 									_1: {
 										ctor: '::',
-										_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Desktop, 12),
+										_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Tablet, 4),
 										_1: {
 											ctor: '::',
-											_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Phone, 2),
+											_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Phone, 4),
 											_1: {ctor: '[]'}
 										}
 									}
@@ -15641,23 +15638,97 @@ var _simsmith$doesnotexist$View$grids = A2(
 									{ctor: '[]'},
 									{
 										ctor: '::',
-										_0: _elm_lang$html$Html$text('Size 2/6/12'),
+										_0: _elm_lang$html$Html$text('Interests'),
+										_1: {ctor: '[]'}
+									}),
+								_1: {ctor: '[]'}
+							}),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_debois$elm_mdl$Material_Grid$cell,
+								_simsmith$doesnotexist$View$bStyle(
+									{
+										ctor: '::',
+										_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Desktop, 4),
+										_1: {
+											ctor: '::',
+											_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Tablet, 4),
+											_1: {
+												ctor: '::',
+												_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Phone, 4),
+												_1: {ctor: '[]'}
+											}
+										}
+									}),
+								{
+									ctor: '::',
+									_0: A2(
+										_elm_lang$html$Html$h4,
+										{ctor: '[]'},
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html$text('Teaching'),
+											_1: {ctor: '[]'}
+										}),
+									_1: {ctor: '[]'}
+								}),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_debois$elm_mdl$Material_Grid$cell,
+									_simsmith$doesnotexist$View$bStyle(
+										{
+											ctor: '::',
+											_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Desktop, 4),
+											_1: {
+												ctor: '::',
+												_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Tablet, 4),
+												_1: {
+													ctor: '::',
+													_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Phone, 4),
+													_1: {ctor: '[]'}
+												}
+											}
+										}),
+									{
+										ctor: '::',
+										_0: A2(
+											_elm_lang$html$Html$h4,
+											{ctor: '[]'},
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html$text('Public Projects'),
+												_1: {ctor: '[]'}
+											}),
 										_1: {ctor: '[]'}
 									}),
 								_1: {
 									ctor: '::',
 									_0: A2(
-										_elm_lang$html$Html$p,
-										{ctor: '[]'},
+										_debois$elm_mdl$Material_Grid$cell,
+										_simsmith$doesnotexist$View$bStyle(
+											{
+												ctor: '::',
+												_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$All, 12),
+												_1: {ctor: '[]'}
+											}),
 										{
 											ctor: '::',
-											_0: _elm_lang$html$Html$text('Size varies with device'),
+											_0: A2(
+												_elm_lang$html$Html$h4,
+												{ctor: '[]'},
+												{
+													ctor: '::',
+													_0: _elm_lang$html$Html$text('Communication Skills'),
+													_1: {ctor: '[]'}
+												}),
 											_1: {ctor: '[]'}
 										}),
 									_1: {ctor: '[]'}
 								}
-							}),
-						_1: {ctor: '[]'}
+							}
+						}
 					}
 				}
 			}
@@ -15753,7 +15824,7 @@ var _simsmith$doesnotexist$View$viewCounter = function (model) {
 };
 var _simsmith$doesnotexist$View$aboutMeText = {
 	ctor: '::',
-	_0: _elm_lang$html$Html$text('This little page is made with Elm! At the moment there is not much to see here. In the mean time take a look at '),
+	_0: _elm_lang$html$Html$text('This little page is made with Elm! At the moment there is not much to see here. In the meantime take a look at '),
 	_1: {
 		ctor: '::',
 		_0: A2(
@@ -15833,29 +15904,7 @@ var _simsmith$doesnotexist$View$viewBody = function (model) {
 					}
 				});
 		case 1:
-			return A2(
-				_elm_lang$html$Html$div,
-				{ctor: '[]'},
-				{
-					ctor: '::',
-					_0: A2(
-						_elm_lang$html$Html$h1,
-						{
-							ctor: '::',
-							_0: A2(_simsmith$doesnotexist$View$margin, 12, 24),
-							_1: {ctor: '[]'}
-						},
-						{
-							ctor: '::',
-							_0: _elm_lang$html$Html$text('To be continued...'),
-							_1: {ctor: '[]'}
-						}),
-					_1: {
-						ctor: '::',
-						_0: _simsmith$doesnotexist$View$grids,
-						_1: {ctor: '[]'}
-					}
-				});
+			return _simsmith$doesnotexist$View$grids;
 		default:
 			return _elm_lang$html$Html$text('404');
 	}

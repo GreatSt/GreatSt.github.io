@@ -54,10 +54,7 @@ viewBody model =
                 ]
 
         1 ->
-            div []
-                [ h1 [ margin 12 24 ] [ text "To be continued..." ]
-                , grids
-                ]
+            grids
 
         _ ->
             text "404"
@@ -65,7 +62,7 @@ viewBody model =
 
 aboutMeText : List (Html msg)
 aboutMeText =
-    [ text "This little page is made with Elm! At the moment there is not much to see here. In the mean time take a look at "
+    [ text "This little page is made with Elm! At the moment there is not much to see here. In the meantime take a look at "
     , a [ href "https://www.dropbox.com/s/7jsn4f4n6a05jbh/resume.pdf?dl=0" ] [ text "my resume" ]
     , text " or maybe "
     , a [ href "https://github.com/SimSmith/SimSmith.github.io" ] [ text "the source code" ]
@@ -101,23 +98,22 @@ viewCounter model =
 grids : Html a
 grids =
     grid []
-        [ cell (bStyle [ size All 4 ])
-            [ h4 [] [ text "Size 4" ] ]
-        , cell (bStyle [ offset All 2, size All 4 ])
-            [ h4 [] [ text "Size 4" ]
-            , p [] [ text "This cell is offset by 2" ]
-            ]
-        , cell (bStyle [ size All 6 ])
-            [ h4 [] [ text "Size 6" ]
-            ]
-        , cell (bStyle [ offset All 0, size All 2 ])
-            [ h4 [] [ text "Size 2" ]
-            , p [] [ text "Offset 0" ]
-            ]
-        , cell (bStyle [ size Tablet 6, size Desktop 12, size Phone 2 ])
-            [ h4 [] [ text "Size 2/6/12" ]
-            , p [] [ text "Size varies with device" ]
-            ]
+        [ cell [ size All 12, css "text-align" "center" ]
+            [ h1 [] [ text "To be continued..." ] ]
+        , cell (bStyle [ size Desktop 4, size Tablet 4, size Phone 4 ])
+            [ h4 [] [ text "Eduacation" ] ]
+        , cell (bStyle [ size Desktop 4, size Tablet 4, size Phone 4 ])
+            [ h4 [] [ text "Work Experience" ] ]
+        , cell (bStyle [ size Desktop 4, size Tablet 4, size Phone 4 ])
+            [ h4 [] [ text "Software Skills" ] ]
+        , cell (bStyle [ size Desktop 4, size Tablet 4, size Phone 4 ])
+            [ h4 [] [ text "Interests" ] ]
+        , cell (bStyle [ size Desktop 4, size Tablet 4, size Phone 4 ])
+            [ h4 [] [ text "Teaching" ] ]
+        , cell (bStyle [ size Desktop 4, size Tablet 4, size Phone 4 ])
+            [ h4 [] [ text "Public Projects" ] ]
+        , cell (bStyle [ size All 12 ])
+            [ h4 [] [ text "Communication Skills" ] ]
         ]
 
 
