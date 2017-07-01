@@ -21,6 +21,7 @@ view model =
     Layout.render Mdl
         model.mdl
         [ Layout.fixedHeader
+        , Layout.scrolling
         , Layout.selectedTab model.selectedTab
         , Layout.onSelectTab SelectTab
         ]

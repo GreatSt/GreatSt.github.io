@@ -17537,11 +17537,15 @@ var _simsmith$doesnotexist$View$view = function (model) {
 			_0: _debois$elm_mdl$Material_Layout$fixedHeader,
 			_1: {
 				ctor: '::',
-				_0: _debois$elm_mdl$Material_Layout$selectedTab(model.selectedTab),
+				_0: _debois$elm_mdl$Material_Layout$scrolling,
 				_1: {
 					ctor: '::',
-					_0: _debois$elm_mdl$Material_Layout$onSelectTab(_simsmith$doesnotexist$UpdateMsg$SelectTab),
-					_1: {ctor: '[]'}
+					_0: _debois$elm_mdl$Material_Layout$selectedTab(model.selectedTab),
+					_1: {
+						ctor: '::',
+						_0: _debois$elm_mdl$Material_Layout$onSelectTab(_simsmith$doesnotexist$UpdateMsg$SelectTab),
+						_1: {ctor: '[]'}
+					}
 				}
 			}
 		},
@@ -17634,9 +17638,9 @@ var _simsmith$doesnotexist$Main$main = A2(
 				_1: _elm_lang$core$Platform_Cmd$none
 			};
 		},
-		update: _simsmith$doesnotexist$UpdateMsg$update,
 		view: _simsmith$doesnotexist$View$view,
-		subscriptions: _elm_lang$core$Basics$always(_elm_lang$core$Platform_Sub$none)
+		subscriptions: _elm_lang$core$Basics$always(_elm_lang$core$Platform_Sub$none),
+		update: _simsmith$doesnotexist$UpdateMsg$update
 	})();
 
 var Elm = {};
