@@ -1,6 +1,8 @@
 module Model exposing (..)
 
 import Material
+import Navigation exposing (..)
+import UrlParser exposing (..)
 
 
 type alias Model =
@@ -13,12 +15,12 @@ type alias Model =
     }
 
 
-initModel : Model
-initModel =
+initModel : Int -> Model
+initModel tabID =
     { count = 0
     , mdl =
         Material.model
 
     -- Boilerplate: Always use this initial Mdl model store.
-    , selectedTab = 0
+    , selectedTab = tabID
     }
