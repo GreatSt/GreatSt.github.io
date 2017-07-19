@@ -16433,14 +16433,22 @@ var _evancz$url_parser$UrlParser$intParam = function (name) {
 	return A2(_evancz$url_parser$UrlParser$customParam, name, _evancz$url_parser$UrlParser$intParamHelp);
 };
 
-var _simsmith$doesnotexist$Model$initModel = function (tabID) {
-	return {count: 0, mdl: _debois$elm_mdl$Material$model, selectedTab: tabID};
-};
-var _simsmith$doesnotexist$Model$Model = F3(
-	function (a, b, c) {
-		return {count: a, mdl: b, selectedTab: c};
+var _simsmith$doesnotexist$Model$Model = F4(
+	function (a, b, c, d) {
+		return {count: a, mdl: b, selectedTab: c, selectedMore: d};
 	});
+var _simsmith$doesnotexist$Model$Teaching = {ctor: 'Teaching'};
+var _simsmith$doesnotexist$Model$Skills = {ctor: 'Skills'};
+var _simsmith$doesnotexist$Model$Work = {ctor: 'Work'};
+var _simsmith$doesnotexist$Model$School = {ctor: 'School'};
+var _simsmith$doesnotexist$Model$None = {ctor: 'None'};
+var _simsmith$doesnotexist$Model$initModel = function (tabID) {
+	return {count: 0, mdl: _debois$elm_mdl$Material$model, selectedTab: tabID, selectedMore: _simsmith$doesnotexist$Model$None};
+};
 
+var _simsmith$doesnotexist$UpdateMsg$ShowMore = function (a) {
+	return {ctor: 'ShowMore', _0: a};
+};
 var _simsmith$doesnotexist$UpdateMsg$GoTo = function (a) {
 	return {ctor: 'GoTo', _0: a};
 };
@@ -16485,7 +16493,7 @@ var _simsmith$doesnotexist$UpdateMsg$update = F2(
 								_elm_lang$core$Basics$toString(_p1))),
 						_1: {ctor: '[]'}
 					});
-			default:
+			case 'GoTo':
 				var _p2 = _p0._0;
 				if (_p2.ctor === 'Just') {
 					return {
@@ -16504,6 +16512,14 @@ var _simsmith$doesnotexist$UpdateMsg$update = F2(
 						_1: _elm_lang$core$Platform_Cmd$none
 					};
 				}
+			default:
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{selectedMore: _p0._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
 		}
 	});
 var _simsmith$doesnotexist$UpdateMsg$SelectTab = function (a) {
@@ -16515,7 +16531,533 @@ var _simsmith$doesnotexist$UpdateMsg$Tab = function (a) {
 	return {ctor: 'Tab', _0: a};
 };
 
-var _simsmith$doesnotexist$View$bStyle = function (more) {
+var _simsmith$doesnotexist$CvView$teachingText = A2(
+	_elm_lang$html$Html$div,
+	{ctor: '[]'},
+	{
+		ctor: '::',
+		_0: A2(
+			_elm_lang$html$Html$p,
+			{ctor: '[]'},
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html$text('April 2013 – May 2013'),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$br,
+						{ctor: '[]'},
+						{ctor: '[]'}),
+					_1: {
+						ctor: '::',
+						_0: _elm_lang$html$Html$text('Galären (AcadeMedia Fria Grundskolor), Karskrona'),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$br,
+								{ctor: '[]'},
+								{ctor: '[]'}),
+							_1: {
+								ctor: '::',
+								_0: _elm_lang$html$Html$text('Programming teacher'),
+								_1: {ctor: '[]'}
+							}
+						}
+					}
+				}
+			}),
+		_1: {
+			ctor: '::',
+			_0: _elm_lang$html$Html$text(
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					'Teaching programming to curious kids from 12 to 16 years ',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						'old. Got recommended by a math teacher as a talented ',
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							'guy and someone with spare time. All the pupils wished ',
+							A2(_elm_lang$core$Basics_ops['++'], 'to try programming as a voluntary subject in the end ', 'of the school year and I made that possible.'))))),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$br,
+					{ctor: '[]'},
+					{ctor: '[]'}),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$br,
+						{ctor: '[]'},
+						{ctor: '[]'}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$p,
+							{ctor: '[]'},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text('August 2014 – November 2014'),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_elm_lang$html$Html$br,
+										{ctor: '[]'},
+										{ctor: '[]'}),
+									_1: {
+										ctor: '::',
+										_0: _elm_lang$html$Html$text('Chalmers University of Technology, Gothenburg'),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_elm_lang$html$Html$br,
+												{ctor: '[]'},
+												{ctor: '[]'}),
+											_1: {
+												ctor: '::',
+												_0: _elm_lang$html$Html$text('Supplementary Instructor (SI leader)'),
+												_1: {ctor: '[]'}
+											}
+										}
+									}
+								}
+							}),
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$html$Html$text(
+								A2(_elm_lang$core$Basics_ops['++'], 'A leader of SI (supplemental instruction) in linear algebra ', 'at Chalmers.')),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$br,
+									{ctor: '[]'},
+									{ctor: '[]'}),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_elm_lang$html$Html$br,
+										{ctor: '[]'},
+										{ctor: '[]'}),
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_elm_lang$html$Html$p,
+											{ctor: '[]'},
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html$text('October 2016 – May 2017'),
+												_1: {
+													ctor: '::',
+													_0: A2(
+														_elm_lang$html$Html$br,
+														{ctor: '[]'},
+														{ctor: '[]'}),
+													_1: {
+														ctor: '::',
+														_0: _elm_lang$html$Html$text('Intize, Gothenburg'),
+														_1: {
+															ctor: '::',
+															_0: A2(
+																_elm_lang$html$Html$br,
+																{ctor: '[]'},
+																{ctor: '[]'}),
+															_1: {
+																ctor: '::',
+																_0: _elm_lang$html$Html$text('Intize Mentor'),
+																_1: {ctor: '[]'}
+															}
+														}
+													}
+												}
+											}),
+										_1: {
+											ctor: '::',
+											_0: _elm_lang$html$Html$text(
+												A2(
+													_elm_lang$core$Basics_ops['++'],
+													'Intize is a non-profit organisation that provides mentorship ',
+													A2(_elm_lang$core$Basics_ops['++'], 'in mathematics. I am one of these voluntary mentors ', 'and together we work towards a more educated world.'))),
+											_1: {ctor: '[]'}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	});
+var _simsmith$doesnotexist$CvView$softwareSkillButton = A2(
+	_elm_lang$html$Html$div,
+	{ctor: '[]'},
+	{
+		ctor: '::',
+		_0: A2(
+			_elm_lang$html$Html$p,
+			{ctor: '[]'},
+			{
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$b,
+					{ctor: '[]'},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text('Advanced:'),
+						_1: {ctor: '[]'}
+					}),
+				_1: {ctor: '[]'}
+			}),
+		_1: {
+			ctor: '::',
+			_0: _elm_lang$html$Html$text('Java'),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$br,
+					{ctor: '[]'},
+					{ctor: '[]'}),
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('Haskell'),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$br,
+							{ctor: '[]'},
+							{ctor: '[]'}),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$br,
+								{ctor: '[]'},
+								{ctor: '[]'}),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$p,
+									{ctor: '[]'},
+									{
+										ctor: '::',
+										_0: A2(
+											_elm_lang$html$Html$b,
+											{ctor: '[]'},
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html$text('Intermediate:'),
+												_1: {ctor: '[]'}
+											}),
+										_1: {ctor: '[]'}
+									}),
+								_1: {
+									ctor: '::',
+									_0: _elm_lang$html$Html$text(
+										A2(_elm_lang$core$Basics_ops['++'], 'C, C#, C++, CSS, Elm, git, HTML, LaTeX, ', 'LibGDX, PostgreSQL, OpenGL, Scala')),
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_elm_lang$html$Html$br,
+											{ctor: '[]'},
+											{ctor: '[]'}),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_elm_lang$html$Html$br,
+												{ctor: '[]'},
+												{ctor: '[]'}),
+											_1: {
+												ctor: '::',
+												_0: A2(
+													_elm_lang$html$Html$p,
+													{ctor: '[]'},
+													{
+														ctor: '::',
+														_0: A2(
+															_elm_lang$html$Html$b,
+															{ctor: '[]'},
+															{
+																ctor: '::',
+																_0: _elm_lang$html$Html$text('Basic:'),
+																_1: {ctor: '[]'}
+															}),
+														_1: {ctor: '[]'}
+													}),
+												_1: {
+													ctor: '::',
+													_0: _elm_lang$html$Html$text(
+														A2(
+															_elm_lang$core$Basics_ops['++'],
+															'Assembly, Android, AngularJS, Bootstrap, Erlang, ',
+															A2(
+																_elm_lang$core$Basics_ops['++'],
+																'iOS, Javascript, JSON, Kotlin, Linux, MacOS, ',
+																A2(_elm_lang$core$Basics_ops['++'], 'Mathematica, MATLAB, MySQL, PHP, Python, Rust, ', 'Unity 3D, Windows')))),
+													_1: {ctor: '[]'}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	});
+var _simsmith$doesnotexist$CvView$workText = A2(
+	_elm_lang$html$Html$div,
+	{ctor: '[]'},
+	{
+		ctor: '::',
+		_0: A2(
+			_elm_lang$html$Html$p,
+			{ctor: '[]'},
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html$text('June 2014 – August 2014'),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$br,
+						{ctor: '[]'},
+						{ctor: '[]'}),
+					_1: {
+						ctor: '::',
+						_0: _elm_lang$html$Html$text('Zogaj of Sweden, Gothenburg'),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$br,
+								{ctor: '[]'},
+								{ctor: '[]'}),
+							_1: {
+								ctor: '::',
+								_0: _elm_lang$html$Html$text('Game programmer'),
+								_1: {ctor: '[]'}
+							}
+						}
+					}
+				}
+			}),
+		_1: {
+			ctor: '::',
+			_0: _elm_lang$html$Html$text('Porting of '),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$em,
+					{ctor: '[]'},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text('Zogaj Memo Gym'),
+						_1: {ctor: '[]'}
+					}),
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$html$Html$text(
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							' from iOS to Android. The port could be considered a remaster ',
+							A2(_elm_lang$core$Basics_ops['++'], 'of the original game as everything was rewritten in ', 'LibGDX. Employed by '))),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$a,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$href('http://www.zogaj.se/'),
+								_1: {ctor: '[]'}
+							},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text('Idriz Zogaj.'),
+								_1: {ctor: '[]'}
+							}),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$br,
+								{ctor: '[]'},
+								{ctor: '[]'}),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$br,
+									{ctor: '[]'},
+									{ctor: '[]'}),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_elm_lang$html$Html$p,
+										{ctor: '[]'},
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html$text('June 2015 – August 2015'),
+											_1: {
+												ctor: '::',
+												_0: A2(
+													_elm_lang$html$Html$br,
+													{ctor: '[]'},
+													{ctor: '[]'}),
+												_1: {
+													ctor: '::',
+													_0: _elm_lang$html$Html$text('Zogaj of Sweden, Gothenburg'),
+													_1: {
+														ctor: '::',
+														_0: A2(
+															_elm_lang$html$Html$br,
+															{ctor: '[]'},
+															{ctor: '[]'}),
+														_1: {
+															ctor: '::',
+															_0: _elm_lang$html$Html$text('Game programmer'),
+															_1: {ctor: '[]'}
+														}
+													}
+												}
+											}
+										}),
+									_1: {
+										ctor: '::',
+										_0: _elm_lang$html$Html$text('Continuing work on the game '),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_elm_lang$html$Html$em,
+												{ctor: '[]'},
+												{
+													ctor: '::',
+													_0: _elm_lang$html$Html$text('Zogaj Memo Gym'),
+													_1: {ctor: '[]'}
+												}),
+											_1: {
+												ctor: '::',
+												_0: _elm_lang$html$Html$text(' while expanding to iOS using RoboVM.'),
+												_1: {ctor: '[]'}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	});
+var _simsmith$doesnotexist$CvView$schoolText = A2(
+	_elm_lang$html$Html$div,
+	{ctor: '[]'},
+	{
+		ctor: '::',
+		_0: _elm_lang$html$Html$text('2010 – 2013:'),
+		_1: {
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$br,
+				{ctor: '[]'},
+				{ctor: '[]'}),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html$text('Matematisk spetsutbildning Leonardo'),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$br,
+						{ctor: '[]'},
+						{ctor: '[]'}),
+					_1: {
+						ctor: '::',
+						_0: _elm_lang$html$Html$text('Ehrensvärdska gymnasiet, Karlskrona'),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$br,
+								{ctor: '[]'},
+								{ctor: '[]'}),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$br,
+									{ctor: '[]'},
+									{ctor: '[]'}),
+								_1: {
+									ctor: '::',
+									_0: _elm_lang$html$Html$text('2013 – present:'),
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_elm_lang$html$Html$br,
+											{ctor: '[]'},
+											{ctor: '[]'}),
+										_1: {
+											ctor: '::',
+											_0: _elm_lang$html$Html$text('Datateknik (300 hp)'),
+											_1: {
+												ctor: '::',
+												_0: A2(
+													_elm_lang$html$Html$br,
+													{ctor: '[]'},
+													{ctor: '[]'}),
+												_1: {
+													ctor: '::',
+													_0: _elm_lang$html$Html$text('Chalmers University of Technology, Gothenbrg'),
+													_1: {
+														ctor: '::',
+														_0: A2(
+															_elm_lang$html$Html$br,
+															{ctor: '[]'},
+															{ctor: '[]'}),
+														_1: {
+															ctor: '::',
+															_0: A2(
+																_elm_lang$html$Html$br,
+																{ctor: '[]'},
+																{ctor: '[]'}),
+															_1: {
+																ctor: '::',
+																_0: _elm_lang$html$Html$text('2016 – present:'),
+																_1: {
+																	ctor: '::',
+																	_0: A2(
+																		_elm_lang$html$Html$br,
+																		{ctor: '[]'},
+																		{ctor: '[]'}),
+																	_1: {
+																		ctor: '::',
+																		_0: _elm_lang$html$Html$text('Computer Science – algorithms, languages and logic'),
+																		_1: {
+																			ctor: '::',
+																			_0: A2(
+																				_elm_lang$html$Html$br,
+																				{ctor: '[]'},
+																				{ctor: '[]'}),
+																			_1: {
+																				ctor: '::',
+																				_0: _elm_lang$html$Html$text('Master program at Chalmers University of Technology, Gothenbrg'),
+																				_1: {ctor: '[]'}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	});
+var _simsmith$doesnotexist$CvView$bStyle = function (more) {
 	return A2(
 		_elm_lang$core$List$append,
 		{
@@ -16526,10 +17068,10 @@ var _simsmith$doesnotexist$View$bStyle = function (more) {
 				_0: A2(_debois$elm_mdl$Material_Options$css, 'overflow', 'auto'),
 				_1: {
 					ctor: '::',
-					_0: A2(_debois$elm_mdl$Material_Options$css, 'background-color', '#BDBDBD'),
+					_0: A2(_debois$elm_mdl$Material_Options$css, 'background-color', '#DDDDDD'),
 					_1: {
 						ctor: '::',
-						_0: A2(_debois$elm_mdl$Material_Options$css, 'height', '200px'),
+						_0: A2(_debois$elm_mdl$Material_Options$css, 'height', '230px'),
 						_1: {
 							ctor: '::',
 							_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-left', '8px'),
@@ -16538,7 +17080,7 @@ var _simsmith$doesnotexist$View$bStyle = function (more) {
 								_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-top', '4px'),
 								_1: {
 									ctor: '::',
-									_0: A2(_debois$elm_mdl$Material_Options$css, 'color', 'white'),
+									_0: A2(_debois$elm_mdl$Material_Options$css, 'text-align', 'center'),
 									_1: {ctor: '[]'}
 								}
 							}
@@ -16549,168 +17091,94 @@ var _simsmith$doesnotexist$View$bStyle = function (more) {
 		},
 		more);
 };
-var _simsmith$doesnotexist$View$cvGrid = A2(
-	_debois$elm_mdl$Material_Grid$grid,
-	{ctor: '[]'},
-	{
-		ctor: '::',
-		_0: A2(
-			_debois$elm_mdl$Material_Grid$cell,
+var _simsmith$doesnotexist$CvView$backButton = function (model) {
+	return A5(
+		_debois$elm_mdl$Material_Button$render,
+		_simsmith$doesnotexist$UpdateMsg$Mdl,
+		{
+			ctor: '::',
+			_0: 3,
+			_1: {ctor: '[]'}
+		},
+		model.mdl,
+		{
+			ctor: '::',
+			_0: _debois$elm_mdl$Material_Options$onClick(
+				_simsmith$doesnotexist$UpdateMsg$ShowMore(_simsmith$doesnotexist$Model$None)),
+			_1: {
+				ctor: '::',
+				_0: _debois$elm_mdl$Material_Button$raised,
+				_1: {ctor: '[]'}
+			}
+		},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html$text('Back'),
+			_1: {ctor: '[]'}
+		});
+};
+var _simsmith$doesnotexist$CvView$moreInfoButton = F2(
+	function (model, info) {
+		return A5(
+			_debois$elm_mdl$Material_Button$render,
+			_simsmith$doesnotexist$UpdateMsg$Mdl,
 			{
 				ctor: '::',
-				_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$All, 12),
+				_0: 2,
+				_1: {ctor: '[]'}
+			},
+			model.mdl,
+			{
+				ctor: '::',
+				_0: _debois$elm_mdl$Material_Options$onClick(
+					_simsmith$doesnotexist$UpdateMsg$ShowMore(info)),
 				_1: {
 					ctor: '::',
-					_0: A2(_debois$elm_mdl$Material_Options$css, 'text-align', 'center'),
+					_0: _debois$elm_mdl$Material_Button$raised,
 					_1: {ctor: '[]'}
 				}
 			},
 			{
 				ctor: '::',
-				_0: A2(
-					_elm_lang$html$Html$h1,
-					{ctor: '[]'},
-					{
-						ctor: '::',
-						_0: _elm_lang$html$Html$text('To be continued...'),
-						_1: {ctor: '[]'}
-					}),
+				_0: _elm_lang$html$Html$text('More'),
 				_1: {ctor: '[]'}
-			}),
-		_1: {
+			});
+	});
+
+var _simsmith$doesnotexist$View$cvGrid = function (model) {
+	return A2(
+		_debois$elm_mdl$Material_Grid$grid,
+		{ctor: '[]'},
+		{
 			ctor: '::',
 			_0: A2(
 				_debois$elm_mdl$Material_Grid$cell,
-				_simsmith$doesnotexist$View$bStyle(
-					{
+				{
+					ctor: '::',
+					_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$All, 12),
+					_1: {
 						ctor: '::',
-						_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Desktop, 4),
-						_1: {
-							ctor: '::',
-							_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Tablet, 4),
-							_1: {
-								ctor: '::',
-								_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Phone, 4),
-								_1: {ctor: '[]'}
-							}
-						}
-					}),
+						_0: A2(_debois$elm_mdl$Material_Options$css, 'text-align', 'center'),
+						_1: {ctor: '[]'}
+					}
+				},
 				{
 					ctor: '::',
 					_0: A2(
-						_elm_lang$html$Html$h4,
+						_elm_lang$html$Html$h1,
 						{ctor: '[]'},
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html$text('Eduacation'),
+							_0: _elm_lang$html$Html$text('To be continued...'),
 							_1: {ctor: '[]'}
 						}),
-					_1: {
-						ctor: '::',
-						_0: _elm_lang$html$Html$text('2010 – 2013:'),
-						_1: {
-							ctor: '::',
-							_0: A2(
-								_elm_lang$html$Html$ul,
-								{ctor: '[]'},
-								{
-									ctor: '::',
-									_0: A2(
-										_elm_lang$html$Html$li,
-										{ctor: '[]'},
-										{
-											ctor: '::',
-											_0: _elm_lang$html$Html$text('Matematisk spetsutbildning Leonardo'),
-											_1: {ctor: '[]'}
-										}),
-									_1: {
-										ctor: '::',
-										_0: A2(
-											_elm_lang$html$Html$li,
-											{ctor: '[]'},
-											{
-												ctor: '::',
-												_0: _elm_lang$html$Html$text('Ehrensvärdska gymnasiet, Karlskrona'),
-												_1: {ctor: '[]'}
-											}),
-										_1: {ctor: '[]'}
-									}
-								}),
-							_1: {
-								ctor: '::',
-								_0: _elm_lang$html$Html$text('2013 – present:'),
-								_1: {
-									ctor: '::',
-									_0: A2(
-										_elm_lang$html$Html$ul,
-										{ctor: '[]'},
-										{
-											ctor: '::',
-											_0: A2(
-												_elm_lang$html$Html$li,
-												{ctor: '[]'},
-												{
-													ctor: '::',
-													_0: _elm_lang$html$Html$text('Datateknik (300 hp)'),
-													_1: {ctor: '[]'}
-												}),
-											_1: {
-												ctor: '::',
-												_0: A2(
-													_elm_lang$html$Html$li,
-													{ctor: '[]'},
-													{
-														ctor: '::',
-														_0: _elm_lang$html$Html$text('Chalmers University of Technology, Gothenbrg'),
-														_1: {ctor: '[]'}
-													}),
-												_1: {ctor: '[]'}
-											}
-										}),
-									_1: {
-										ctor: '::',
-										_0: _elm_lang$html$Html$text('2016 – present:'),
-										_1: {
-											ctor: '::',
-											_0: A2(
-												_elm_lang$html$Html$ul,
-												{ctor: '[]'},
-												{
-													ctor: '::',
-													_0: A2(
-														_elm_lang$html$Html$li,
-														{ctor: '[]'},
-														{
-															ctor: '::',
-															_0: _elm_lang$html$Html$text('Computer Science – algorithms, languages and logic'),
-															_1: {ctor: '[]'}
-														}),
-													_1: {
-														ctor: '::',
-														_0: A2(
-															_elm_lang$html$Html$li,
-															{ctor: '[]'},
-															{
-																ctor: '::',
-																_0: _elm_lang$html$Html$text('Master program at Chalmers University of Technology, Gothenbrg'),
-																_1: {ctor: '[]'}
-															}),
-														_1: {ctor: '[]'}
-													}
-												}),
-											_1: {ctor: '[]'}
-										}
-									}
-								}
-							}
-						}
-					}
+					_1: {ctor: '[]'}
 				}),
 			_1: {
 				ctor: '::',
 				_0: A2(
 					_debois$elm_mdl$Material_Grid$cell,
-					_simsmith$doesnotexist$View$bStyle(
+					_simsmith$doesnotexist$CvView$bStyle(
 						{
 							ctor: '::',
 							_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Desktop, 4),
@@ -16724,160 +17192,35 @@ var _simsmith$doesnotexist$View$cvGrid = A2(
 								}
 							}
 						}),
-					{
+					(!_elm_lang$core$Native_Utils.eq(model.selectedMore, _simsmith$doesnotexist$Model$School)) ? {
 						ctor: '::',
 						_0: A2(
-							_elm_lang$html$Html$h4,
+							_elm_lang$html$Html$h2,
 							{ctor: '[]'},
 							{
 								ctor: '::',
-								_0: _elm_lang$html$Html$text('Work Experience'),
+								_0: _elm_lang$html$Html$text('Eduacation'),
 								_1: {ctor: '[]'}
 							}),
 						_1: {
 							ctor: '::',
-							_0: A2(
-								_elm_lang$html$Html$p,
-								{ctor: '[]'},
-								{
-									ctor: '::',
-									_0: _elm_lang$html$Html$text('June 2014 – August 2014'),
-									_1: {
-										ctor: '::',
-										_0: A2(
-											_elm_lang$html$Html$br,
-											{ctor: '[]'},
-											{ctor: '[]'}),
-										_1: {
-											ctor: '::',
-											_0: _elm_lang$html$Html$text('Zogaj of Sweden, Gothenburg'),
-											_1: {
-												ctor: '::',
-												_0: A2(
-													_elm_lang$html$Html$br,
-													{ctor: '[]'},
-													{ctor: '[]'}),
-												_1: {
-													ctor: '::',
-													_0: _elm_lang$html$Html$text('Game programmer'),
-													_1: {ctor: '[]'}
-												}
-											}
-										}
-									}
-								}),
-							_1: {
-								ctor: '::',
-								_0: _elm_lang$html$Html$text('Porting of '),
-								_1: {
-									ctor: '::',
-									_0: A2(
-										_elm_lang$html$Html$em,
-										{ctor: '[]'},
-										{
-											ctor: '::',
-											_0: _elm_lang$html$Html$text('Zogaj Memo Gym'),
-											_1: {ctor: '[]'}
-										}),
-									_1: {
-										ctor: '::',
-										_0: _elm_lang$html$Html$text(
-											A2(
-												_elm_lang$core$Basics_ops['++'],
-												' from iOS to Android. The port could be considered a remaster ',
-												A2(_elm_lang$core$Basics_ops['++'], 'of the original game as everything was rewritten in ', 'LibGDX. Employed by '))),
-										_1: {
-											ctor: '::',
-											_0: A2(
-												_elm_lang$html$Html$a,
-												{
-													ctor: '::',
-													_0: _elm_lang$html$Html_Attributes$href('http://www.zogaj.se/'),
-													_1: {ctor: '[]'}
-												},
-												{
-													ctor: '::',
-													_0: _elm_lang$html$Html$text('Idriz Zogaj.'),
-													_1: {ctor: '[]'}
-												}),
-											_1: {
-												ctor: '::',
-												_0: A2(
-													_elm_lang$html$Html$br,
-													{ctor: '[]'},
-													{ctor: '[]'}),
-												_1: {
-													ctor: '::',
-													_0: A2(
-														_elm_lang$html$Html$br,
-														{ctor: '[]'},
-														{ctor: '[]'}),
-													_1: {
-														ctor: '::',
-														_0: A2(
-															_elm_lang$html$Html$p,
-															{ctor: '[]'},
-															{
-																ctor: '::',
-																_0: _elm_lang$html$Html$text('June 2015 – August 2015'),
-																_1: {
-																	ctor: '::',
-																	_0: A2(
-																		_elm_lang$html$Html$br,
-																		{ctor: '[]'},
-																		{ctor: '[]'}),
-																	_1: {
-																		ctor: '::',
-																		_0: _elm_lang$html$Html$text('Zogaj of Sweden, Gothenburg'),
-																		_1: {
-																			ctor: '::',
-																			_0: A2(
-																				_elm_lang$html$Html$br,
-																				{ctor: '[]'},
-																				{ctor: '[]'}),
-																			_1: {
-																				ctor: '::',
-																				_0: _elm_lang$html$Html$text('Game programmer'),
-																				_1: {ctor: '[]'}
-																			}
-																		}
-																	}
-																}
-															}),
-														_1: {
-															ctor: '::',
-															_0: _elm_lang$html$Html$text('Continuing work on the game '),
-															_1: {
-																ctor: '::',
-																_0: A2(
-																	_elm_lang$html$Html$em,
-																	{ctor: '[]'},
-																	{
-																		ctor: '::',
-																		_0: _elm_lang$html$Html$text('Zogaj Memo Gym'),
-																		_1: {ctor: '[]'}
-																	}),
-																_1: {
-																	ctor: '::',
-																	_0: _elm_lang$html$Html$text(' while expanding to iOS using RoboVM.'),
-																	_1: {ctor: '[]'}
-																}
-															}
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
+							_0: A2(_simsmith$doesnotexist$CvView$moreInfoButton, model, _simsmith$doesnotexist$Model$School),
+							_1: {ctor: '[]'}
+						}
+					} : {
+						ctor: '::',
+						_0: _simsmith$doesnotexist$CvView$schoolText,
+						_1: {
+							ctor: '::',
+							_0: _simsmith$doesnotexist$CvView$backButton(model),
+							_1: {ctor: '[]'}
 						}
 					}),
 				_1: {
 					ctor: '::',
 					_0: A2(
 						_debois$elm_mdl$Material_Grid$cell,
-						_simsmith$doesnotexist$View$bStyle(
+						_simsmith$doesnotexist$CvView$bStyle(
 							{
 								ctor: '::',
 								_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Desktop, 4),
@@ -16891,108 +17234,35 @@ var _simsmith$doesnotexist$View$cvGrid = A2(
 									}
 								}
 							}),
-						{
+						(!_elm_lang$core$Native_Utils.eq(model.selectedMore, _simsmith$doesnotexist$Model$Work)) ? {
 							ctor: '::',
 							_0: A2(
-								_elm_lang$html$Html$h4,
+								_elm_lang$html$Html$h2,
 								{ctor: '[]'},
 								{
 									ctor: '::',
-									_0: _elm_lang$html$Html$text('Software Skills'),
+									_0: _elm_lang$html$Html$text('Work Experience'),
 									_1: {ctor: '[]'}
 								}),
 							_1: {
 								ctor: '::',
-								_0: _elm_lang$html$Html$text('Advanced:'),
-								_1: {
-									ctor: '::',
-									_0: A2(
-										_elm_lang$html$Html$ul,
-										{ctor: '[]'},
-										{
-											ctor: '::',
-											_0: A2(
-												_elm_lang$html$Html$li,
-												{ctor: '[]'},
-												{
-													ctor: '::',
-													_0: _elm_lang$html$Html$text('Java'),
-													_1: {ctor: '[]'}
-												}),
-											_1: {
-												ctor: '::',
-												_0: A2(
-													_elm_lang$html$Html$li,
-													{ctor: '[]'},
-													{
-														ctor: '::',
-														_0: _elm_lang$html$Html$text('Haskell'),
-														_1: {ctor: '[]'}
-													}),
-												_1: {ctor: '[]'}
-											}
-										}),
-									_1: {
-										ctor: '::',
-										_0: _elm_lang$html$Html$text('Intermediate:'),
-										_1: {
-											ctor: '::',
-											_0: A2(
-												_elm_lang$html$Html$ul,
-												{ctor: '[]'},
-												{
-													ctor: '::',
-													_0: A2(
-														_elm_lang$html$Html$li,
-														{ctor: '[]'},
-														{
-															ctor: '::',
-															_0: _elm_lang$html$Html$text(
-																A2(_elm_lang$core$Basics_ops['++'], 'C, C#, C++, CSS, Elm, git, HTML, LaTeX, ', 'LibGDX, PostgreSQL, OpenGL, Scala')),
-															_1: {ctor: '[]'}
-														}),
-													_1: {ctor: '[]'}
-												}),
-											_1: {
-												ctor: '::',
-												_0: _elm_lang$html$Html$text('Basic:'),
-												_1: {
-													ctor: '::',
-													_0: A2(
-														_elm_lang$html$Html$ul,
-														{ctor: '[]'},
-														{
-															ctor: '::',
-															_0: A2(
-																_elm_lang$html$Html$li,
-																{ctor: '[]'},
-																{
-																	ctor: '::',
-																	_0: _elm_lang$html$Html$text(
-																		A2(
-																			_elm_lang$core$Basics_ops['++'],
-																			'Assembly, Android, AngularJS, Bootstrap, Erlang, ',
-																			A2(
-																				_elm_lang$core$Basics_ops['++'],
-																				'iOS, Javascript, JSON, Kotlin, Linux, MacOS, ',
-																				A2(_elm_lang$core$Basics_ops['++'], 'Mathematica, MATLAB, MySQL, PHP, Python, Rust, ', 'Unity 3D, Windows')))),
-																	_1: {ctor: '[]'}
-																}),
-															_1: {ctor: '[]'}
-														}),
-													_1: {ctor: '[]'}
-												}
-											}
-										}
-									}
-								}
+								_0: A2(_simsmith$doesnotexist$CvView$moreInfoButton, model, _simsmith$doesnotexist$Model$Work),
+								_1: {ctor: '[]'}
+							}
+						} : {
+							ctor: '::',
+							_0: _simsmith$doesnotexist$CvView$workText,
+							_1: {
+								ctor: '::',
+								_0: _simsmith$doesnotexist$CvView$backButton(model),
+								_1: {ctor: '[]'}
 							}
 						}),
 					_1: {
 						ctor: '::',
 						_0: A2(
 							_debois$elm_mdl$Material_Grid$cell,
-							_simsmith$doesnotexist$View$bStyle(
+							_simsmith$doesnotexist$CvView$bStyle(
 								{
 									ctor: '::',
 									_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Desktop, 4),
@@ -17006,26 +17276,27 @@ var _simsmith$doesnotexist$View$cvGrid = A2(
 										}
 									}
 								}),
-							{
+							(!_elm_lang$core$Native_Utils.eq(model.selectedMore, _simsmith$doesnotexist$Model$Skills)) ? {
 								ctor: '::',
 								_0: A2(
-									_elm_lang$html$Html$h4,
+									_elm_lang$html$Html$h2,
 									{ctor: '[]'},
 									{
 										ctor: '::',
-										_0: _elm_lang$html$Html$text('Interests'),
+										_0: _elm_lang$html$Html$text('Software Skills'),
 										_1: {ctor: '[]'}
 									}),
 								_1: {
 									ctor: '::',
-									_0: _elm_lang$html$Html$text(
-										A2(
-											_elm_lang$core$Basics_ops['++'],
-											'I have a wide area of interests at the moment from ',
-											A2(
-												_elm_lang$core$Basics_ops['++'],
-												'functional programming to algorithms about machine ',
-												A2(_elm_lang$core$Basics_ops['++'], 'learning or computer graphics. But whatevery I do, ', 'there is always a part about creative problem solving.')))),
+									_0: A2(_simsmith$doesnotexist$CvView$moreInfoButton, model, _simsmith$doesnotexist$Model$Skills),
+									_1: {ctor: '[]'}
+								}
+							} : {
+								ctor: '::',
+								_0: _simsmith$doesnotexist$CvView$softwareSkillButton,
+								_1: {
+									ctor: '::',
+									_0: _simsmith$doesnotexist$CvView$backButton(model),
 									_1: {ctor: '[]'}
 								}
 							}),
@@ -17033,7 +17304,7 @@ var _simsmith$doesnotexist$View$cvGrid = A2(
 							ctor: '::',
 							_0: A2(
 								_debois$elm_mdl$Material_Grid$cell,
-								_simsmith$doesnotexist$View$bStyle(
+								_simsmith$doesnotexist$CvView$bStyle(
 									{
 										ctor: '::',
 										_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Desktop, 4),
@@ -17054,170 +17325,27 @@ var _simsmith$doesnotexist$View$cvGrid = A2(
 										{ctor: '[]'},
 										{
 											ctor: '::',
-											_0: _elm_lang$html$Html$text('Teaching'),
+											_0: _elm_lang$html$Html$text('Interests'),
 											_1: {ctor: '[]'}
 										}),
 									_1: {
 										ctor: '::',
-										_0: A2(
-											_elm_lang$html$Html$p,
-											{ctor: '[]'},
-											{
-												ctor: '::',
-												_0: _elm_lang$html$Html$text('April 2013 – May 2013'),
-												_1: {
-													ctor: '::',
-													_0: A2(
-														_elm_lang$html$Html$br,
-														{ctor: '[]'},
-														{ctor: '[]'}),
-													_1: {
-														ctor: '::',
-														_0: _elm_lang$html$Html$text('Galären (AcadeMedia Fria Grundskolor), Karskrona'),
-														_1: {
-															ctor: '::',
-															_0: A2(
-																_elm_lang$html$Html$br,
-																{ctor: '[]'},
-																{ctor: '[]'}),
-															_1: {
-																ctor: '::',
-																_0: _elm_lang$html$Html$text('Programming teacher'),
-																_1: {ctor: '[]'}
-															}
-														}
-													}
-												}
-											}),
-										_1: {
-											ctor: '::',
-											_0: _elm_lang$html$Html$text(
+										_0: _elm_lang$html$Html$text(
+											A2(
+												_elm_lang$core$Basics_ops['++'],
+												'I have a wide area of interests at the moment from ',
 												A2(
 													_elm_lang$core$Basics_ops['++'],
-													'Teaching programming to curious kids from 12 to 16 years ',
-													A2(
-														_elm_lang$core$Basics_ops['++'],
-														'old. Got recommended by a math teacher as a talented ',
-														A2(
-															_elm_lang$core$Basics_ops['++'],
-															'guy and someone with spare time. All the pupils wished ',
-															A2(_elm_lang$core$Basics_ops['++'], 'to try programming as a voluntary subject in the end ', 'of the school year and I made that possible.'))))),
-											_1: {
-												ctor: '::',
-												_0: A2(
-													_elm_lang$html$Html$br,
-													{ctor: '[]'},
-													{ctor: '[]'}),
-												_1: {
-													ctor: '::',
-													_0: A2(
-														_elm_lang$html$Html$br,
-														{ctor: '[]'},
-														{ctor: '[]'}),
-													_1: {
-														ctor: '::',
-														_0: A2(
-															_elm_lang$html$Html$p,
-															{ctor: '[]'},
-															{
-																ctor: '::',
-																_0: _elm_lang$html$Html$text('August 2014 – November 2014'),
-																_1: {
-																	ctor: '::',
-																	_0: A2(
-																		_elm_lang$html$Html$br,
-																		{ctor: '[]'},
-																		{ctor: '[]'}),
-																	_1: {
-																		ctor: '::',
-																		_0: _elm_lang$html$Html$text('Chalmers University of Technology, Gothenburg'),
-																		_1: {
-																			ctor: '::',
-																			_0: A2(
-																				_elm_lang$html$Html$br,
-																				{ctor: '[]'},
-																				{ctor: '[]'}),
-																			_1: {
-																				ctor: '::',
-																				_0: _elm_lang$html$Html$text('Supplementary Instructor (SI leader)'),
-																				_1: {ctor: '[]'}
-																			}
-																		}
-																	}
-																}
-															}),
-														_1: {
-															ctor: '::',
-															_0: _elm_lang$html$Html$text(
-																A2(_elm_lang$core$Basics_ops['++'], 'A leader of SI (supplemental instruction) in linear algebra ', 'at Chalmers.')),
-															_1: {
-																ctor: '::',
-																_0: A2(
-																	_elm_lang$html$Html$br,
-																	{ctor: '[]'},
-																	{ctor: '[]'}),
-																_1: {
-																	ctor: '::',
-																	_0: A2(
-																		_elm_lang$html$Html$br,
-																		{ctor: '[]'},
-																		{ctor: '[]'}),
-																	_1: {
-																		ctor: '::',
-																		_0: A2(
-																			_elm_lang$html$Html$p,
-																			{ctor: '[]'},
-																			{
-																				ctor: '::',
-																				_0: _elm_lang$html$Html$text('October 2016 – May 2017'),
-																				_1: {
-																					ctor: '::',
-																					_0: A2(
-																						_elm_lang$html$Html$br,
-																						{ctor: '[]'},
-																						{ctor: '[]'}),
-																					_1: {
-																						ctor: '::',
-																						_0: _elm_lang$html$Html$text('Intize, Gothenburg'),
-																						_1: {
-																							ctor: '::',
-																							_0: A2(
-																								_elm_lang$html$Html$br,
-																								{ctor: '[]'},
-																								{ctor: '[]'}),
-																							_1: {
-																								ctor: '::',
-																								_0: _elm_lang$html$Html$text('Intize Mentor'),
-																								_1: {ctor: '[]'}
-																							}
-																						}
-																					}
-																				}
-																			}),
-																		_1: {
-																			ctor: '::',
-																			_0: _elm_lang$html$Html$text(
-																				A2(
-																					_elm_lang$core$Basics_ops['++'],
-																					'Intize is a non-profit organisation that provides mentorship ',
-																					A2(_elm_lang$core$Basics_ops['++'], 'in mathematics. I am one of these voluntary mentors ', 'and together we work towards a more educated world.'))),
-																			_1: {ctor: '[]'}
-																		}
-																	}
-																}
-															}
-														}
-													}
-												}
-											}
-										}
+													'functional programming to algorithms about machine ',
+													A2(_elm_lang$core$Basics_ops['++'], 'learning or computer graphics. But whatevery I do, ', 'there is always a part about creative problem solving.')))),
+										_1: {ctor: '[]'}
 									}
 								}),
 							_1: {
 								ctor: '::',
 								_0: A2(
 									_debois$elm_mdl$Material_Grid$cell,
-									_simsmith$doesnotexist$View$bStyle(
+									_simsmith$doesnotexist$CvView$bStyle(
 										{
 											ctor: '::',
 											_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Desktop, 4),
@@ -17231,79 +17359,47 @@ var _simsmith$doesnotexist$View$cvGrid = A2(
 												}
 											}
 										}),
-									{
+									(!_elm_lang$core$Native_Utils.eq(model.selectedMore, _simsmith$doesnotexist$Model$Teaching)) ? {
 										ctor: '::',
 										_0: A2(
-											_elm_lang$html$Html$h4,
+											_elm_lang$html$Html$h2,
 											{ctor: '[]'},
 											{
 												ctor: '::',
-												_0: _elm_lang$html$Html$text('Public Projects'),
+												_0: _elm_lang$html$Html$text('Teaching'),
 												_1: {ctor: '[]'}
 											}),
 										_1: {
 											ctor: '::',
-											_0: _elm_lang$html$Html$text('2016:'),
-											_1: {
-												ctor: '::',
-												_0: A2(
-													_elm_lang$html$Html$ul,
-													{ctor: '[]'},
-													{
-														ctor: '::',
-														_0: A2(
-															_elm_lang$html$Html$li,
-															{ctor: '[]'},
-															{
-																ctor: '::',
-																_0: _elm_lang$html$Html$text('Chalmers Bachelor Thesis ('),
-																_1: {
-																	ctor: '::',
-																	_0: A2(
-																		_elm_lang$html$Html$a,
-																		{
-																			ctor: '::',
-																			_0: _elm_lang$html$Html_Attributes$href('http://www.lib.chalmers.se/en/publishing/to-publish/student-theses/'),
-																			_1: {ctor: '[]'}
-																		},
-																		{
-																			ctor: '::',
-																			_0: _elm_lang$html$Html$text('lib.chalmers.se'),
-																			_1: {ctor: '[]'}
-																		}),
-																	_1: {
-																		ctor: '::',
-																		_0: _elm_lang$html$Html$text(')'),
-																		_1: {ctor: '[]'}
-																	}
-																}
-															}),
-														_1: {
-															ctor: '::',
-															_0: A2(
-																_elm_lang$html$Html$li,
-																{ctor: '[]'},
-																{
-																	ctor: '::',
-																	_0: _elm_lang$html$Html$text('Abstract Visualization of Algorithms and Data Structures'),
-																	_1: {ctor: '[]'}
-																}),
-															_1: {ctor: '[]'}
-														}
-													}),
-												_1: {ctor: '[]'}
-											}
+											_0: A2(_simsmith$doesnotexist$CvView$moreInfoButton, model, _simsmith$doesnotexist$Model$Teaching),
+											_1: {ctor: '[]'}
+										}
+									} : {
+										ctor: '::',
+										_0: _simsmith$doesnotexist$CvView$teachingText,
+										_1: {
+											ctor: '::',
+											_0: _simsmith$doesnotexist$CvView$backButton(model),
+											_1: {ctor: '[]'}
 										}
 									}),
 								_1: {
 									ctor: '::',
 									_0: A2(
 										_debois$elm_mdl$Material_Grid$cell,
-										_simsmith$doesnotexist$View$bStyle(
+										_simsmith$doesnotexist$CvView$bStyle(
 											{
 												ctor: '::',
-												_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$All, 12),
-												_1: {ctor: '[]'}
+												_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Desktop, 4),
+												_1: {
+													ctor: '::',
+													_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Tablet, 4),
+													_1: {
+														ctor: '::',
+														_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Phone, 4),
+														_1: {ctor: '[]'}
+													}
+												}
 											}),
 										{
 											ctor: '::',
@@ -17312,12 +17408,12 @@ var _simsmith$doesnotexist$View$cvGrid = A2(
 												{ctor: '[]'},
 												{
 													ctor: '::',
-													_0: _elm_lang$html$Html$text('Communication Skills'),
+													_0: _elm_lang$html$Html$text('Public Projects'),
 													_1: {ctor: '[]'}
 												}),
 											_1: {
 												ctor: '::',
-												_0: _elm_lang$html$Html$text('Native: Swedish'),
+												_0: _elm_lang$html$Html$text('2016:'),
 												_1: {
 													ctor: '::',
 													_0: A2(
@@ -17326,32 +17422,100 @@ var _simsmith$doesnotexist$View$cvGrid = A2(
 														{ctor: '[]'}),
 													_1: {
 														ctor: '::',
-														_0: _elm_lang$html$Html$text('Advanced: English'),
+														_0: _elm_lang$html$Html$text('Chalmers Bachelor Thesis ('),
 														_1: {
 															ctor: '::',
 															_0: A2(
-																_elm_lang$html$Html$br,
-																{ctor: '[]'},
-																{ctor: '[]'}),
+																_elm_lang$html$Html$a,
+																{
+																	ctor: '::',
+																	_0: _elm_lang$html$Html_Attributes$href('http://www.lib.chalmers.se/en/publishing/to-publish/student-theses/'),
+																	_1: {ctor: '[]'}
+																},
+																{
+																	ctor: '::',
+																	_0: _elm_lang$html$Html$text('lib.chalmers.se'),
+																	_1: {ctor: '[]'}
+																}),
 															_1: {
 																ctor: '::',
-																_0: _elm_lang$html$Html$text('Forgotten: Germany'),
-																_1: {ctor: '[]'}
+																_0: _elm_lang$html$Html$text(')'),
+																_1: {
+																	ctor: '::',
+																	_0: A2(
+																		_elm_lang$html$Html$br,
+																		{ctor: '[]'},
+																		{ctor: '[]'}),
+																	_1: {
+																		ctor: '::',
+																		_0: _elm_lang$html$Html$text('Abstract Visualization of Algorithms and Data Structures'),
+																		_1: {ctor: '[]'}
+																	}
+																}
 															}
 														}
 													}
 												}
 											}
 										}),
-									_1: {ctor: '[]'}
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_debois$elm_mdl$Material_Grid$cell,
+											_simsmith$doesnotexist$CvView$bStyle(
+												{
+													ctor: '::',
+													_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$All, 12),
+													_1: {ctor: '[]'}
+												}),
+											{
+												ctor: '::',
+												_0: A2(
+													_elm_lang$html$Html$h4,
+													{ctor: '[]'},
+													{
+														ctor: '::',
+														_0: _elm_lang$html$Html$text('Communication Skills'),
+														_1: {ctor: '[]'}
+													}),
+												_1: {
+													ctor: '::',
+													_0: _elm_lang$html$Html$text('Native: Swedish'),
+													_1: {
+														ctor: '::',
+														_0: A2(
+															_elm_lang$html$Html$br,
+															{ctor: '[]'},
+															{ctor: '[]'}),
+														_1: {
+															ctor: '::',
+															_0: _elm_lang$html$Html$text('Advanced: English'),
+															_1: {
+																ctor: '::',
+																_0: A2(
+																	_elm_lang$html$Html$br,
+																	{ctor: '[]'},
+																	{ctor: '[]'}),
+																_1: {
+																	ctor: '::',
+																	_0: _elm_lang$html$Html$text('Forgotten: Germany'),
+																	_1: {ctor: '[]'}
+																}
+															}
+														}
+													}
+												}
+											}),
+										_1: {ctor: '[]'}
+									}
 								}
 							}
 						}
 					}
 				}
 			}
-		}
-	});
+		});
+};
 var _simsmith$doesnotexist$View$margin = F2(
 	function (top, lef) {
 		return _elm_lang$html$Html_Attributes$style(
@@ -17522,9 +17686,16 @@ var _simsmith$doesnotexist$View$viewBody = function (model) {
 					}
 				});
 		case 1:
-			return _simsmith$doesnotexist$View$cvGrid;
+			return _simsmith$doesnotexist$View$cvGrid(model);
 		default:
-			return _elm_lang$html$Html$text('404');
+			return A2(
+				_elm_lang$html$Html$h1,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('404'),
+					_1: {ctor: '[]'}
+				});
 	}
 };
 var _simsmith$doesnotexist$View$view = function (model) {

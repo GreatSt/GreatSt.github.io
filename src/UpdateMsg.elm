@@ -11,6 +11,7 @@ type Msg
     | SelectTab Int
     | Mdl (Material.Msg Msg)
     | GoTo (Maybe Page)
+    | ShowMore Info
 
 
 type Page
@@ -48,3 +49,6 @@ update msg model =
                     ( { model | selectedTab = 0 }
                     , Cmd.none
                     )
+
+        ShowMore m ->
+            ( { model | selectedMore = m }, Cmd.none )
