@@ -16440,7 +16440,9 @@ var _simsmith$doesnotexist$Model$Model = F4(
 var _simsmith$doesnotexist$Model$Teaching = {ctor: 'Teaching'};
 var _simsmith$doesnotexist$Model$Skills = {ctor: 'Skills'};
 var _simsmith$doesnotexist$Model$Work = {ctor: 'Work'};
-var _simsmith$doesnotexist$Model$School = {ctor: 'School'};
+var _simsmith$doesnotexist$Model$School = function (a) {
+	return {ctor: 'School', _0: a};
+};
 var _simsmith$doesnotexist$Model$None = {ctor: 'None'};
 var _simsmith$doesnotexist$Model$initModel = function (tabID) {
 	return {count: 0, mdl: _debois$elm_mdl$Material$model, selectedTab: tabID, selectedMore: _simsmith$doesnotexist$Model$None};
@@ -16947,116 +16949,139 @@ var _simsmith$doesnotexist$CvView$workText = A2(
 			}
 		}
 	});
-var _simsmith$doesnotexist$CvView$schoolText = A2(
+var _simsmith$doesnotexist$CvView$schoolText3 = A2(
 	_elm_lang$html$Html$div,
 	{ctor: '[]'},
 	{
 		ctor: '::',
-		_0: _elm_lang$html$Html$text('2010 – 2013:'),
+		_0: A2(
+			_elm_lang$html$Html$h4,
+			{ctor: '[]'},
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html$text('2010 – 2013:'),
+				_1: {ctor: '[]'}
+			}),
 		_1: {
 			ctor: '::',
 			_0: A2(
-				_elm_lang$html$Html$br,
+				_elm_lang$html$Html$p,
 				{ctor: '[]'},
-				{ctor: '[]'}),
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('Matematisk spetsutbildning Leonardo'),
+					_1: {ctor: '[]'}
+				}),
 			_1: {
 				ctor: '::',
-				_0: _elm_lang$html$Html$text('Matematisk spetsutbildning Leonardo'),
-				_1: {
-					ctor: '::',
-					_0: A2(
-						_elm_lang$html$Html$br,
-						{ctor: '[]'},
-						{ctor: '[]'}),
-					_1: {
+				_0: A2(
+					_elm_lang$html$Html$p,
+					{ctor: '[]'},
+					{
 						ctor: '::',
 						_0: _elm_lang$html$Html$text('Ehrensvärdska gymnasiet, Karlskrona'),
-						_1: {
-							ctor: '::',
-							_0: A2(
-								_elm_lang$html$Html$br,
-								{ctor: '[]'},
-								{ctor: '[]'}),
-							_1: {
-								ctor: '::',
-								_0: A2(
-									_elm_lang$html$Html$br,
-									{ctor: '[]'},
-									{ctor: '[]'}),
-								_1: {
-									ctor: '::',
-									_0: _elm_lang$html$Html$text('2013 – present:'),
-									_1: {
-										ctor: '::',
-										_0: A2(
-											_elm_lang$html$Html$br,
-											{ctor: '[]'},
-											{ctor: '[]'}),
-										_1: {
-											ctor: '::',
-											_0: _elm_lang$html$Html$text('Datateknik (300 hp)'),
-											_1: {
-												ctor: '::',
-												_0: A2(
-													_elm_lang$html$Html$br,
-													{ctor: '[]'},
-													{ctor: '[]'}),
-												_1: {
-													ctor: '::',
-													_0: _elm_lang$html$Html$text('Chalmers University of Technology, Gothenbrg'),
-													_1: {
-														ctor: '::',
-														_0: A2(
-															_elm_lang$html$Html$br,
-															{ctor: '[]'},
-															{ctor: '[]'}),
-														_1: {
-															ctor: '::',
-															_0: A2(
-																_elm_lang$html$Html$br,
-																{ctor: '[]'},
-																{ctor: '[]'}),
-															_1: {
-																ctor: '::',
-																_0: _elm_lang$html$Html$text('2016 – present:'),
-																_1: {
-																	ctor: '::',
-																	_0: A2(
-																		_elm_lang$html$Html$br,
-																		{ctor: '[]'},
-																		{ctor: '[]'}),
-																	_1: {
-																		ctor: '::',
-																		_0: _elm_lang$html$Html$text('Computer Science – algorithms, languages and logic'),
-																		_1: {
-																			ctor: '::',
-																			_0: A2(
-																				_elm_lang$html$Html$br,
-																				{ctor: '[]'},
-																				{ctor: '[]'}),
-																			_1: {
-																				ctor: '::',
-																				_0: _elm_lang$html$Html$text('Master program at Chalmers University of Technology, Gothenbrg'),
-																				_1: {ctor: '[]'}
-																			}
-																		}
-																	}
-																}
-															}
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
+						_1: {ctor: '[]'}
+					}),
+				_1: {ctor: '[]'}
 			}
 		}
 	});
+var _simsmith$doesnotexist$CvView$schoolText2 = A2(
+	_elm_lang$html$Html$div,
+	{ctor: '[]'},
+	{
+		ctor: '::',
+		_0: A2(
+			_elm_lang$html$Html$h4,
+			{ctor: '[]'},
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html$text('2013 – present:'),
+				_1: {ctor: '[]'}
+			}),
+		_1: {
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$p,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('Datateknik (300 hp)'),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$p,
+					{ctor: '[]'},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text('Chalmers University of Technology, Gothenbrg'),
+						_1: {ctor: '[]'}
+					}),
+				_1: {ctor: '[]'}
+			}
+		}
+	});
+var _simsmith$doesnotexist$CvView$schoolText1 = A2(
+	_elm_lang$html$Html$div,
+	{ctor: '[]'},
+	{
+		ctor: '::',
+		_0: A2(
+			_elm_lang$html$Html$h4,
+			{ctor: '[]'},
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html$text('2016 – present:'),
+				_1: {ctor: '[]'}
+			}),
+		_1: {
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$p,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('Computer Science – algorithms, languages and logic'),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$p,
+					{ctor: '[]'},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text('Master program at Chalmers University of Technology, Gothenborg'),
+						_1: {ctor: '[]'}
+					}),
+				_1: {ctor: '[]'}
+			}
+		}
+	});
+var _simsmith$doesnotexist$CvView$schoolText = function (i) {
+	var arr = _elm_lang$core$Array$fromList(
+		{
+			ctor: '::',
+			_0: _simsmith$doesnotexist$CvView$schoolText1,
+			_1: {
+				ctor: '::',
+				_0: _simsmith$doesnotexist$CvView$schoolText2,
+				_1: {
+					ctor: '::',
+					_0: _simsmith$doesnotexist$CvView$schoolText3,
+					_1: {ctor: '[]'}
+				}
+			}
+		});
+	var _p0 = A2(_elm_lang$core$Array$get, i, arr);
+	if (_p0.ctor === 'Nothing') {
+		return _simsmith$doesnotexist$CvView$schoolText1;
+	} else {
+		return _p0._0;
+	}
+};
 var _simsmith$doesnotexist$CvView$bStyle = function (more) {
 	return A2(
 		_elm_lang$core$List$append,
@@ -17077,7 +17102,7 @@ var _simsmith$doesnotexist$CvView$bStyle = function (more) {
 							_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-left', '8px'),
 							_1: {
 								ctor: '::',
-								_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-top', '4px'),
+								_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-top', '20px'),
 								_1: {
 									ctor: '::',
 									_0: A2(_debois$elm_mdl$Material_Options$css, 'text-align', 'center'),
@@ -17117,6 +17142,34 @@ var _simsmith$doesnotexist$CvView$backButton = function (model) {
 			_1: {ctor: '[]'}
 		});
 };
+var _simsmith$doesnotexist$CvView$arrowButton = F3(
+	function (n, arrow, model) {
+		return A5(
+			_debois$elm_mdl$Material_Button$render,
+			_simsmith$doesnotexist$UpdateMsg$Mdl,
+			{
+				ctor: '::',
+				_0: 4,
+				_1: {ctor: '[]'}
+			},
+			model.mdl,
+			{
+				ctor: '::',
+				_0: _debois$elm_mdl$Material_Options$onClick(
+					_simsmith$doesnotexist$UpdateMsg$ShowMore(
+						_simsmith$doesnotexist$Model$School(n))),
+				_1: {
+					ctor: '::',
+					_0: _debois$elm_mdl$Material_Button$raised,
+					_1: {ctor: '[]'}
+				}
+			},
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html$text(arrow),
+				_1: {ctor: '[]'}
+			});
+	});
 var _simsmith$doesnotexist$CvView$moreInfoButton = F2(
 	function (model, info) {
 		return A5(
@@ -17144,8 +17197,7 @@ var _simsmith$doesnotexist$CvView$moreInfoButton = F2(
 				_1: {ctor: '[]'}
 			});
 	});
-
-var _simsmith$doesnotexist$View$cvGrid = function (model) {
+var _simsmith$doesnotexist$CvView$cvGrid = function (model) {
 	return A2(
 		_debois$elm_mdl$Material_Grid$grid,
 		{ctor: '[]'},
@@ -17192,30 +17244,64 @@ var _simsmith$doesnotexist$View$cvGrid = function (model) {
 								}
 							}
 						}),
-					(!_elm_lang$core$Native_Utils.eq(model.selectedMore, _simsmith$doesnotexist$Model$School)) ? {
-						ctor: '::',
-						_0: A2(
-							_elm_lang$html$Html$h2,
-							{ctor: '[]'},
-							{
+					function () {
+						var _p1 = model.selectedMore;
+						if (_p1.ctor === 'School') {
+							var _p2 = _p1._0;
+							return {
 								ctor: '::',
-								_0: _elm_lang$html$Html$text('Eduacation'),
-								_1: {ctor: '[]'}
-							}),
-						_1: {
-							ctor: '::',
-							_0: A2(_simsmith$doesnotexist$CvView$moreInfoButton, model, _simsmith$doesnotexist$Model$School),
-							_1: {ctor: '[]'}
+								_0: _simsmith$doesnotexist$CvView$schoolText(_p2),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_elm_lang$html$Html$div,
+										{ctor: '[]'},
+										{
+											ctor: '::',
+											_0: A3(
+												_simsmith$doesnotexist$CvView$arrowButton,
+												A2(_elm_lang$core$Basics_ops['%'], _p2 - 1, 3),
+												'<',
+												model),
+											_1: {
+												ctor: '::',
+												_0: _simsmith$doesnotexist$CvView$backButton(model),
+												_1: {
+													ctor: '::',
+													_0: A3(
+														_simsmith$doesnotexist$CvView$arrowButton,
+														A2(_elm_lang$core$Basics_ops['%'], _p2 + 1, 3),
+														'>',
+														model),
+													_1: {ctor: '[]'}
+												}
+											}
+										}),
+									_1: {ctor: '[]'}
+								}
+							};
+						} else {
+							return {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$h2,
+									{ctor: '[]'},
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html$text('Eduacation'),
+										_1: {ctor: '[]'}
+									}),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_simsmith$doesnotexist$CvView$moreInfoButton,
+										model,
+										_simsmith$doesnotexist$Model$School(0)),
+									_1: {ctor: '[]'}
+								}
+							};
 						}
-					} : {
-						ctor: '::',
-						_0: _simsmith$doesnotexist$CvView$schoolText,
-						_1: {
-							ctor: '::',
-							_0: _simsmith$doesnotexist$CvView$backButton(model),
-							_1: {ctor: '[]'}
-						}
-					}),
+					}()),
 				_1: {
 					ctor: '::',
 					_0: A2(
@@ -17516,6 +17602,7 @@ var _simsmith$doesnotexist$View$cvGrid = function (model) {
 			}
 		});
 };
+
 var _simsmith$doesnotexist$View$margin = F2(
 	function (top, lef) {
 		return _elm_lang$html$Html_Attributes$style(
@@ -17686,7 +17773,7 @@ var _simsmith$doesnotexist$View$viewBody = function (model) {
 					}
 				});
 		case 1:
-			return _simsmith$doesnotexist$View$cvGrid(model);
+			return _simsmith$doesnotexist$CvView$cvGrid(model);
 		default:
 			return A2(
 				_elm_lang$html$Html$h1,

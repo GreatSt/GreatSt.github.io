@@ -15,7 +15,7 @@ type alias Model =
 
 type Info
     = None
-    | School
+    | School Int
     | Work
     | Skills
     | Teaching
