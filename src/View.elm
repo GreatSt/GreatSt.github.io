@@ -6,7 +6,6 @@ import Material.Options as Options exposing (css)
 import Material
 import Material.Button as Button
 import Material.Color as Color
-import Material.Grid exposing (Device(..), cell, grid, offset, size)
 import Material.Layout as Layout
 import Model exposing (..)
 import CvView exposing (..)
@@ -95,103 +94,4 @@ viewCounter model =
             model.mdl
             [ Options.onClick Reset ]
             [ text "Reset" ]
-        ]
-
-
-cvGrid : Model -> Html Msg
-cvGrid model =
-    grid []
-        [ cell [ size All 12, css "text-align" "center" ]
-            [ h1 [] [ text "To be continued..." ] ]
-        , cell
-            (bStyle
-                [ size Desktop 4
-                , size Tablet 4
-                , size Phone 4
-                ]
-            )
-          <|
-            if model.selectedMore /= School then
-                [ h2 [] [ text "Eduacation" ]
-                , moreInfoButton model School
-                ]
-            else
-                [ schoolText
-                , backButton model
-                ]
-        , cell
-            (bStyle
-                [ size Desktop 4
-                , size Tablet 4
-                , size Phone 4
-                ]
-            )
-          <|
-            if model.selectedMore /= Work then
-                [ h2 [] [ text "Work Experience" ]
-                , moreInfoButton model Work
-                ]
-            else
-                [ workText
-                , backButton model
-                ]
-        , cell
-            (bStyle
-                [ size Desktop 4
-                , size Tablet 4
-                , size Phone 4
-                ]
-            )
-          <|
-            if model.selectedMore /= Skills then
-                [ h2 [] [ text "Software Skills" ]
-                , moreInfoButton model Skills
-                ]
-            else
-                [ softwareSkillButton
-                , backButton model
-                ]
-        , cell (bStyle [ size Desktop 4, size Tablet 4, size Phone 4 ])
-            [ h4 [] [ text "Interests" ]
-            , text <|
-                "I have a wide area of interests at the moment from "
-                    ++ "functional programming to algorithms about machine "
-                    ++ "learning or computer graphics. But whatevery I do, "
-                    ++ "there is always a part about creative problem solving."
-            ]
-        , cell
-            (bStyle
-                [ size Desktop 4
-                , size Tablet 4
-                , size Phone 4
-                ]
-            )
-          <|
-            if model.selectedMore /= Teaching then
-                [ h2 [] [ text "Teaching" ]
-                , moreInfoButton model Teaching
-                ]
-            else
-                [ teachingText
-                , backButton model
-                ]
-        , cell (bStyle [ size Desktop 4, size Tablet 4, size Phone 4 ])
-            [ h4 [] [ text "Public Projects" ]
-            , text "2016:"
-            , br [] []
-            , text "Chalmers Bachelor Thesis ("
-            , a [ href "http://www.lib.chalmers.se/en/publishing/to-publish/student-theses/" ]
-                [ text "lib.chalmers.se" ]
-            , text ")"
-            , br [] []
-            , text "Abstract Visualization of Algorithms and Data Structures"
-            ]
-        , cell (bStyle [ size All 12 ])
-            [ h4 [] [ text "Communication Skills" ]
-            , text "Native: Swedish"
-            , br [] []
-            , text "Advanced: English"
-            , br [] []
-            , text "Forgotten: Germany"
-            ]
         ]
