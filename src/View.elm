@@ -37,7 +37,7 @@ view model =
             ]
         , drawer = []
         , tabs =
-            ( [ text "Main", text "Extra" ]
+            ( [ text "Main", text "Résumé", text "Experiments" ]
             , [ Color.background (Color.color Color.DeepOrange Color.S400) ]
             )
         , main = [ viewBody model ]
@@ -56,6 +56,9 @@ viewBody model =
 
         1 ->
             cvGrid model
+
+        2 ->
+            h1 [] [ text "To be continued..." ]
 
         _ ->
             h1 [] [ text "404" ]

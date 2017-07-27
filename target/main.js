@@ -16691,7 +16691,44 @@ var _simsmith$doesnotexist$CvView$teachingText = A2(
 			}
 		}
 	});
-var _simsmith$doesnotexist$CvView$softwareSkillButton = A2(
+var _simsmith$doesnotexist$CvView$teachingIntroText = A2(
+	_elm_lang$html$Html$div,
+	{ctor: '[]'},
+	{
+		ctor: '::',
+		_0: A2(
+			_elm_lang$html$Html$h3,
+			{ctor: '[]'},
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html$text('Teaching'),
+				_1: {ctor: '[]'}
+			}),
+		_1: {
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$h6,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('Mentor in Mathematics – Intize'),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$br,
+							{ctor: '[]'},
+							{ctor: '[]'}),
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$html$Html$text('Programming Teacher – Galären'),
+							_1: {ctor: '[]'}
+						}
+					}
+				}),
+			_1: {ctor: '[]'}
+		}
+	});
+var _simsmith$doesnotexist$CvView$softwareSkillText = A2(
 	_elm_lang$html$Html$div,
 	{ctor: '[]'},
 	{
@@ -16806,6 +16843,50 @@ var _simsmith$doesnotexist$CvView$softwareSkillButton = A2(
 					}
 				}
 			}
+		}
+	});
+var _simsmith$doesnotexist$CvView$swSkillIntroText = A2(
+	_elm_lang$html$Html$div,
+	{ctor: '[]'},
+	{
+		ctor: '::',
+		_0: A2(
+			_elm_lang$html$Html$h3,
+			{ctor: '[]'},
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html$text('Software Skills'),
+				_1: {ctor: '[]'}
+			}),
+		_1: {
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$h6,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('Favorite languages:'),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$br,
+							{ctor: '[]'},
+							{ctor: '[]'}),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$i,
+								{ctor: '[]'},
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html$text('Rust, Elm, Scala'),
+									_1: {ctor: '[]'}
+								}),
+							_1: {ctor: '[]'}
+						}
+					}
+				}),
+			_1: {ctor: '[]'}
 		}
 	});
 var _simsmith$doesnotexist$CvView$workText = A2(
@@ -16949,6 +17030,43 @@ var _simsmith$doesnotexist$CvView$workText = A2(
 			}
 		}
 	});
+var _simsmith$doesnotexist$CvView$workIntroText = A2(
+	_elm_lang$html$Html$div,
+	{ctor: '[]'},
+	{
+		ctor: '::',
+		_0: A2(
+			_elm_lang$html$Html$h3,
+			{ctor: '[]'},
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html$text('Work Experience'),
+				_1: {ctor: '[]'}
+			}),
+		_1: {
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$p,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('Distributed System Programmer – FCC'),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$br,
+							{ctor: '[]'},
+							{ctor: '[]'}),
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$html$Html$text('Mobile Game Programmer – Zogaj Memo Gym'),
+							_1: {ctor: '[]'}
+						}
+					}
+				}),
+			_1: {ctor: '[]'}
+		}
+	});
 var _simsmith$doesnotexist$CvView$schoolText3 = A2(
 	_elm_lang$html$Html$div,
 	{ctor: '[]'},
@@ -17082,6 +17200,43 @@ var _simsmith$doesnotexist$CvView$schoolText = function (i) {
 		return _p0._0;
 	}
 };
+var _simsmith$doesnotexist$CvView$schoolIntroText = A2(
+	_elm_lang$html$Html$div,
+	{ctor: '[]'},
+	{
+		ctor: '::',
+		_0: A2(
+			_elm_lang$html$Html$h3,
+			{ctor: '[]'},
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html$text('Eduacation'),
+				_1: {ctor: '[]'}
+			}),
+		_1: {
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$p,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('Chalmers – Master of Science in Computer Science'),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$br,
+							{ctor: '[]'},
+							{ctor: '[]'}),
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$html$Html$text('High school – Matematisk spetsutbildning Leonardo'),
+							_1: {ctor: '[]'}
+						}
+					}
+				}),
+			_1: {ctor: '[]'}
+		}
+	});
 var _simsmith$doesnotexist$CvView$bStyle = function (more) {
 	return A2(
 		_elm_lang$core$List$append,
@@ -17102,7 +17257,7 @@ var _simsmith$doesnotexist$CvView$bStyle = function (more) {
 							_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-left', '8px'),
 							_1: {
 								ctor: '::',
-								_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-top', '20px'),
+								_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-top', '10px'),
 								_1: {
 									ctor: '::',
 									_0: A2(_debois$elm_mdl$Material_Options$css, 'text-align', 'center'),
@@ -17221,7 +17376,7 @@ var _simsmith$doesnotexist$CvView$cvGrid = function (model) {
 						{ctor: '[]'},
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html$text('To be continued...'),
+							_0: _elm_lang$html$Html$text('W.I.P.'),
 							_1: {ctor: '[]'}
 						}),
 					_1: {ctor: '[]'}
@@ -17283,14 +17438,7 @@ var _simsmith$doesnotexist$CvView$cvGrid = function (model) {
 						} else {
 							return {
 								ctor: '::',
-								_0: A2(
-									_elm_lang$html$Html$h2,
-									{ctor: '[]'},
-									{
-										ctor: '::',
-										_0: _elm_lang$html$Html$text('Eduacation'),
-										_1: {ctor: '[]'}
-									}),
+								_0: _simsmith$doesnotexist$CvView$schoolIntroText,
 								_1: {
 									ctor: '::',
 									_0: A2(
@@ -17322,14 +17470,7 @@ var _simsmith$doesnotexist$CvView$cvGrid = function (model) {
 							}),
 						(!_elm_lang$core$Native_Utils.eq(model.selectedMore, _simsmith$doesnotexist$Model$Work)) ? {
 							ctor: '::',
-							_0: A2(
-								_elm_lang$html$Html$h2,
-								{ctor: '[]'},
-								{
-									ctor: '::',
-									_0: _elm_lang$html$Html$text('Work Experience'),
-									_1: {ctor: '[]'}
-								}),
+							_0: _simsmith$doesnotexist$CvView$workIntroText,
 							_1: {
 								ctor: '::',
 								_0: A2(_simsmith$doesnotexist$CvView$moreInfoButton, model, _simsmith$doesnotexist$Model$Work),
@@ -17364,14 +17505,7 @@ var _simsmith$doesnotexist$CvView$cvGrid = function (model) {
 								}),
 							(!_elm_lang$core$Native_Utils.eq(model.selectedMore, _simsmith$doesnotexist$Model$Skills)) ? {
 								ctor: '::',
-								_0: A2(
-									_elm_lang$html$Html$h2,
-									{ctor: '[]'},
-									{
-										ctor: '::',
-										_0: _elm_lang$html$Html$text('Software Skills'),
-										_1: {ctor: '[]'}
-									}),
+								_0: _simsmith$doesnotexist$CvView$swSkillIntroText,
 								_1: {
 									ctor: '::',
 									_0: A2(_simsmith$doesnotexist$CvView$moreInfoButton, model, _simsmith$doesnotexist$Model$Skills),
@@ -17379,7 +17513,7 @@ var _simsmith$doesnotexist$CvView$cvGrid = function (model) {
 								}
 							} : {
 								ctor: '::',
-								_0: _simsmith$doesnotexist$CvView$softwareSkillButton,
+								_0: _simsmith$doesnotexist$CvView$softwareSkillText,
 								_1: {
 									ctor: '::',
 									_0: _simsmith$doesnotexist$CvView$backButton(model),
@@ -17407,7 +17541,7 @@ var _simsmith$doesnotexist$CvView$cvGrid = function (model) {
 								{
 									ctor: '::',
 									_0: A2(
-										_elm_lang$html$Html$h4,
+										_elm_lang$html$Html$h3,
 										{ctor: '[]'},
 										{
 											ctor: '::',
@@ -17447,14 +17581,7 @@ var _simsmith$doesnotexist$CvView$cvGrid = function (model) {
 										}),
 									(!_elm_lang$core$Native_Utils.eq(model.selectedMore, _simsmith$doesnotexist$Model$Teaching)) ? {
 										ctor: '::',
-										_0: A2(
-											_elm_lang$html$Html$h2,
-											{ctor: '[]'},
-											{
-												ctor: '::',
-												_0: _elm_lang$html$Html$text('Teaching'),
-												_1: {ctor: '[]'}
-											}),
+										_0: _simsmith$doesnotexist$CvView$teachingIntroText,
 										_1: {
 											ctor: '::',
 											_0: A2(_simsmith$doesnotexist$CvView$moreInfoButton, model, _simsmith$doesnotexist$Model$Teaching),
@@ -17490,7 +17617,7 @@ var _simsmith$doesnotexist$CvView$cvGrid = function (model) {
 										{
 											ctor: '::',
 											_0: A2(
-												_elm_lang$html$Html$h4,
+												_elm_lang$html$Html$h3,
 												{ctor: '[]'},
 												{
 													ctor: '::',
@@ -17557,7 +17684,7 @@ var _simsmith$doesnotexist$CvView$cvGrid = function (model) {
 											{
 												ctor: '::',
 												_0: A2(
-													_elm_lang$html$Html$h4,
+													_elm_lang$html$Html$h3,
 													{ctor: '[]'},
 													{
 														ctor: '::',
@@ -17774,6 +17901,15 @@ var _simsmith$doesnotexist$View$viewBody = function (model) {
 				});
 		case 1:
 			return _simsmith$doesnotexist$CvView$cvGrid(model);
+		case 2:
+			return A2(
+				_elm_lang$html$Html$h1,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('To be continued...'),
+					_1: {ctor: '[]'}
+				});
 		default:
 			return A2(
 				_elm_lang$html$Html$h1,
@@ -17845,8 +17981,12 @@ var _simsmith$doesnotexist$View$view = function (model) {
 					_0: _elm_lang$html$Html$text('Main'),
 					_1: {
 						ctor: '::',
-						_0: _elm_lang$html$Html$text('Extra'),
-						_1: {ctor: '[]'}
+						_0: _elm_lang$html$Html$text('Résumé'),
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$html$Html$text('Experiments'),
+							_1: {ctor: '[]'}
+						}
 					}
 				},
 				_1: {

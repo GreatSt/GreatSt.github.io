@@ -14,7 +14,7 @@ cvGrid : Model -> Html Msg
 cvGrid model =
     grid []
         [ cell [ size All 12, css "text-align" "center" ]
-            [ h1 [] [ text "To be continued..." ] ]
+            [ h1 [] [ text "W.I.P." ] ]
         , cell
             (bStyle
                 [ size Desktop 4
@@ -34,7 +34,7 @@ cvGrid model =
                     ]
 
                 _ ->
-                    [ h2 [] [ text "Eduacation" ]
+                    [ schoolIntroText
                     , moreInfoButton model <| School 0
                     ]
         , cell
@@ -46,7 +46,7 @@ cvGrid model =
             )
           <|
             if model.selectedMore /= Work then
-                [ h2 [] [ text "Work Experience" ]
+                [ workIntroText
                 , moreInfoButton model Work
                 ]
             else
@@ -62,15 +62,15 @@ cvGrid model =
             )
           <|
             if model.selectedMore /= Skills then
-                [ h2 [] [ text "Software Skills" ]
+                [ swSkillIntroText
                 , moreInfoButton model Skills
                 ]
             else
-                [ softwareSkillButton
+                [ softwareSkillText
                 , backButton model
                 ]
         , cell (bStyle [ size Desktop 4, size Tablet 4, size Phone 4 ])
-            [ h4 [] [ text "Interests" ]
+            [ h3 [] [ text "Interests" ]
             , text <|
                 "I have a wide area of interests at the moment from "
                     ++ "functional programming to algorithms about machine "
@@ -86,7 +86,7 @@ cvGrid model =
             )
           <|
             if model.selectedMore /= Teaching then
-                [ h2 [] [ text "Teaching" ]
+                [ teachingIntroText
                 , moreInfoButton model Teaching
                 ]
             else
@@ -94,7 +94,7 @@ cvGrid model =
                 , backButton model
                 ]
         , cell (bStyle [ size Desktop 4, size Tablet 4, size Phone 4 ])
-            [ h4 [] [ text "Public Projects" ]
+            [ h3 [] [ text "Public Projects" ]
             , text "2016:"
             , br [] []
             , text "Chalmers Bachelor Thesis ("
@@ -105,7 +105,7 @@ cvGrid model =
             , text "Abstract Visualization of Algorithms and Data Structures"
             ]
         , cell (bStyle [ size All 12 ])
-            [ h4 [] [ text "Communication Skills" ]
+            [ h3 [] [ text "Communication Skills" ]
             , text "Native: Swedish"
             , br [] []
             , text "Advanced: English"
@@ -159,10 +159,22 @@ bStyle more =
         , css "background-color" "#DDDDDD"
         , css "height" "230px"
         , css "padding-left" "8px"
-        , css "padding-top" "20px"
+        , css "padding-top" "10px"
         , css "text-align" "center"
         ]
         more
+
+
+schoolIntroText : Html Msg
+schoolIntroText =
+    div []
+        [ h3 [] [ text "Eduacation" ]
+        , p []
+            [ text "Chalmers – Master of Science in Computer Science"
+            , br [] []
+            , text "High school – Matematisk spetsutbildning Leonardo"
+            ]
+        ]
 
 
 schoolText : Int -> Html Msg
@@ -210,6 +222,18 @@ schoolText3 =
         ]
 
 
+workIntroText : Html Msg
+workIntroText =
+    div []
+        [ h3 [] [ text "Work Experience" ]
+        , p []
+            [ text "Distributed System Programmer – FCC"
+            , br [] []
+            , text "Mobile Game Programmer – Zogaj Memo Gym"
+            ]
+        ]
+
+
 workText : Html Msg
 workText =
     div []
@@ -242,8 +266,20 @@ workText =
         ]
 
 
-softwareSkillButton : Html msg
-softwareSkillButton =
+swSkillIntroText : Html msg
+swSkillIntroText =
+    div []
+        [ h3 [] [ text "Software Skills" ]
+        , h6 []
+            [ text "Favorite languages:"
+            , br [] []
+            , i [] [ text "Rust, Elm, Scala" ]
+            ]
+        ]
+
+
+softwareSkillText : Html msg
+softwareSkillText =
     div []
         [ p [] [ b [] [ text "Advanced:" ] ]
         , text "Java"
@@ -263,6 +299,18 @@ softwareSkillButton =
                 ++ "iOS, Javascript, JSON, Kotlin, Linux, MacOS, "
                 ++ "Mathematica, MATLAB, MySQL, PHP, Python, Rust, "
                 ++ "Unity 3D, Windows"
+        ]
+
+
+teachingIntroText : Html msg
+teachingIntroText =
+    div []
+        [ h3 [] [ text "Teaching" ]
+        , h6 []
+            [ text "Mentor in Mathematics – Intize"
+            , br [] []
+            , text "Programming Teacher – Galären"
+            ]
         ]
 
 
