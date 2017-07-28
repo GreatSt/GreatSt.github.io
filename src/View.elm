@@ -1,12 +1,13 @@
 module View exposing (view)
 
+import BoxAnimation
 import Html exposing (..)
 import Html.Attributes exposing (class, href, style)
-import Material.Options as Options exposing (css)
 import Material
 import Material.Button as Button
 import Material.Color as Color
 import Material.Layout as Layout
+import Material.Options as Options exposing (css)
 import Model exposing (..)
 import CvView exposing (..)
 import UpdateMsg exposing (..)
@@ -58,7 +59,10 @@ viewBody model =
             cvGrid model
 
         2 ->
-            h1 [] [ text "To be continued..." ]
+            div []
+                [ h1 [] [ text "To be continued..." ]
+                , BoxAnimation.view model.boxModel UpdateMsg.BoxAnim
+                ]
 
         _ ->
             h1 [] [ text "404" ]

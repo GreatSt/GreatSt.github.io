@@ -1,5 +1,6 @@
 module UpdateMsg exposing (..)
 
+import BoxAnimation
 import Material
 import Model exposing (..)
 import Navigation exposing (newUrl)
@@ -10,6 +11,7 @@ type Msg
     | Reset
     | SelectTab Int
     | Mdl (Material.Msg Msg)
+    | BoxAnim BoxAnimation.Msg
     | GoTo (Maybe Page)
     | ShowMore Info
 
@@ -31,10 +33,6 @@ update msg model =
             , Cmd.none
             )
 
-        -- Boilerplate: Mdl action handler.
-        Mdl msg_ ->
-            Material.update Mdl msg_ model
-
         SelectTab num ->
             { model | selectedTab = num } ! [ newUrl <| "#" ++ (toString num) ]
 
@@ -52,3 +50,9 @@ update msg model =
 
         ShowMore m ->
             ( { model | selectedMore = m }, Cmd.none )
+
+        Mdl msg_ ->
+            Material.update Mdl msg_ model
+
+        BoxAnim boxMsg ->
+            ( { model | boxModel = BoxAnimation.update boxMsg model.boxModel }, Cmd.none )

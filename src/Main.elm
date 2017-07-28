@@ -5,6 +5,7 @@ import View exposing (..)
 import UpdateMsg exposing (..)
 import UrlParser exposing (..)
 import Navigation exposing (..)
+import BoxAnimation as Box
 
 
 main : Program Never Model Msg
@@ -12,8 +13,8 @@ main =
     Navigation.program locFor
         { init = \location -> ( init location, Cmd.none )
         , view = view
-        , subscriptions = always Sub.none
         , update = update
+        , subscriptions = \m -> Box.subscriptions m.boxModel UpdateMsg.BoxAnim
         }
 
 

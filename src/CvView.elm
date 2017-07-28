@@ -157,7 +157,7 @@ bStyle more =
         [ css "text-sizing" "border-box"
         , css "overflow" "auto"
         , css "background-color" "#DDDDDD"
-        , css "height" "230px"
+        , css "height" "250px"
         , css "padding-left" "8px"
         , css "padding-top" "10px"
         , css "text-align" "center"
@@ -172,7 +172,7 @@ schoolIntroText =
         , p []
             [ text "Chalmers – Master of Science in Computer Science"
             , br [] []
-            , text "High school – Matematisk spetsutbildning Leonardo"
+            , text "Matematisk spetsutbildning Leonardo"
             ]
         ]
 

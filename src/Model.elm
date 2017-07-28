@@ -1,15 +1,15 @@
 module Model exposing (..)
 
+import BoxAnimation
 import Material
 
 
 type alias Model =
     { count : Int
-    , mdl :
-        Material.Model
-        -- Boilerplate: model store for any and all Mdl components you use.
+    , mdl : Material.Model
     , selectedTab : Int
     , selectedMore : Info
+    , boxModel : BoxAnimation.Model
     }
 
 
@@ -24,9 +24,8 @@ type Info
 initModel : Int -> Model
 initModel tabID =
     { count = 0
-    , mdl =
-        Material.model
-        -- Boilerplate: Always use this initial Mdl model store.
+    , mdl = Material.model
     , selectedTab = tabID
     , selectedMore = None
+    , boxModel = BoxAnimation.initModel
     }
