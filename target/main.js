@@ -23898,7 +23898,7 @@ var _simsmith$doesnotexist$View$view = function (model) {
 						_0: _elm_lang$html$Html$text('Résumé'),
 						_1: {
 							ctor: '::',
-							_0: _elm_lang$html$Html$text('Experiments'),
+							_0: _elm_lang$html$Html$text('Extra'),
 							_1: {ctor: '[]'}
 						}
 					}
@@ -23944,16 +23944,30 @@ var _simsmith$doesnotexist$Main$main = A2(
 	_simsmith$doesnotexist$Main$locFor,
 	{
 		init: function (location) {
+			var model = _simsmith$doesnotexist$Main$init(location);
 			return {
 				ctor: '_Tuple2',
-				_0: _simsmith$doesnotexist$Main$init(location),
-				_1: _elm_lang$core$Platform_Cmd$none
+				_0: _elm_lang$core$Native_Utils.update(
+					model,
+					{
+						mdl: A2(_debois$elm_mdl$Material_Layout$setTabsWidth, 240, model.mdl)
+					}),
+				_1: _debois$elm_mdl$Material_Layout$sub0(_simsmith$doesnotexist$UpdateMsg$Mdl)
 			};
 		},
 		view: _simsmith$doesnotexist$View$view,
 		update: _simsmith$doesnotexist$UpdateMsg$update,
-		subscriptions: function (m) {
-			return A2(_simsmith$doesnotexist$BoxAnimation$subscriptions, m.boxModel, _simsmith$doesnotexist$UpdateMsg$BoxAnim);
+		subscriptions: function (model) {
+			return _elm_lang$core$Platform_Sub$batch(
+				{
+					ctor: '::',
+					_0: A2(_debois$elm_mdl$Material_Layout$subs, _simsmith$doesnotexist$UpdateMsg$Mdl, model.mdl),
+					_1: {
+						ctor: '::',
+						_0: A2(_simsmith$doesnotexist$BoxAnimation$subscriptions, model.boxModel, _simsmith$doesnotexist$UpdateMsg$BoxAnim),
+						_1: {ctor: '[]'}
+					}
+				});
 		}
 	})();
 

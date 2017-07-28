@@ -38,7 +38,7 @@ view model =
             ]
         , drawer = []
         , tabs =
-            ( [ text "Main", text "Résumé", text "Experiments" ]
+            ( [ text "Main", text "Résumé", text "Extra" ]
             , [ Color.background (Color.color Color.DeepOrange Color.S400) ]
             )
         , main = [ viewBody model ]

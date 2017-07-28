@@ -5,16 +5,33 @@ import View exposing (..)
 import UpdateMsg exposing (..)
 import UrlParser exposing (..)
 import Navigation exposing (..)
+import Material.Layout as Layout
 import BoxAnimation as Box
 
 
 main : Program Never Model Msg
 main =
     Navigation.program locFor
-        { init = \location -> ( init location, Cmd.none )
+        { init =
+            \location ->
+                let
+                    model =
+                        init location
+                in
+                    ( { model
+                        -- tab width of 240 is an empirical value
+                        | mdl = Layout.setTabsWidth 240 model.mdl
+                      }
+                    , Layout.sub0 Mdl
+                    )
         , view = view
         , update = update
-        , subscriptions = \m -> Box.subscriptions m.boxModel UpdateMsg.BoxAnim
+        , subscriptions =
+            \model ->
+                Sub.batch
+                    [ Layout.subs Mdl model.mdl
+                    , Box.subscriptions model.boxModel UpdateMsg.BoxAnim
+                    ]
         }
 
 
