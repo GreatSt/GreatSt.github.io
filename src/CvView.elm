@@ -2,117 +2,130 @@ module CvView exposing (..)
 
 import Array
 import Html exposing (..)
-import Html.Attributes exposing (attribute, href)
+import Html.Attributes exposing (attribute, href, style)
 import Material.Button as Button
 import Material.Grid exposing (Device(..), cell, grid, offset, size)
 import Material.Options as Options exposing (css)
 import Model exposing (..)
+import TeachingView
 import UpdateMsg exposing (..)
+
+
+cvView : Model -> Html Msg
+cvView model =
+    case model.selectedMore of
+        Teaching job ->
+            TeachingView.teachView model job
+
+        _ ->
+            cvGrid model
 
 
 cvGrid : Model -> Html Msg
 cvGrid model =
-    grid []
-        [ cell [ size All 12, css "text-align" "center" ]
-            [ h1 [] [ text "W.I.P." ] ]
-        , cell
+    let
+        cellStyle action =
             (bStyle
                 [ size Desktop 4
                 , size Tablet 4
                 , size Phone 4
+                , Options.onClick <| ShowMore action
                 ]
             )
-          <|
-            case model.selectedMore of
-                School n ->
-                    [ schoolText n
-                    , div []
-                        [ arrowButton ((n - 1) % 3) "<" model
-                        , backButton model
-                        , arrowButton ((n + 1) % 3) ">" model
-                        ]
-                    ]
 
-                _ ->
-                    [ schoolIntroText
-                    , moreInfoButton model <| School 0
+        guiPressGuide str =
+            p [ style [ ( "color", "#AAAAAA" ) ] ]
+                [ text str ]
+    in
+        grid []
+            [ cell [ size All 12, css "text-align" "center" ]
+                [ h1 [] [ text "W.I.P." ] ]
+            , cell
+                (bStyle
+                    [ size Desktop 4
+                    , size Tablet 4
+                    , size Phone 4
                     ]
-        , cell
-            (bStyle
-                [ size Desktop 4
-                , size Tablet 4
-                , size Phone 4
+                )
+              <|
+                case model.selectedMore of
+                    School n ->
+                        [ schoolText n
+                        , div []
+                            [ arrowButton ((n - 1) % 3) "<" model
+                            , backButton model
+                            , arrowButton ((n + 1) % 3) ">" model
+                            ]
+                        ]
+
+                    _ ->
+                        [ schoolIntroText
+                        , moreInfoButton model <| School 0
+                        ]
+            , cell
+                (bStyle
+                    [ size Desktop 4
+                    , size Tablet 4
+                    , size Phone 4
+                    ]
+                )
+              <|
+                if model.selectedMore /= Work then
+                    [ workIntroText
+                    , moreInfoButton model Work
+                    ]
+                else
+                    [ workText
+                    , backButton model
+                    ]
+            , if model.selectedMore /= Skills then
+                cell (cellStyle Skills) <|
+                    [ swSkillIntroText
+                    , guiPressGuide "(press me)"
+                    ]
+              else
+                cell (cellStyle None) <|
+                    [ softwareSkillText
+                    , guiPressGuide "(press to return)"
+                    ]
+            , cell (bStyle [ size Desktop 4, size Tablet 4, size Phone 4 ])
+                [ h3 [] [ text "Interests" ]
+                , text <|
+                    "I have a wide area of interests at the moment from "
+                        ++ "functional programming to algorithms about machine "
+                        ++ "learning or computer graphics. But whatevery I do, "
+                        ++ "there is always a part about creative problem solving."
                 ]
-            )
-          <|
-            if model.selectedMore /= Work then
-                [ workIntroText
-                , moreInfoButton model Work
+            , if model.selectedMore /= Teaching AllT then
+                cell (cellStyle <| Teaching AllT)
+                    [ teachingIntroText
+                    , guiPressGuide "(press me)"
+                    ]
+              else
+                cell (cellStyle None)
+                    [ teachingText
+                    , guiPressGuide "(press to return)"
+                    ]
+            , cell (bStyle [ size Desktop 4, size Tablet 4, size Phone 4 ])
+                [ h3 [] [ text "Public Projects" ]
+                , text "2016:"
+                , br [] []
+                , text "Chalmers Bachelor Thesis ("
+                , a [ href "http://www.lib.chalmers.se/en/publishing/to-publish/student-theses/" ]
+                    [ text "lib.chalmers.se" ]
+                , text ")"
+                , br [] []
+                , text "Abstract Visualization of Algorithms and Data Structures"
                 ]
-            else
-                [ workText
-                , backButton model
+            , cell (bStyle [ size All 12 ])
+                [ h3 [] [ text "Communication Skills" ]
+                , text "Native: Swedish"
+                , br [] []
+                , text "Advanced: English"
+                , br [] []
+                , text "Forgotten: Germany"
                 ]
-        , cell
-            (bStyle
-                [ size Desktop 4
-                , size Tablet 4
-                , size Phone 4
-                ]
-            )
-          <|
-            if model.selectedMore /= Skills then
-                [ swSkillIntroText
-                , moreInfoButton model Skills
-                ]
-            else
-                [ softwareSkillText
-                , backButton model
-                ]
-        , cell (bStyle [ size Desktop 4, size Tablet 4, size Phone 4 ])
-            [ h3 [] [ text "Interests" ]
-            , text <|
-                "I have a wide area of interests at the moment from "
-                    ++ "functional programming to algorithms about machine "
-                    ++ "learning or computer graphics. But whatevery I do, "
-                    ++ "there is always a part about creative problem solving."
             ]
-        , cell
-            (bStyle
-                [ size Desktop 4
-                , size Tablet 4
-                , size Phone 4
-                ]
-            )
-          <|
-            if model.selectedMore /= Teaching then
-                [ teachingIntroText
-                , moreInfoButton model Teaching
-                ]
-            else
-                [ teachingText
-                , backButton model
-                ]
-        , cell (bStyle [ size Desktop 4, size Tablet 4, size Phone 4 ])
-            [ h3 [] [ text "Public Projects" ]
-            , text "2016:"
-            , br [] []
-            , text "Chalmers Bachelor Thesis ("
-            , a [ href "http://www.lib.chalmers.se/en/publishing/to-publish/student-theses/" ]
-                [ text "lib.chalmers.se" ]
-            , text ")"
-            , br [] []
-            , text "Abstract Visualization of Algorithms and Data Structures"
-            ]
-        , cell (bStyle [ size All 12 ])
-            [ h3 [] [ text "Communication Skills" ]
-            , text "Native: Swedish"
-            , br [] []
-            , text "Advanced: English"
-            , br [] []
-            , text "Forgotten: Germany"
-            ]
-        ]
 
 
 moreInfoButton : Model -> Info -> Html Msg

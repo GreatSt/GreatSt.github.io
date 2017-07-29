@@ -22327,7 +22327,9 @@ var _simsmith$doesnotexist$Model$Model = F5(
 	function (a, b, c, d, e) {
 		return {count: a, mdl: b, selectedTab: c, selectedMore: d, boxModel: e};
 	});
-var _simsmith$doesnotexist$Model$Teaching = {ctor: 'Teaching'};
+var _simsmith$doesnotexist$Model$Teaching = function (a) {
+	return {ctor: 'Teaching', _0: a};
+};
 var _simsmith$doesnotexist$Model$Skills = {ctor: 'Skills'};
 var _simsmith$doesnotexist$Model$Work = {ctor: 'Work'};
 var _simsmith$doesnotexist$Model$School = function (a) {
@@ -22337,6 +22339,10 @@ var _simsmith$doesnotexist$Model$None = {ctor: 'None'};
 var _simsmith$doesnotexist$Model$initModel = function (tabID) {
 	return {count: 0, mdl: _debois$elm_mdl$Material$model, selectedTab: tabID, selectedMore: _simsmith$doesnotexist$Model$None, boxModel: _simsmith$doesnotexist$BoxAnimation$initModel};
 };
+var _simsmith$doesnotexist$Model$Galaren = {ctor: 'Galaren'};
+var _simsmith$doesnotexist$Model$SI = {ctor: 'SI'};
+var _simsmith$doesnotexist$Model$Intize = {ctor: 'Intize'};
+var _simsmith$doesnotexist$Model$AllT = {ctor: 'AllT'};
 
 var _simsmith$doesnotexist$UpdateMsg$ShowMore = function (a) {
 	return {ctor: 'ShowMore', _0: a};
@@ -22435,6 +22441,351 @@ var _simsmith$doesnotexist$UpdateMsg$Increase = {ctor: 'Increase'};
 var _simsmith$doesnotexist$UpdateMsg$Tab = function (a) {
 	return {ctor: 'Tab', _0: a};
 };
+
+var _simsmith$doesnotexist$TeachingView$headerCell = F4(
+	function (job, place, period, role) {
+		return A2(
+			_debois$elm_mdl$Material_Grid$cell,
+			{
+				ctor: '::',
+				_0: A2(_debois$elm_mdl$Material_Grid$offset, _debois$elm_mdl$Material_Grid$Desktop, 4),
+				_1: {
+					ctor: '::',
+					_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Desktop, 4),
+					_1: {
+						ctor: '::',
+						_0: _debois$elm_mdl$Material_Options$onClick(
+							_simsmith$doesnotexist$UpdateMsg$ShowMore(
+								_simsmith$doesnotexist$Model$Teaching(job))),
+						_1: {
+							ctor: '::',
+							_0: A2(_debois$elm_mdl$Material_Options$css, 'text-sizing', 'border-box'),
+							_1: {
+								ctor: '::',
+								_0: A2(_debois$elm_mdl$Material_Options$css, 'overflow', 'auto'),
+								_1: {
+									ctor: '::',
+									_0: A2(_debois$elm_mdl$Material_Options$css, 'background-color', '#DDDDE5'),
+									_1: {
+										ctor: '::',
+										_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-left', '8px'),
+										_1: {
+											ctor: '::',
+											_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-top', '10px'),
+											_1: {
+												ctor: '::',
+												_0: A2(_debois$elm_mdl$Material_Options$css, 'text-align', 'center'),
+												_1: {ctor: '[]'}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			{
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$h4,
+					{ctor: '[]'},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text(place),
+						_1: {ctor: '[]'}
+					}),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$p,
+						{ctor: '[]'},
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html$text(period),
+							_1: {ctor: '[]'}
+						}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$h5,
+							{ctor: '[]'},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text(role),
+								_1: {ctor: '[]'}
+							}),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$p,
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$style(
+										{
+											ctor: '::',
+											_0: {ctor: '_Tuple2', _0: 'color', _1: '#AAAAAA'},
+											_1: {ctor: '[]'}
+										}),
+									_1: {ctor: '[]'}
+								},
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html$text('(press me)'),
+									_1: {ctor: '[]'}
+								}),
+							_1: {ctor: '[]'}
+						}
+					}
+				}
+			});
+	});
+var _simsmith$doesnotexist$TeachingView$galarenCell = A4(_simsmith$doesnotexist$TeachingView$headerCell, _simsmith$doesnotexist$Model$Galaren, 'Galären (AcadeMedia Fria Grundskolor), Karskrona', 'April 2013 – May 2013', 'Programming teacher');
+var _simsmith$doesnotexist$TeachingView$siCell = A4(_simsmith$doesnotexist$TeachingView$headerCell, _simsmith$doesnotexist$Model$SI, 'Chalmers University of Technology, Gothenburg', 'August 2014 – November 2014', 'Supplementary Instructor (SI leader)');
+var _simsmith$doesnotexist$TeachingView$intizeCell = A4(_simsmith$doesnotexist$TeachingView$headerCell, _simsmith$doesnotexist$Model$Intize, 'Intize, Gothenburg', 'October 2016 – May 2017', 'Intize Mentor');
+var _simsmith$doesnotexist$TeachingView$tBackButton = function (model) {
+	return A5(
+		_debois$elm_mdl$Material_Button$render,
+		_simsmith$doesnotexist$UpdateMsg$Mdl,
+		{
+			ctor: '::',
+			_0: 3,
+			_1: {ctor: '[]'}
+		},
+		model.mdl,
+		{
+			ctor: '::',
+			_0: _debois$elm_mdl$Material_Options$onClick(
+				_simsmith$doesnotexist$UpdateMsg$ShowMore(_simsmith$doesnotexist$Model$None)),
+			_1: {
+				ctor: '::',
+				_0: _debois$elm_mdl$Material_Button$raised,
+				_1: {ctor: '[]'}
+			}
+		},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html$text('Back'),
+			_1: {ctor: '[]'}
+		});
+};
+var _simsmith$doesnotexist$TeachingView$jobView = F4(
+	function (period, place, role, body) {
+		return A2(
+			_debois$elm_mdl$Material_Grid$grid,
+			{ctor: '[]'},
+			{
+				ctor: '::',
+				_0: A2(
+					_debois$elm_mdl$Material_Grid$cell,
+					{
+						ctor: '::',
+						_0: A2(_debois$elm_mdl$Material_Grid$offset, _debois$elm_mdl$Material_Grid$Desktop, 4),
+						_1: {
+							ctor: '::',
+							_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Desktop, 4),
+							_1: {
+								ctor: '::',
+								_0: _debois$elm_mdl$Material_Options$onClick(
+									_simsmith$doesnotexist$UpdateMsg$ShowMore(
+										_simsmith$doesnotexist$Model$Teaching(_simsmith$doesnotexist$Model$AllT))),
+								_1: {
+									ctor: '::',
+									_0: A2(_debois$elm_mdl$Material_Options$css, 'text-sizing', 'border-box'),
+									_1: {
+										ctor: '::',
+										_0: A2(_debois$elm_mdl$Material_Options$css, 'overflow', 'auto'),
+										_1: {
+											ctor: '::',
+											_0: A2(_debois$elm_mdl$Material_Options$css, 'background-color', '#DDDDEE'),
+											_1: {
+												ctor: '::',
+												_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-left', '8px'),
+												_1: {
+													ctor: '::',
+													_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-top', '10px'),
+													_1: {
+														ctor: '::',
+														_0: A2(_debois$elm_mdl$Material_Options$css, 'text-align', 'center'),
+														_1: {ctor: '[]'}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					{
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$p,
+							{ctor: '[]'},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text(period),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_elm_lang$html$Html$br,
+										{ctor: '[]'},
+										{ctor: '[]'}),
+									_1: {
+										ctor: '::',
+										_0: _elm_lang$html$Html$text(place),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_elm_lang$html$Html$br,
+												{ctor: '[]'},
+												{ctor: '[]'}),
+											_1: {
+												ctor: '::',
+												_0: _elm_lang$html$Html$text(role),
+												_1: {ctor: '[]'}
+											}
+										}
+									}
+								}
+							}),
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$html$Html$text(body),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$p,
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$style(
+											{
+												ctor: '::',
+												_0: {ctor: '_Tuple2', _0: 'color', _1: '#AAAAAA'},
+												_1: {ctor: '[]'}
+											}),
+										_1: {ctor: '[]'}
+									},
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html$text('(press to return)'),
+										_1: {ctor: '[]'}
+									}),
+								_1: {ctor: '[]'}
+							}
+						}
+					}),
+				_1: {ctor: '[]'}
+			});
+	});
+var _simsmith$doesnotexist$TeachingView$galarenView = A4(
+	_simsmith$doesnotexist$TeachingView$jobView,
+	'April 2013 – May 2013',
+	'Galären (AcadeMedia Fria Grundskolor), Karskrona',
+	'Programming teacher',
+	A2(
+		_elm_lang$core$Basics_ops['++'],
+		'Teaching programming to curious kids from 12 to 16 years ',
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			'old. Got recommended by a math teacher as a talented ',
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				'guy and someone with spare time. All the pupils wished ',
+				A2(_elm_lang$core$Basics_ops['++'], 'to try programming as a voluntary subject in the end ', 'of the school year and I made that possible.')))));
+var _simsmith$doesnotexist$TeachingView$siView = A4(
+	_simsmith$doesnotexist$TeachingView$jobView,
+	'August 2014 – November 2014',
+	'Chalmers University of Technology, Gothenburg',
+	'Supplementary Instructor (SI leader)',
+	A2(_elm_lang$core$Basics_ops['++'], 'A leader of SI (supplemental instruction) in linear algebra ', 'at Chalmers.'));
+var _simsmith$doesnotexist$TeachingView$intizeView = A4(
+	_simsmith$doesnotexist$TeachingView$jobView,
+	'October 2016 – May 2017',
+	'Intize, Gothenburg',
+	'Intize Mentor',
+	A2(
+		_elm_lang$core$Basics_ops['++'],
+		'Intize is a non-profit organisation that provides mentorship ',
+		A2(_elm_lang$core$Basics_ops['++'], 'in mathematics. I am one of these voluntary mentors ', 'and together we work towards a more educated world.')));
+var _simsmith$doesnotexist$TeachingView$overview = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: A2(
+				_debois$elm_mdl$Material_Grid$grid,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: A2(
+						_debois$elm_mdl$Material_Grid$cell,
+						{
+							ctor: '::',
+							_0: A2(_debois$elm_mdl$Material_Grid$offset, _debois$elm_mdl$Material_Grid$Desktop, 4),
+							_1: {
+								ctor: '::',
+								_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Desktop, 4),
+								_1: {
+									ctor: '::',
+									_0: A2(_debois$elm_mdl$Material_Options$css, 'text-sizing', 'border-box'),
+									_1: {
+										ctor: '::',
+										_0: A2(_debois$elm_mdl$Material_Options$css, 'overflow', 'auto'),
+										_1: {
+											ctor: '::',
+											_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-bottom', '2px'),
+											_1: {
+												ctor: '::',
+												_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-top', '10px'),
+												_1: {
+													ctor: '::',
+													_0: A2(_debois$elm_mdl$Material_Options$css, 'text-align', 'center'),
+													_1: {ctor: '[]'}
+												}
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							ctor: '::',
+							_0: _simsmith$doesnotexist$TeachingView$tBackButton(model),
+							_1: {ctor: '[]'}
+						}),
+					_1: {
+						ctor: '::',
+						_0: _simsmith$doesnotexist$TeachingView$intizeCell,
+						_1: {
+							ctor: '::',
+							_0: _simsmith$doesnotexist$TeachingView$siCell,
+							_1: {
+								ctor: '::',
+								_0: _simsmith$doesnotexist$TeachingView$galarenCell,
+								_1: {ctor: '[]'}
+							}
+						}
+					}
+				}),
+			_1: {ctor: '[]'}
+		});
+};
+var _simsmith$doesnotexist$TeachingView$teachView = F2(
+	function (model, job) {
+		var _p0 = job;
+		switch (_p0.ctor) {
+			case 'Intize':
+				return _simsmith$doesnotexist$TeachingView$intizeView;
+			case 'SI':
+				return _simsmith$doesnotexist$TeachingView$siView;
+			case 'Galaren':
+				return _simsmith$doesnotexist$TeachingView$galarenView;
+			default:
+				return _simsmith$doesnotexist$TeachingView$overview(model);
+		}
+	});
 
 var _simsmith$doesnotexist$CvView$teachingText = A2(
 	_elm_lang$html$Html$div,
@@ -23256,6 +23607,46 @@ var _simsmith$doesnotexist$CvView$moreInfoButton = F2(
 			});
 	});
 var _simsmith$doesnotexist$CvView$cvGrid = function (model) {
+	var guiPressGuide = function (str) {
+		return A2(
+			_elm_lang$html$Html$p,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$style(
+					{
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'color', _1: '#AAAAAA'},
+						_1: {ctor: '[]'}
+					}),
+				_1: {ctor: '[]'}
+			},
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html$text(str),
+				_1: {ctor: '[]'}
+			});
+	};
+	var cellStyle = function (action) {
+		return _simsmith$doesnotexist$CvView$bStyle(
+			{
+				ctor: '::',
+				_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Desktop, 4),
+				_1: {
+					ctor: '::',
+					_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Tablet, 4),
+					_1: {
+						ctor: '::',
+						_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Phone, 4),
+						_1: {
+							ctor: '::',
+							_0: _debois$elm_mdl$Material_Options$onClick(
+								_simsmith$doesnotexist$UpdateMsg$ShowMore(action)),
+							_1: {ctor: '[]'}
+						}
+					}
+				}
+			});
+	};
 	return A2(
 		_debois$elm_mdl$Material_Grid$grid,
 		{ctor: '[]'},
@@ -23390,36 +23781,26 @@ var _simsmith$doesnotexist$CvView$cvGrid = function (model) {
 						}),
 					_1: {
 						ctor: '::',
-						_0: A2(
+						_0: (!_elm_lang$core$Native_Utils.eq(model.selectedMore, _simsmith$doesnotexist$Model$Skills)) ? A2(
 							_debois$elm_mdl$Material_Grid$cell,
-							_simsmith$doesnotexist$CvView$bStyle(
-								{
-									ctor: '::',
-									_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Desktop, 4),
-									_1: {
-										ctor: '::',
-										_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Tablet, 4),
-										_1: {
-											ctor: '::',
-											_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Phone, 4),
-											_1: {ctor: '[]'}
-										}
-									}
-								}),
-							(!_elm_lang$core$Native_Utils.eq(model.selectedMore, _simsmith$doesnotexist$Model$Skills)) ? {
+							cellStyle(_simsmith$doesnotexist$Model$Skills),
+							{
 								ctor: '::',
 								_0: _simsmith$doesnotexist$CvView$swSkillIntroText,
 								_1: {
 									ctor: '::',
-									_0: A2(_simsmith$doesnotexist$CvView$moreInfoButton, model, _simsmith$doesnotexist$Model$Skills),
+									_0: guiPressGuide('(press me)'),
 									_1: {ctor: '[]'}
 								}
-							} : {
+							}) : A2(
+							_debois$elm_mdl$Material_Grid$cell,
+							cellStyle(_simsmith$doesnotexist$Model$None),
+							{
 								ctor: '::',
 								_0: _simsmith$doesnotexist$CvView$softwareSkillText,
 								_1: {
 									ctor: '::',
-									_0: _simsmith$doesnotexist$CvView$backButton(model),
+									_0: guiPressGuide('(press to return)'),
 									_1: {ctor: '[]'}
 								}
 							}),
@@ -23466,36 +23847,29 @@ var _simsmith$doesnotexist$CvView$cvGrid = function (model) {
 								}),
 							_1: {
 								ctor: '::',
-								_0: A2(
+								_0: (!_elm_lang$core$Native_Utils.eq(
+									model.selectedMore,
+									_simsmith$doesnotexist$Model$Teaching(_simsmith$doesnotexist$Model$AllT))) ? A2(
 									_debois$elm_mdl$Material_Grid$cell,
-									_simsmith$doesnotexist$CvView$bStyle(
-										{
-											ctor: '::',
-											_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Desktop, 4),
-											_1: {
-												ctor: '::',
-												_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Tablet, 4),
-												_1: {
-													ctor: '::',
-													_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Phone, 4),
-													_1: {ctor: '[]'}
-												}
-											}
-										}),
-									(!_elm_lang$core$Native_Utils.eq(model.selectedMore, _simsmith$doesnotexist$Model$Teaching)) ? {
+									cellStyle(
+										_simsmith$doesnotexist$Model$Teaching(_simsmith$doesnotexist$Model$AllT)),
+									{
 										ctor: '::',
 										_0: _simsmith$doesnotexist$CvView$teachingIntroText,
 										_1: {
 											ctor: '::',
-											_0: A2(_simsmith$doesnotexist$CvView$moreInfoButton, model, _simsmith$doesnotexist$Model$Teaching),
+											_0: guiPressGuide('(press me)'),
 											_1: {ctor: '[]'}
 										}
-									} : {
+									}) : A2(
+									_debois$elm_mdl$Material_Grid$cell,
+									cellStyle(_simsmith$doesnotexist$Model$None),
+									{
 										ctor: '::',
 										_0: _simsmith$doesnotexist$CvView$teachingText,
 										_1: {
 											ctor: '::',
-											_0: _simsmith$doesnotexist$CvView$backButton(model),
+											_0: guiPressGuide('(press to return)'),
 											_1: {ctor: '[]'}
 										}
 									}),
@@ -23631,6 +24005,14 @@ var _simsmith$doesnotexist$CvView$cvGrid = function (model) {
 				}
 			}
 		});
+};
+var _simsmith$doesnotexist$CvView$cvView = function (model) {
+	var _p3 = model.selectedMore;
+	if (_p3.ctor === 'Teaching') {
+		return A2(_simsmith$doesnotexist$TeachingView$teachView, model, _p3._0);
+	} else {
+		return _simsmith$doesnotexist$CvView$cvGrid(model);
+	}
 };
 
 var _simsmith$doesnotexist$View$margin = F2(
@@ -23803,7 +24185,7 @@ var _simsmith$doesnotexist$View$viewBody = function (model) {
 					}
 				});
 		case 1:
-			return _simsmith$doesnotexist$CvView$cvGrid(model);
+			return _simsmith$doesnotexist$CvView$cvView(model);
 		case 2:
 			return A2(
 				_elm_lang$html$Html$div,

@@ -1,6 +1,7 @@
 module View exposing (view)
 
 import BoxAnimation
+import CvView exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (class, href, style)
 import Material
@@ -9,7 +10,6 @@ import Material.Color as Color
 import Material.Layout as Layout
 import Material.Options as Options exposing (css)
 import Model exposing (..)
-import CvView exposing (..)
 import UpdateMsg exposing (..)
 
 
@@ -56,7 +56,7 @@ viewBody model =
                 ]
 
         1 ->
-            cvGrid model
+            cvView model
 
         2 ->
             div []

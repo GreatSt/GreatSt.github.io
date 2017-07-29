@@ -18,7 +18,14 @@ type Info
     | School Int
     | Work
     | Skills
-    | Teaching
+    | Teaching TeachJob
+
+
+type TeachJob
+    = AllT
+    | Intize
+    | SI
+    | Galaren
 
 
 initModel : Int -> Model
