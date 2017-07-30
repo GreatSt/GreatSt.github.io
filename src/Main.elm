@@ -1,12 +1,13 @@
 module Main exposing (..)
 
+import BoxAnimation as Box
+import Material.Layout as Layout
 import Model exposing (..)
-import View exposing (..)
+import Navigation exposing (..)
+import Transformer as Trans
 import UpdateMsg exposing (..)
 import UrlParser exposing (..)
-import Navigation exposing (..)
-import Material.Layout as Layout
-import BoxAnimation as Box
+import View exposing (..)
 
 
 main : Program Never Model Msg
@@ -31,6 +32,7 @@ main =
                 Sub.batch
                     [ Layout.subs Mdl model.mdl
                     , Box.subscriptions model.boxModel UpdateMsg.BoxAnim
+                    , Trans.subscriptions model.boxTransModel UpdateMsg.BoxTrans
                     ]
         }
 

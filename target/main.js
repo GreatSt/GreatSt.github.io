@@ -22198,6 +22198,14 @@ var _mdgriffith$elm_style_animation$Animation$inline = _mdgriffith$elm_style_ani
 var _mdgriffith$elm_style_animation$Animation$None = {ctor: 'None'};
 var _mdgriffith$elm_style_animation$Animation$none = _mdgriffith$elm_style_animation$Animation$None;
 
+var _mdgriffith$elm_style_animation$Animation_Messenger$send = function (msg) {
+	return _mdgriffith$elm_style_animation$Animation_Model$Send(msg);
+};
+var _mdgriffith$elm_style_animation$Animation_Messenger$update = F2(
+	function (tick, animation) {
+		return A2(_mdgriffith$elm_style_animation$Animation_Model$updateAnimation, tick, animation);
+	});
+
 var _simsmith$doesnotexist$BoxAnimation$update = F2(
 	function (action, model) {
 		var easingFun = _mdgriffith$elm_style_animation$Animation$easing(
@@ -22323,9 +22331,255 @@ var _simsmith$doesnotexist$BoxAnimation$view = F2(
 			});
 	});
 
-var _simsmith$doesnotexist$Model$Model = F5(
-	function (a, b, c, d, e) {
-		return {count: a, mdl: b, selectedTab: c, selectedMore: d, boxModel: e};
+var _simsmith$doesnotexist$Transformer$initModel = {
+	style1: _mdgriffith$elm_style_animation$Animation$style(
+		{
+			ctor: '::',
+			_0: _mdgriffith$elm_style_animation$Animation$height(
+				_mdgriffith$elm_style_animation$Animation$px(100)),
+			_1: {ctor: '[]'}
+		}),
+	style2: _mdgriffith$elm_style_animation$Animation$style(
+		{
+			ctor: '::',
+			_0: _mdgriffith$elm_style_animation$Animation$opacity(1.0),
+			_1: {ctor: '[]'}
+		}),
+	isIn: true,
+	newText: false
+};
+var _simsmith$doesnotexist$Transformer$Model = F4(
+	function (a, b, c, d) {
+		return {style1: a, style2: b, isIn: c, newText: d};
+	});
+var _simsmith$doesnotexist$Transformer$Animate = function (a) {
+	return {ctor: 'Animate', _0: a};
+};
+var _simsmith$doesnotexist$Transformer$subscriptions = F2(
+	function (model, msgFn) {
+		return A2(
+			_elm_lang$core$Platform_Sub$map,
+			msgFn,
+			A2(
+				_mdgriffith$elm_style_animation$Animation$subscription,
+				_simsmith$doesnotexist$Transformer$Animate,
+				{
+					ctor: '::',
+					_0: model.style2,
+					_1: {ctor: '[]'}
+				}));
+	});
+var _simsmith$doesnotexist$Transformer$SwitchText = {ctor: 'SwitchText'};
+var _simsmith$doesnotexist$Transformer$update = F2(
+	function (action, model) {
+		var halfSmoothFn = _mdgriffith$elm_style_animation$Animation$easing(
+			{duration: 0.3 * _elm_lang$core$Time$second, ease: _elm_community$easing_functions$Ease$outQuad});
+		var smoothFn = _mdgriffith$elm_style_animation$Animation$easing(
+			{duration: 0.6 * _elm_lang$core$Time$second, ease: _elm_community$easing_functions$Ease$outQuart});
+		var _p0 = action;
+		switch (_p0.ctor) {
+			case 'FancyAnim':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{
+							style1: A2(
+								_mdgriffith$elm_style_animation$Animation$interrupt,
+								{
+									ctor: '::',
+									_0: A2(
+										_mdgriffith$elm_style_animation$Animation$toWith,
+										smoothFn,
+										{
+											ctor: '::',
+											_0: _mdgriffith$elm_style_animation$Animation$height(
+												_mdgriffith$elm_style_animation$Animation$px(
+													model.isIn ? 180 : 100)),
+											_1: {ctor: '[]'}
+										}),
+									_1: {ctor: '[]'}
+								},
+								model.style1),
+							style2: A2(
+								_mdgriffith$elm_style_animation$Animation$interrupt,
+								{
+									ctor: '::',
+									_0: A2(
+										_mdgriffith$elm_style_animation$Animation$toWith,
+										halfSmoothFn,
+										{
+											ctor: '::',
+											_0: _mdgriffith$elm_style_animation$Animation$opacity(0.0),
+											_1: {ctor: '[]'}
+										}),
+									_1: {
+										ctor: '::',
+										_0: _mdgriffith$elm_style_animation$Animation_Messenger$send(_simsmith$doesnotexist$Transformer$SwitchText),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_mdgriffith$elm_style_animation$Animation$toWith,
+												halfSmoothFn,
+												{
+													ctor: '::',
+													_0: _mdgriffith$elm_style_animation$Animation$opacity(1.0),
+													_1: {ctor: '[]'}
+												}),
+											_1: {ctor: '[]'}
+										}
+									}
+								},
+								model.style2),
+							isIn: !model.isIn
+						}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'SwitchText':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{newText: !model.newText}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			default:
+				var _p2 = _p0._0;
+				var _p1 = A2(_mdgriffith$elm_style_animation$Animation_Messenger$update, _p2, model.style2);
+				var newStyle2 = _p1._0;
+				var cmd2 = _p1._1;
+				var newStyle1 = A2(_mdgriffith$elm_style_animation$Animation$update, _p2, model.style1);
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{style1: newStyle1, style2: newStyle2}),
+					_1: cmd2
+				};
+		}
+	});
+var _simsmith$doesnotexist$Transformer$FancyAnim = {ctor: 'FancyAnim'};
+var _simsmith$doesnotexist$Transformer$boxView = F2(
+	function (model, msgFn) {
+		return A2(
+			_debois$elm_mdl$Material_Grid$grid,
+			{ctor: '[]'},
+			{
+				ctor: '::',
+				_0: A2(
+					_debois$elm_mdl$Material_Grid$cell,
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						{
+							ctor: '::',
+							_0: A2(_debois$elm_mdl$Material_Grid$offset, _debois$elm_mdl$Material_Grid$All, 5),
+							_1: {
+								ctor: '::',
+								_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$All, 2),
+								_1: {
+									ctor: '::',
+									_0: A2(_debois$elm_mdl$Material_Options$css, 'text-sizing', 'border-box'),
+									_1: {
+										ctor: '::',
+										_0: A2(_debois$elm_mdl$Material_Options$css, 'overflow', 'auto'),
+										_1: {
+											ctor: '::',
+											_0: A2(_debois$elm_mdl$Material_Options$css, 'background-color', '#50FF50'),
+											_1: {
+												ctor: '::',
+												_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-left', '8px'),
+												_1: {
+													ctor: '::',
+													_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-top', '10px'),
+													_1: {
+														ctor: '::',
+														_0: A2(_debois$elm_mdl$Material_Options$css, 'text-align', 'center'),
+														_1: {
+															ctor: '::',
+															_0: _debois$elm_mdl$Material_Options$onClick(
+																msgFn(_simsmith$doesnotexist$Transformer$FancyAnim)),
+															_1: {ctor: '[]'}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						},
+						A2(
+							_elm_lang$core$List$map,
+							_debois$elm_mdl$Material_Options$attribute,
+							_mdgriffith$elm_style_animation$Animation$render(model.style1))),
+					{
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$p,
+							_mdgriffith$elm_style_animation$Animation$render(model.style2),
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text(
+									model.newText ? 'Click to go back in' : 'Click to go out'),
+								_1: {ctor: '[]'}
+							}),
+						_1: {ctor: '[]'}
+					}),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_debois$elm_mdl$Material_Grid$cell,
+						{
+							ctor: '::',
+							_0: A2(_debois$elm_mdl$Material_Grid$offset, _debois$elm_mdl$Material_Grid$All, 5),
+							_1: {
+								ctor: '::',
+								_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$All, 2),
+								_1: {
+									ctor: '::',
+									_0: A2(_debois$elm_mdl$Material_Options$css, 'text-sizing', 'border-box'),
+									_1: {
+										ctor: '::',
+										_0: A2(_debois$elm_mdl$Material_Options$css, 'overflow', 'auto'),
+										_1: {
+											ctor: '::',
+											_0: A2(_debois$elm_mdl$Material_Options$css, 'background-color', '#FF5050'),
+											_1: {
+												ctor: '::',
+												_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-left', '8px'),
+												_1: {
+													ctor: '::',
+													_0: A2(_debois$elm_mdl$Material_Options$css, 'height', '100px'),
+													_1: {
+														ctor: '::',
+														_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-top', '10px'),
+														_1: {
+															ctor: '::',
+															_0: A2(_debois$elm_mdl$Material_Options$css, 'text-align', 'center'),
+															_1: {ctor: '[]'}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html$text('No clicky'),
+							_1: {ctor: '[]'}
+						}),
+					_1: {ctor: '[]'}
+				}
+			});
+	});
+var _simsmith$doesnotexist$Transformer$view = _simsmith$doesnotexist$Transformer$boxView;
+
+var _simsmith$doesnotexist$Model$Model = F6(
+	function (a, b, c, d, e, f) {
+		return {count: a, mdl: b, selectedTab: c, selectedMore: d, boxModel: e, boxTransModel: f};
 	});
 var _simsmith$doesnotexist$Model$Teaching = function (a) {
 	return {ctor: 'Teaching', _0: a};
@@ -22337,7 +22591,7 @@ var _simsmith$doesnotexist$Model$School = function (a) {
 };
 var _simsmith$doesnotexist$Model$None = {ctor: 'None'};
 var _simsmith$doesnotexist$Model$initModel = function (tabID) {
-	return {count: 0, mdl: _debois$elm_mdl$Material$model, selectedTab: tabID, selectedMore: _simsmith$doesnotexist$Model$None, boxModel: _simsmith$doesnotexist$BoxAnimation$initModel};
+	return {count: 0, mdl: _debois$elm_mdl$Material$model, selectedTab: tabID, selectedMore: _simsmith$doesnotexist$Model$None, boxModel: _simsmith$doesnotexist$BoxAnimation$initModel, boxTransModel: _simsmith$doesnotexist$Transformer$initModel};
 };
 var _simsmith$doesnotexist$Model$Galaren = {ctor: 'Galaren'};
 var _simsmith$doesnotexist$Model$SI = {ctor: 'SI'};
@@ -22349,6 +22603,9 @@ var _simsmith$doesnotexist$UpdateMsg$ShowMore = function (a) {
 };
 var _simsmith$doesnotexist$UpdateMsg$GoTo = function (a) {
 	return {ctor: 'GoTo', _0: a};
+};
+var _simsmith$doesnotexist$UpdateMsg$BoxTrans = function (a) {
+	return {ctor: 'BoxTrans', _0: a};
 };
 var _simsmith$doesnotexist$UpdateMsg$BoxAnim = function (a) {
 	return {ctor: 'BoxAnim', _0: a};
@@ -22421,7 +22678,7 @@ var _simsmith$doesnotexist$UpdateMsg$update = F2(
 				};
 			case 'Mdl':
 				return A3(_debois$elm_mdl$Material$update, _simsmith$doesnotexist$UpdateMsg$Mdl, _p0._0, model);
-			default:
+			case 'BoxAnim':
 				return {
 					ctor: '_Tuple2',
 					_0: _elm_lang$core$Native_Utils.update(
@@ -22430,6 +22687,17 @@ var _simsmith$doesnotexist$UpdateMsg$update = F2(
 							boxModel: A2(_simsmith$doesnotexist$BoxAnimation$update, _p0._0, model.boxModel)
 						}),
 					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			default:
+				var _p3 = A2(_simsmith$doesnotexist$Transformer$update, _p0._0, model.boxTransModel);
+				var transModel = _p3._0;
+				var transCmd = _p3._1;
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{boxTransModel: transModel}),
+					_1: A2(_elm_lang$core$Platform_Cmd$map, _simsmith$doesnotexist$UpdateMsg$BoxTrans, transCmd)
 				};
 		}
 	});
@@ -24202,8 +24470,12 @@ var _simsmith$doesnotexist$View$viewBody = function (model) {
 						}),
 					_1: {
 						ctor: '::',
-						_0: A2(_simsmith$doesnotexist$BoxAnimation$view, model.boxModel, _simsmith$doesnotexist$UpdateMsg$BoxAnim),
-						_1: {ctor: '[]'}
+						_0: A2(_simsmith$doesnotexist$Transformer$view, model.boxTransModel, _simsmith$doesnotexist$UpdateMsg$BoxTrans),
+						_1: {
+							ctor: '::',
+							_0: A2(_simsmith$doesnotexist$BoxAnimation$view, model.boxModel, _simsmith$doesnotexist$UpdateMsg$BoxAnim),
+							_1: {ctor: '[]'}
+						}
 					}
 				});
 		default:
@@ -24347,7 +24619,11 @@ var _simsmith$doesnotexist$Main$main = A2(
 					_1: {
 						ctor: '::',
 						_0: A2(_simsmith$doesnotexist$BoxAnimation$subscriptions, model.boxModel, _simsmith$doesnotexist$UpdateMsg$BoxAnim),
-						_1: {ctor: '[]'}
+						_1: {
+							ctor: '::',
+							_0: A2(_simsmith$doesnotexist$Transformer$subscriptions, model.boxTransModel, _simsmith$doesnotexist$UpdateMsg$BoxTrans),
+							_1: {ctor: '[]'}
+						}
 					}
 				});
 		}

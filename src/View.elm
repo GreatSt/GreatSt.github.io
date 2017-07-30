@@ -10,6 +10,7 @@ import Material.Color as Color
 import Material.Layout as Layout
 import Material.Options as Options exposing (css)
 import Model exposing (..)
+import Transformer
 import UpdateMsg exposing (..)
 
 
@@ -61,6 +62,7 @@ viewBody model =
         2 ->
             div []
                 [ h1 [] [ text "To be continued..." ]
+                , Transformer.view model.boxTransModel UpdateMsg.BoxTrans
                 , BoxAnimation.view model.boxModel UpdateMsg.BoxAnim
                 ]
 

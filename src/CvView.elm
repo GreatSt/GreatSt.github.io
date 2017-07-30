@@ -7,7 +7,7 @@ import Material.Button as Button
 import Material.Grid exposing (Device(..), cell, grid, offset, size)
 import Material.Options as Options exposing (css)
 import Model exposing (..)
-import TeachingView
+import TeachingView exposing (teachView)
 import UpdateMsg exposing (..)
 
 
@@ -15,7 +15,7 @@ cvView : Model -> Html Msg
 cvView model =
     case model.selectedMore of
         Teaching job ->
-            TeachingView.teachView model job
+            teachView model job
 
         _ ->
             cvGrid model

@@ -4,6 +4,7 @@ import BoxAnimation
 import Material
 import Model exposing (..)
 import Navigation exposing (newUrl)
+import Transformer
 
 
 type Msg
@@ -12,6 +13,7 @@ type Msg
     | SelectTab Int
     | Mdl (Material.Msg Msg)
     | BoxAnim BoxAnimation.Msg
+    | BoxTrans Transformer.Msg
     | GoTo (Maybe Page)
     | ShowMore Info
 
@@ -55,4 +57,19 @@ update msg model =
             Material.update Mdl msg_ model
 
         BoxAnim boxMsg ->
-            ( { model | boxModel = BoxAnimation.update boxMsg model.boxModel }, Cmd.none )
+            ( { model
+                | boxModel = BoxAnimation.update boxMsg model.boxModel
+              }
+            , Cmd.none
+            )
+
+        BoxTrans boxTransMsg ->
+            let
+                ( transModel, transCmd ) =
+                    Transformer.update boxTransMsg model.boxTransModel
+            in
+                ( { model
+                    | boxTransModel = transModel
+                  }
+                , Cmd.map (BoxTrans) transCmd
+                )

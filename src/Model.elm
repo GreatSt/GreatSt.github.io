@@ -2,6 +2,7 @@ module Model exposing (..)
 
 import BoxAnimation
 import Material
+import Transformer
 
 
 type alias Model =
@@ -10,6 +11,7 @@ type alias Model =
     , selectedTab : Int
     , selectedMore : Info
     , boxModel : BoxAnimation.Model
+    , boxTransModel : Transformer.Model
     }
 
 
@@ -35,4 +37,5 @@ initModel tabID =
     , selectedTab = tabID
     , selectedMore = None
     , boxModel = BoxAnimation.initModel
+    , boxTransModel = Transformer.initModel
     }
