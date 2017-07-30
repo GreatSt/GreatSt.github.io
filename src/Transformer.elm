@@ -3,12 +3,10 @@ module Transformer exposing (..)
 import Animation exposing (px)
 import Animation.Messenger
 import Ease exposing (..)
-import List
 import Html exposing (..)
-import Material.Grid exposing (Device(All), cell, grid)
-import Material.Grid as Grid
-import Material.Options exposing (css)
-import Material.Options as Options
+import List
+import Material.Grid as Grid exposing (Device(..), grid, cell)
+import Material.Options as Options exposing (css)
 import Time exposing (..)
 
 
@@ -119,39 +117,39 @@ view =
 
 boxView : Model -> (Msg -> m) -> Html m
 boxView model msgFn =
-    grid []
-        [ cell
-            ([ Grid.offset All 5
-             , Grid.size All 2
-             , css "text-sizing" "border-box"
-             , css "overflow" "auto"
-             , css "background-color" "#50FF50"
-             , css "padding-left" "8px"
-             , css "padding-top" "10px"
-             , css "text-align" "center"
-             , Options.onClick <| msgFn FancyAnim
-             ]
-                ++ List.map (Options.attribute)
-                    (Animation.render model.style1)
-            )
-            [ p (Animation.render model.style2)
-                [ text <|
-                    if model.newText then
-                        "Click to go back in"
-                    else
-                        "Click to go out"
-                ]
-            ]
-        , cell
-            [ Grid.offset All 5
+    let
+        cellStyle =
+            [ Grid.offset Desktop 5
             , Grid.size All 2
+            , Grid.offset Tablet 3
+            , Grid.offset Phone 1
             , css "text-sizing" "border-box"
             , css "overflow" "auto"
-            , css "background-color" "#FF5050"
             , css "padding-left" "8px"
-            , css "height" "100px"
             , css "padding-top" "10px"
             , css "text-align" "center"
             ]
-            [ text "No clicky" ]
-        ]
+    in
+        grid []
+            [ cell
+                (css "background-color" "#50FF50"
+                    :: (Options.onClick <| msgFn FancyAnim)
+                    :: cellStyle
+                    ++ List.map (Options.attribute)
+                        (Animation.render model.style1)
+                )
+                [ p (Animation.render model.style2)
+                    [ text <|
+                        if model.newText then
+                            "Click to go back in"
+                        else
+                            "Click to go out"
+                    ]
+                ]
+            , cell
+                (css "background-color" "#FF5050"
+                    :: css "height" "100px"
+                    :: cellStyle
+                )
+                [ text "No clicky" ]
+            ]
