@@ -1,10 +1,9 @@
 module Main exposing (..)
 
-import BoxAnimation as Box
+import Extra
 import Material.Layout as Layout
 import Model exposing (..)
 import Navigation exposing (..)
-import Transformer as Trans
 import UpdateMsg exposing (..)
 import UrlParser exposing (..)
 import View exposing (..)
@@ -31,8 +30,7 @@ main =
             \model ->
                 Sub.batch
                     [ Layout.subs Mdl model.mdl
-                    , Box.subscriptions model.boxModel UpdateMsg.BoxAnim
-                    , Trans.subscriptions model.boxTransModel UpdateMsg.BoxTrans
+                    , Extra.subscriptions model.extraModel UpdateMsg.ExtraMsg
                     ]
         }
 

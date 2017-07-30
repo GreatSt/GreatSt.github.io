@@ -22206,7 +22206,7 @@ var _mdgriffith$elm_style_animation$Animation_Messenger$update = F2(
 		return A2(_mdgriffith$elm_style_animation$Animation_Model$updateAnimation, tick, animation);
 	});
 
-var _simsmith$doesnotexist$BoxAnimation$update = F2(
+var _simsmith$doesnotexist$Extra_BoxAnimation$update = F2(
 	function (action, model) {
 		var easingFun = _mdgriffith$elm_style_animation$Animation$easing(
 			{duration: 1 * _elm_lang$core$Time$second, ease: _elm_community$easing_functions$Ease$outBounce});
@@ -22242,7 +22242,7 @@ var _simsmith$doesnotexist$BoxAnimation$update = F2(
 				});
 		}
 	});
-var _simsmith$doesnotexist$BoxAnimation$initModel = {
+var _simsmith$doesnotexist$Extra_BoxAnimation$initModel = {
 	style: _mdgriffith$elm_style_animation$Animation$style(
 		{
 			ctor: '::',
@@ -22256,29 +22256,29 @@ var _simsmith$doesnotexist$BoxAnimation$initModel = {
 		}),
 	angle: 0.0
 };
-var _simsmith$doesnotexist$BoxAnimation$Model = F2(
+var _simsmith$doesnotexist$Extra_BoxAnimation$Model = F2(
 	function (a, b) {
 		return {style: a, angle: b};
 	});
-var _simsmith$doesnotexist$BoxAnimation$Animate = function (a) {
+var _simsmith$doesnotexist$Extra_BoxAnimation$Animate = function (a) {
 	return {ctor: 'Animate', _0: a};
 };
-var _simsmith$doesnotexist$BoxAnimation$subscriptions = F2(
+var _simsmith$doesnotexist$Extra_BoxAnimation$subscriptions = F2(
 	function (model, msgFn) {
 		return A2(
 			_elm_lang$core$Platform_Sub$map,
 			msgFn,
 			A2(
 				_mdgriffith$elm_style_animation$Animation$subscription,
-				_simsmith$doesnotexist$BoxAnimation$Animate,
+				_simsmith$doesnotexist$Extra_BoxAnimation$Animate,
 				{
 					ctor: '::',
 					_0: model.style,
 					_1: {ctor: '[]'}
 				}));
 	});
-var _simsmith$doesnotexist$BoxAnimation$FancyAnim = {ctor: 'FancyAnim'};
-var _simsmith$doesnotexist$BoxAnimation$view = F2(
+var _simsmith$doesnotexist$Extra_BoxAnimation$FancyAnim = {ctor: 'FancyAnim'};
+var _simsmith$doesnotexist$Extra_BoxAnimation$view = F2(
 	function (model, msgFn) {
 		return A2(
 			_elm_lang$html$Html$div,
@@ -22288,7 +22288,7 @@ var _simsmith$doesnotexist$BoxAnimation$view = F2(
 				{
 					ctor: '::',
 					_0: _elm_lang$html$Html_Events$onClick(
-						msgFn(_simsmith$doesnotexist$BoxAnimation$FancyAnim)),
+						msgFn(_simsmith$doesnotexist$Extra_BoxAnimation$FancyAnim)),
 					_1: {
 						ctor: '::',
 						_0: _elm_lang$html$Html_Attributes$style(
@@ -22331,7 +22331,7 @@ var _simsmith$doesnotexist$BoxAnimation$view = F2(
 			});
 	});
 
-var _simsmith$doesnotexist$Transformer$initModel = {
+var _simsmith$doesnotexist$Extra_Transformer$initModel = {
 	style1: _mdgriffith$elm_style_animation$Animation$style(
 		{
 			ctor: '::',
@@ -22348,29 +22348,29 @@ var _simsmith$doesnotexist$Transformer$initModel = {
 	isIn: true,
 	newText: false
 };
-var _simsmith$doesnotexist$Transformer$Model = F4(
+var _simsmith$doesnotexist$Extra_Transformer$Model = F4(
 	function (a, b, c, d) {
 		return {style1: a, style2: b, isIn: c, newText: d};
 	});
-var _simsmith$doesnotexist$Transformer$Animate = function (a) {
+var _simsmith$doesnotexist$Extra_Transformer$Animate = function (a) {
 	return {ctor: 'Animate', _0: a};
 };
-var _simsmith$doesnotexist$Transformer$subscriptions = F2(
+var _simsmith$doesnotexist$Extra_Transformer$subscriptions = F2(
 	function (model, msgFn) {
 		return A2(
 			_elm_lang$core$Platform_Sub$map,
 			msgFn,
 			A2(
 				_mdgriffith$elm_style_animation$Animation$subscription,
-				_simsmith$doesnotexist$Transformer$Animate,
+				_simsmith$doesnotexist$Extra_Transformer$Animate,
 				{
 					ctor: '::',
 					_0: model.style2,
 					_1: {ctor: '[]'}
 				}));
 	});
-var _simsmith$doesnotexist$Transformer$SwitchText = {ctor: 'SwitchText'};
-var _simsmith$doesnotexist$Transformer$update = F2(
+var _simsmith$doesnotexist$Extra_Transformer$SwitchText = {ctor: 'SwitchText'};
+var _simsmith$doesnotexist$Extra_Transformer$update = F2(
 	function (action, model) {
 		var halfSmoothFn = _mdgriffith$elm_style_animation$Animation$easing(
 			{duration: 0.3 * _elm_lang$core$Time$second, ease: _elm_community$easing_functions$Ease$outQuad});
@@ -22415,7 +22415,7 @@ var _simsmith$doesnotexist$Transformer$update = F2(
 										}),
 									_1: {
 										ctor: '::',
-										_0: _mdgriffith$elm_style_animation$Animation_Messenger$send(_simsmith$doesnotexist$Transformer$SwitchText),
+										_0: _mdgriffith$elm_style_animation$Animation_Messenger$send(_simsmith$doesnotexist$Extra_Transformer$SwitchText),
 										_1: {
 											ctor: '::',
 											_0: A2(
@@ -22458,8 +22458,8 @@ var _simsmith$doesnotexist$Transformer$update = F2(
 				};
 		}
 	});
-var _simsmith$doesnotexist$Transformer$FancyAnim = {ctor: 'FancyAnim'};
-var _simsmith$doesnotexist$Transformer$boxView = F2(
+var _simsmith$doesnotexist$Extra_Transformer$FancyAnim = {ctor: 'FancyAnim'};
+var _simsmith$doesnotexist$Extra_Transformer$boxView = F2(
 	function (model, msgFn) {
 		var cellStyle = {
 			ctor: '::',
@@ -22511,7 +22511,7 @@ var _simsmith$doesnotexist$Transformer$boxView = F2(
 						_1: {
 							ctor: '::',
 							_0: _debois$elm_mdl$Material_Options$onClick(
-								msgFn(_simsmith$doesnotexist$Transformer$FancyAnim)),
+								msgFn(_simsmith$doesnotexist$Extra_Transformer$FancyAnim)),
 							_1: A2(
 								_elm_lang$core$Basics_ops['++'],
 								cellStyle,
@@ -22556,11 +22556,99 @@ var _simsmith$doesnotexist$Transformer$boxView = F2(
 				}
 			});
 	});
-var _simsmith$doesnotexist$Transformer$view = _simsmith$doesnotexist$Transformer$boxView;
+var _simsmith$doesnotexist$Extra_Transformer$view = _simsmith$doesnotexist$Extra_Transformer$boxView;
 
-var _simsmith$doesnotexist$Model$Model = F6(
-	function (a, b, c, d, e, f) {
-		return {count: a, mdl: b, selectedTab: c, selectedMore: d, boxModel: e, boxTransModel: f};
+var _simsmith$doesnotexist$Extra$initModel = {transModel: _simsmith$doesnotexist$Extra_Transformer$initModel, boxModel: _simsmith$doesnotexist$Extra_BoxAnimation$initModel};
+var _simsmith$doesnotexist$Extra$Model = F2(
+	function (a, b) {
+		return {transModel: a, boxModel: b};
+	});
+var _simsmith$doesnotexist$Extra$BoxMsg = function (a) {
+	return {ctor: 'BoxMsg', _0: a};
+};
+var _simsmith$doesnotexist$Extra$TransMsg = function (a) {
+	return {ctor: 'TransMsg', _0: a};
+};
+var _simsmith$doesnotexist$Extra$view = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$h1,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('To be continued...'),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(_simsmith$doesnotexist$Extra_Transformer$view, model.transModel, _simsmith$doesnotexist$Extra$TransMsg),
+				_1: {
+					ctor: '::',
+					_0: A2(_simsmith$doesnotexist$Extra_BoxAnimation$view, model.boxModel, _simsmith$doesnotexist$Extra$BoxMsg),
+					_1: {ctor: '[]'}
+				}
+			}
+		});
+};
+var _simsmith$doesnotexist$Extra$update = F2(
+	function (msg, model) {
+		var _p0 = msg;
+		if (_p0.ctor === 'BoxMsg') {
+			return {
+				ctor: '_Tuple2',
+				_0: _elm_lang$core$Native_Utils.update(
+					model,
+					{
+						boxModel: A2(_simsmith$doesnotexist$Extra_BoxAnimation$update, _p0._0, model.boxModel)
+					}),
+				_1: _elm_lang$core$Platform_Cmd$none
+			};
+		} else {
+			var _p1 = A2(_simsmith$doesnotexist$Extra_Transformer$update, _p0._0, model.transModel);
+			var transModel = _p1._0;
+			var transCmd = _p1._1;
+			return {
+				ctor: '_Tuple2',
+				_0: _elm_lang$core$Native_Utils.update(
+					model,
+					{transModel: transModel}),
+				_1: A2(_elm_lang$core$Platform_Cmd$map, _simsmith$doesnotexist$Extra$TransMsg, transCmd)
+			};
+		}
+	});
+var _simsmith$doesnotexist$Extra$subscriptions = F2(
+	function (model, lift) {
+		return _elm_lang$core$Platform_Sub$batch(
+			{
+				ctor: '::',
+				_0: A2(
+					_simsmith$doesnotexist$Extra_Transformer$subscriptions,
+					model.transModel,
+					function (_p2) {
+						return lift(
+							_simsmith$doesnotexist$Extra$TransMsg(_p2));
+					}),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_simsmith$doesnotexist$Extra_BoxAnimation$subscriptions,
+						model.boxModel,
+						function (_p3) {
+							return lift(
+								_simsmith$doesnotexist$Extra$BoxMsg(_p3));
+						}),
+					_1: {ctor: '[]'}
+				}
+			});
+	});
+
+var _simsmith$doesnotexist$Model$Model = F5(
+	function (a, b, c, d, e) {
+		return {count: a, mdl: b, selectedTab: c, selectedMore: d, extraModel: e};
 	});
 var _simsmith$doesnotexist$Model$Teaching = function (a) {
 	return {ctor: 'Teaching', _0: a};
@@ -22572,7 +22660,7 @@ var _simsmith$doesnotexist$Model$School = function (a) {
 };
 var _simsmith$doesnotexist$Model$None = {ctor: 'None'};
 var _simsmith$doesnotexist$Model$initModel = function (tabID) {
-	return {count: 0, mdl: _debois$elm_mdl$Material$model, selectedTab: tabID, selectedMore: _simsmith$doesnotexist$Model$None, boxModel: _simsmith$doesnotexist$BoxAnimation$initModel, boxTransModel: _simsmith$doesnotexist$Transformer$initModel};
+	return {count: 0, mdl: _debois$elm_mdl$Material$model, selectedTab: tabID, selectedMore: _simsmith$doesnotexist$Model$None, extraModel: _simsmith$doesnotexist$Extra$initModel};
 };
 var _simsmith$doesnotexist$Model$Galaren = {ctor: 'Galaren'};
 var _simsmith$doesnotexist$Model$SI = {ctor: 'SI'};
@@ -22585,11 +22673,8 @@ var _simsmith$doesnotexist$UpdateMsg$ShowMore = function (a) {
 var _simsmith$doesnotexist$UpdateMsg$GoTo = function (a) {
 	return {ctor: 'GoTo', _0: a};
 };
-var _simsmith$doesnotexist$UpdateMsg$BoxTrans = function (a) {
-	return {ctor: 'BoxTrans', _0: a};
-};
-var _simsmith$doesnotexist$UpdateMsg$BoxAnim = function (a) {
-	return {ctor: 'BoxAnim', _0: a};
+var _simsmith$doesnotexist$UpdateMsg$ExtraMsg = function (a) {
+	return {ctor: 'ExtraMsg', _0: a};
 };
 var _simsmith$doesnotexist$UpdateMsg$Mdl = function (a) {
 	return {ctor: 'Mdl', _0: a};
@@ -22659,26 +22744,16 @@ var _simsmith$doesnotexist$UpdateMsg$update = F2(
 				};
 			case 'Mdl':
 				return A3(_debois$elm_mdl$Material$update, _simsmith$doesnotexist$UpdateMsg$Mdl, _p0._0, model);
-			case 'BoxAnim':
-				return {
-					ctor: '_Tuple2',
-					_0: _elm_lang$core$Native_Utils.update(
-						model,
-						{
-							boxModel: A2(_simsmith$doesnotexist$BoxAnimation$update, _p0._0, model.boxModel)
-						}),
-					_1: _elm_lang$core$Platform_Cmd$none
-				};
 			default:
-				var _p3 = A2(_simsmith$doesnotexist$Transformer$update, _p0._0, model.boxTransModel);
-				var transModel = _p3._0;
-				var transCmd = _p3._1;
+				var _p3 = A2(_simsmith$doesnotexist$Extra$update, _p0._0, model.extraModel);
+				var mdl = _p3._0;
+				var cmd = _p3._1;
 				return {
 					ctor: '_Tuple2',
 					_0: _elm_lang$core$Native_Utils.update(
 						model,
-						{boxTransModel: transModel}),
-					_1: A2(_elm_lang$core$Platform_Cmd$map, _simsmith$doesnotexist$UpdateMsg$BoxTrans, transCmd)
+						{extraModel: mdl}),
+					_1: A2(_elm_lang$core$Platform_Cmd$map, _simsmith$doesnotexist$UpdateMsg$ExtraMsg, cmd)
 				};
 		}
 	});
@@ -24449,28 +24524,9 @@ var _simsmith$doesnotexist$View$viewBody = function (model) {
 			return _simsmith$doesnotexist$CvView$cvView(model);
 		case 2:
 			return A2(
-				_elm_lang$html$Html$div,
-				{ctor: '[]'},
-				{
-					ctor: '::',
-					_0: A2(
-						_elm_lang$html$Html$h1,
-						{ctor: '[]'},
-						{
-							ctor: '::',
-							_0: _elm_lang$html$Html$text('To be continued...'),
-							_1: {ctor: '[]'}
-						}),
-					_1: {
-						ctor: '::',
-						_0: A2(_simsmith$doesnotexist$Transformer$view, model.boxTransModel, _simsmith$doesnotexist$UpdateMsg$BoxTrans),
-						_1: {
-							ctor: '::',
-							_0: A2(_simsmith$doesnotexist$BoxAnimation$view, model.boxModel, _simsmith$doesnotexist$UpdateMsg$BoxAnim),
-							_1: {ctor: '[]'}
-						}
-					}
-				});
+				_elm_lang$html$Html$map,
+				_simsmith$doesnotexist$UpdateMsg$ExtraMsg,
+				_simsmith$doesnotexist$Extra$view(model.extraModel));
 		default:
 			return A2(
 				_elm_lang$html$Html$h1,
@@ -24611,12 +24667,8 @@ var _simsmith$doesnotexist$Main$main = A2(
 					_0: A2(_debois$elm_mdl$Material_Layout$subs, _simsmith$doesnotexist$UpdateMsg$Mdl, model.mdl),
 					_1: {
 						ctor: '::',
-						_0: A2(_simsmith$doesnotexist$BoxAnimation$subscriptions, model.boxModel, _simsmith$doesnotexist$UpdateMsg$BoxAnim),
-						_1: {
-							ctor: '::',
-							_0: A2(_simsmith$doesnotexist$Transformer$subscriptions, model.boxTransModel, _simsmith$doesnotexist$UpdateMsg$BoxTrans),
-							_1: {ctor: '[]'}
-						}
+						_0: A2(_simsmith$doesnotexist$Extra$subscriptions, model.extraModel, _simsmith$doesnotexist$UpdateMsg$ExtraMsg),
+						_1: {ctor: '[]'}
 					}
 				});
 		}

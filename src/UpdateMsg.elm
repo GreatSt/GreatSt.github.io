@@ -1,10 +1,9 @@
 module UpdateMsg exposing (..)
 
-import BoxAnimation
+import Extra
 import Material
 import Model exposing (..)
 import Navigation exposing (newUrl)
-import Transformer
 
 
 type Msg
@@ -12,8 +11,7 @@ type Msg
     | Reset
     | SelectTab Int
     | Mdl (Material.Msg Msg)
-    | BoxAnim BoxAnimation.Msg
-    | BoxTrans Transformer.Msg
+    | ExtraMsg Extra.Msg
     | GoTo (Maybe Page)
     | ShowMore Info
 
@@ -56,20 +54,9 @@ update msg model =
         Mdl msg_ ->
             Material.update Mdl msg_ model
 
-        BoxAnim boxMsg ->
-            ( { model
-                | boxModel = BoxAnimation.update boxMsg model.boxModel
-              }
-            , Cmd.none
-            )
-
-        BoxTrans boxTransMsg ->
+        ExtraMsg msg ->
             let
-                ( transModel, transCmd ) =
-                    Transformer.update boxTransMsg model.boxTransModel
+                ( mdl, cmd ) =
+                    Extra.update msg model.extraModel
             in
-                ( { model
-                    | boxTransModel = transModel
-                  }
-                , Cmd.map (BoxTrans) transCmd
-                )
+                ( { model | extraModel = mdl }, Cmd.map (ExtraMsg) cmd )

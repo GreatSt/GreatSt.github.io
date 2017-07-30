@@ -1,4 +1,4 @@
-module BoxAnimation exposing (..)
+module Extra.BoxAnimation exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)

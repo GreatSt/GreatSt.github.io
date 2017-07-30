@@ -1,4 +1,4 @@
-module Transformer exposing (..)
+module Extra.Transformer exposing (..)
 
 import Animation exposing (px)
 import Animation.Messenger
