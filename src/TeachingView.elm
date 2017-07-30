@@ -30,8 +30,9 @@ overview model =
     div []
         [ grid []
             [ cell
-                [ offset Desktop 4
-                , size Desktop 4
+                [ size All 4
+                , offset Desktop 4
+                , offset Tablet 2
                 , css "text-sizing" "border-box"
                 , css "overflow" "auto"
                 , css "padding-bottom" "2px"
@@ -87,8 +88,9 @@ jobView : String -> String -> String -> String -> Html Msg
 jobView period place role body =
     grid []
         [ cell
-            [ offset Desktop 4
-            , size Desktop 4
+            [ size All 4
+            , offset Desktop 4
+            , offset Tablet 2
             , Options.onClick <| ShowMore <| Teaching AllT
             , css "text-sizing" "border-box"
             , css "overflow" "auto"
@@ -153,8 +155,9 @@ galarenCell =
 headerCell : TeachJob -> String -> String -> String -> Cell Msg
 headerCell job place period role =
     cell
-        [ offset Desktop 4
-        , size Desktop 4
+        [ size All 4
+        , offset Desktop 4
+        , offset Tablet 2
         , Options.onClick <| ShowMore <| Teaching job
         , css "text-sizing" "border-box"
         , css "overflow" "auto"

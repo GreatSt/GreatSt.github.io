@@ -22697,34 +22697,38 @@ var _simsmith$doesnotexist$TeachingView$headerCell = F4(
 			_debois$elm_mdl$Material_Grid$cell,
 			{
 				ctor: '::',
-				_0: A2(_debois$elm_mdl$Material_Grid$offset, _debois$elm_mdl$Material_Grid$Desktop, 4),
+				_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$All, 4),
 				_1: {
 					ctor: '::',
-					_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Desktop, 4),
+					_0: A2(_debois$elm_mdl$Material_Grid$offset, _debois$elm_mdl$Material_Grid$Desktop, 4),
 					_1: {
 						ctor: '::',
-						_0: _debois$elm_mdl$Material_Options$onClick(
-							_simsmith$doesnotexist$UpdateMsg$ShowMore(
-								_simsmith$doesnotexist$Model$Teaching(job))),
+						_0: A2(_debois$elm_mdl$Material_Grid$offset, _debois$elm_mdl$Material_Grid$Tablet, 2),
 						_1: {
 							ctor: '::',
-							_0: A2(_debois$elm_mdl$Material_Options$css, 'text-sizing', 'border-box'),
+							_0: _debois$elm_mdl$Material_Options$onClick(
+								_simsmith$doesnotexist$UpdateMsg$ShowMore(
+									_simsmith$doesnotexist$Model$Teaching(job))),
 							_1: {
 								ctor: '::',
-								_0: A2(_debois$elm_mdl$Material_Options$css, 'overflow', 'auto'),
+								_0: A2(_debois$elm_mdl$Material_Options$css, 'text-sizing', 'border-box'),
 								_1: {
 									ctor: '::',
-									_0: A2(_debois$elm_mdl$Material_Options$css, 'background-color', '#DDDDE5'),
+									_0: A2(_debois$elm_mdl$Material_Options$css, 'overflow', 'auto'),
 									_1: {
 										ctor: '::',
-										_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-left', '8px'),
+										_0: A2(_debois$elm_mdl$Material_Options$css, 'background-color', '#DDDDE5'),
 										_1: {
 											ctor: '::',
-											_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-top', '10px'),
+											_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-left', '8px'),
 											_1: {
 												ctor: '::',
-												_0: A2(_debois$elm_mdl$Material_Options$css, 'text-align', 'center'),
-												_1: {ctor: '[]'}
+												_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-top', '10px'),
+												_1: {
+													ctor: '::',
+													_0: A2(_debois$elm_mdl$Material_Options$css, 'text-align', 'center'),
+													_1: {ctor: '[]'}
+												}
 											}
 										}
 									}
@@ -22829,34 +22833,38 @@ var _simsmith$doesnotexist$TeachingView$jobView = F4(
 					_debois$elm_mdl$Material_Grid$cell,
 					{
 						ctor: '::',
-						_0: A2(_debois$elm_mdl$Material_Grid$offset, _debois$elm_mdl$Material_Grid$Desktop, 4),
+						_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$All, 4),
 						_1: {
 							ctor: '::',
-							_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Desktop, 4),
+							_0: A2(_debois$elm_mdl$Material_Grid$offset, _debois$elm_mdl$Material_Grid$Desktop, 4),
 							_1: {
 								ctor: '::',
-								_0: _debois$elm_mdl$Material_Options$onClick(
-									_simsmith$doesnotexist$UpdateMsg$ShowMore(
-										_simsmith$doesnotexist$Model$Teaching(_simsmith$doesnotexist$Model$AllT))),
+								_0: A2(_debois$elm_mdl$Material_Grid$offset, _debois$elm_mdl$Material_Grid$Tablet, 2),
 								_1: {
 									ctor: '::',
-									_0: A2(_debois$elm_mdl$Material_Options$css, 'text-sizing', 'border-box'),
+									_0: _debois$elm_mdl$Material_Options$onClick(
+										_simsmith$doesnotexist$UpdateMsg$ShowMore(
+											_simsmith$doesnotexist$Model$Teaching(_simsmith$doesnotexist$Model$AllT))),
 									_1: {
 										ctor: '::',
-										_0: A2(_debois$elm_mdl$Material_Options$css, 'overflow', 'auto'),
+										_0: A2(_debois$elm_mdl$Material_Options$css, 'text-sizing', 'border-box'),
 										_1: {
 											ctor: '::',
-											_0: A2(_debois$elm_mdl$Material_Options$css, 'background-color', '#DDDDEE'),
+											_0: A2(_debois$elm_mdl$Material_Options$css, 'overflow', 'auto'),
 											_1: {
 												ctor: '::',
-												_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-left', '8px'),
+												_0: A2(_debois$elm_mdl$Material_Options$css, 'background-color', '#DDDDEE'),
 												_1: {
 													ctor: '::',
-													_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-top', '10px'),
+													_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-left', '8px'),
 													_1: {
 														ctor: '::',
-														_0: A2(_debois$elm_mdl$Material_Options$css, 'text-align', 'center'),
-														_1: {ctor: '[]'}
+														_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-top', '10px'),
+														_1: {
+															ctor: '::',
+															_0: A2(_debois$elm_mdl$Material_Options$css, 'text-align', 'center'),
+															_1: {ctor: '[]'}
+														}
 													}
 												}
 											}
@@ -22972,26 +22980,30 @@ var _simsmith$doesnotexist$TeachingView$overview = function (model) {
 						_debois$elm_mdl$Material_Grid$cell,
 						{
 							ctor: '::',
-							_0: A2(_debois$elm_mdl$Material_Grid$offset, _debois$elm_mdl$Material_Grid$Desktop, 4),
+							_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$All, 4),
 							_1: {
 								ctor: '::',
-								_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Desktop, 4),
+								_0: A2(_debois$elm_mdl$Material_Grid$offset, _debois$elm_mdl$Material_Grid$Desktop, 4),
 								_1: {
 									ctor: '::',
-									_0: A2(_debois$elm_mdl$Material_Options$css, 'text-sizing', 'border-box'),
+									_0: A2(_debois$elm_mdl$Material_Grid$offset, _debois$elm_mdl$Material_Grid$Tablet, 2),
 									_1: {
 										ctor: '::',
-										_0: A2(_debois$elm_mdl$Material_Options$css, 'overflow', 'auto'),
+										_0: A2(_debois$elm_mdl$Material_Options$css, 'text-sizing', 'border-box'),
 										_1: {
 											ctor: '::',
-											_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-bottom', '2px'),
+											_0: A2(_debois$elm_mdl$Material_Options$css, 'overflow', 'auto'),
 											_1: {
 												ctor: '::',
-												_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-top', '10px'),
+												_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-bottom', '2px'),
 												_1: {
 													ctor: '::',
-													_0: A2(_debois$elm_mdl$Material_Options$css, 'text-align', 'center'),
-													_1: {ctor: '[]'}
+													_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-top', '10px'),
+													_1: {
+														ctor: '::',
+														_0: A2(_debois$elm_mdl$Material_Options$css, 'text-align', 'center'),
+														_1: {ctor: '[]'}
+													}
 												}
 											}
 										}
