@@ -1,5 +1,6 @@
 module Resume.Teaching exposing (..)
 
+import Animation
 import Html exposing (..)
 import Html.Attributes exposing (style)
 import Material.Button as Button
@@ -13,12 +14,15 @@ update job model =
     ( { model | chosenCard = Teach job }, Cmd.none )
 
 
+subscriptions : Model -> (Msg -> m) -> Sub m
+subscriptions model msgFn =
+    Sub.map msgFn <|
+        Animation.subscription Animate [ model.style2 ]
+
+
 teachView : TeachJob -> Model -> Html Msg
 teachView job model =
     case job of
-        Intize ->
-            intizeView
-
         SI ->
             siView
 
@@ -34,7 +38,7 @@ overview model =
     div []
         [ backButton model
         , grid []
-            [ intizeCell
+            [ intizeCell model
             , siCell
             , galarenCell
             ]
@@ -64,18 +68,6 @@ backButton model =
                 [ text "Back" ]
             ]
         ]
-
-
-intizeView : Html Msg
-intizeView =
-    jobView
-        "October 2016 – May 2017"
-        "Intize, Gothenburg"
-        "Intize Mentor"
-    <|
-        "Intize is a non-profit organisation that provides mentorship "
-            ++ "in mathematics. I am one of these voluntary mentors "
-            ++ "and together we work towards a more educated world."
 
 
 siView : Html Msg
@@ -132,13 +124,60 @@ jobView period place role body =
         ]
 
 
-intizeCell : Cell Msg
-intizeCell =
-    headerCell
-        Intize
-        "Intize, Gothenburg"
-        "October 2016 – May 2017"
-        "Intize Mentor"
+intizeCell : Model -> Cell Msg
+intizeCell model =
+    let
+        card1 =
+            [ h4 [] [ text "Intize, Gothenburg" ]
+            , p [] [ text "October 2016 – May 2017" ]
+            , h5 [] [ text "Intize Mentor" ]
+            , p [ style [ ( "color", "#AAAAAA" ) ] ]
+                [ text "(press me)" ]
+            ]
+
+        card content =
+            cell
+                ([ size All 4
+                 , offset Desktop 4
+                 , offset Tablet 2
+                 , Options.onClick FancyAnim
+                 , css "text-sizing" "border-box"
+                 , css "overflow" "auto"
+                 , css "background-color" "#DDDDE5"
+                 , css "padding-left" "8px"
+                 , css "padding-top" "10px"
+                 , css "text-align" "center"
+                 ]
+                    ++ List.map (Options.attribute)
+                        (Animation.render model.style1)
+                )
+                [ content ]
+
+        card2 period place role body =
+            [ p []
+                [ text period
+                , br [] []
+                , text place
+                , br [] []
+                , text role
+                ]
+            , text body
+            , p [ style [ ( "color", "#AAAAAA" ) ] ]
+                [ text "(press to return)" ]
+            ]
+    in
+        if model.newText then
+            card <|
+                div (Animation.render model.style2) <|
+                    card2 "October 2016 – May 2017"
+                        "Intize, Gothenburg"
+                        "Intize Mentor"
+                    <|
+                        "Intize is a non-profit organisation that provides mentorship "
+                            ++ "in mathematics. I am one of these voluntary mentors "
+                            ++ "and together we work towards a more educated world."
+        else
+            card <| div (Animation.render model.style2) <| card1
 
 
 siCell : Cell Msg

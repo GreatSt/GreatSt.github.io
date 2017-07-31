@@ -4,6 +4,7 @@ import Extra
 import Material.Layout as Layout
 import Model exposing (..)
 import Navigation exposing (..)
+import Resume
 import UpdateMsg exposing (..)
 import UrlParser exposing (..)
 import View exposing (..)
@@ -31,6 +32,7 @@ main =
                 Sub.batch
                     [ Layout.subs Mdl model.mdl
                     , Extra.subscriptions model.extraModel UpdateMsg.ExtraMsg
+                    , Resume.subscriptions model.resumeModel UpdateMsg.ResumeMsg
                     ]
         }
 
