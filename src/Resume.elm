@@ -47,29 +47,32 @@ update msg model =
         case msg of
             FancyAnim ->
                 ( { model
-                    | style1 =
-                        Animation.interrupt
-                            [ Animation.toWith smoothFn
-                                [ Animation.height <|
-                                    Animation.px <|
-                                        if isIn then
-                                            220
-                                        else
-                                            210
-                                ]
-                            ]
-                            model.style1
-                    , style2 =
-                        Animation.interrupt
-                            [ Animation.toWith halfSmoothFn
-                                [ Animation.opacity <| 0.0
-                                ]
-                            , Animation.Messenger.send SwitchText
-                            , Animation.toWith halfSmoothFn
-                                [ Animation.opacity <| 1.0
-                                ]
-                            ]
-                            model.style2
+                    | style =
+                        TransitionStyles
+                            { card =
+                                Animation.interrupt
+                                    [ Animation.toWith smoothFn
+                                        [ Animation.height <|
+                                            Animation.px <|
+                                                if isIn then
+                                                    220
+                                                else
+                                                    210
+                                        ]
+                                    ]
+                                    model.style.intize.card
+                            , text =
+                                Animation.interrupt
+                                    [ Animation.toWith halfSmoothFn
+                                        [ Animation.opacity <| 0.0
+                                        ]
+                                    , Animation.Messenger.send SwitchText
+                                    , Animation.toWith halfSmoothFn
+                                        [ Animation.opacity <| 1.0
+                                        ]
+                                    ]
+                                    model.style.intize.text
+                            }
                   }
                 , Cmd.none
                 )
@@ -90,14 +93,13 @@ update msg model =
             Animate animMsg ->
                 let
                     newStyle1 =
-                        Animation.update animMsg model.style1
+                        Animation.update animMsg model.style.intize.card
 
                     ( newStyle2, cmd2 ) =
-                        Animation.Messenger.update animMsg model.style2
+                        Animation.Messenger.update animMsg model.style.intize.text
                 in
                     ( { model
-                        | style1 = newStyle1
-                        , style2 = newStyle2
+                        | style = TransitionStyles { card = newStyle1, text = newStyle2 }
                       }
                     , cmd2
                     )

@@ -8,8 +8,18 @@ import Animation.Messenger
 type alias Model =
     { chosenCard : Info
     , mdl : Material.Model
-    , style1 : Animation.State
-    , style2 : Animation.Messenger.State Msg
+    , style : TransitionStyles
+    }
+
+
+type alias TransitionStyle =
+    { card : Animation.State
+    , text : Animation.Messenger.State Msg
+    }
+
+
+type alias TransitionStyles =
+    { intize : TransitionStyle
     }
 
 
@@ -26,14 +36,17 @@ initModel : Model
 initModel =
     { chosenCard = None
     , mdl = Material.model
-    , style1 =
-        Animation.style
-            [ Animation.height <| Animation.px 210
-            ]
-    , style2 =
-        Animation.style
-            [ Animation.opacity 1.0
-            ]
+    , style =
+        TransitionStyles
+            { card =
+                Animation.style
+                    [ Animation.height <| Animation.px 210
+                    ]
+            , text =
+                Animation.style
+                    [ Animation.opacity 1.0
+                    ]
+            }
     }
 
 

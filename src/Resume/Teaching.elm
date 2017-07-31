@@ -17,7 +17,7 @@ update job model =
 subscriptions : Model -> (Msg -> m) -> Sub m
 subscriptions model msgFn =
     Sub.map msgFn <|
-        Animation.subscription Animate [ model.style2 ]
+        Animation.subscription Animate [ model.style.intize.text ]
 
 
 teachView : TeachJob -> Model -> Html Msg
@@ -149,7 +149,7 @@ intizeCell model =
                  , css "text-align" "center"
                  ]
                     ++ List.map (Options.attribute)
-                        (Animation.render model.style1)
+                        (Animation.render model.style.intize.card)
                 )
                 [ content ]
 
@@ -169,7 +169,7 @@ intizeCell model =
         case model.chosenCard of
             Teach Intize ->
                 card <|
-                    div (Animation.render model.style2) <|
+                    div (Animation.render model.style.intize.text) <|
                         card2 "October 2016 – May 2017"
                             "Intize, Gothenburg"
                             "Intize Mentor"
@@ -179,7 +179,7 @@ intizeCell model =
                                 ++ "and together we work towards a more educated world."
 
             _ ->
-                card <| div (Animation.render model.style2) <| card1
+                card <| div (Animation.render model.style.intize.text) <| card1
 
 
 siCell : Cell Msg
