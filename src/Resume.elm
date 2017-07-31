@@ -40,6 +40,9 @@ update msg model =
                 { duration = 0.3 * Time.second
                 , ease = Ease.outQuad
                 }
+
+        isIn =
+            model.chosenCard /= (Teach Intize)
     in
         case msg of
             FancyAnim ->
@@ -49,7 +52,7 @@ update msg model =
                             [ Animation.toWith smoothFn
                                 [ Animation.height <|
                                     Animation.px <|
-                                        if model.isIn then
+                                        if isIn then
                                             220
                                         else
                                             210
@@ -67,13 +70,22 @@ update msg model =
                                 ]
                             ]
                             model.style2
-                    , isIn = not model.isIn
                   }
                 , Cmd.none
                 )
 
             SwitchText ->
-                ( { model | newText = not model.newText }, Cmd.none )
+                case model.chosenCard of
+                    Teach teachJob ->
+                        case teachJob of
+                            Intize ->
+                                ( { model | chosenCard = Teach AllT }, Cmd.none )
+
+                            _ ->
+                                ( { model | chosenCard = Teach Intize }, Cmd.none )
+
+                    _ ->
+                        ( model, Cmd.none )
 
             Animate animMsg ->
                 let

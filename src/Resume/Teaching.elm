@@ -166,18 +166,20 @@ intizeCell model =
                 [ text "(press to return)" ]
             ]
     in
-        if model.newText then
-            card <|
-                div (Animation.render model.style2) <|
-                    card2 "October 2016 – May 2017"
-                        "Intize, Gothenburg"
-                        "Intize Mentor"
-                    <|
-                        "Intize is a non-profit organisation that provides mentorship "
-                            ++ "in mathematics. I am one of these voluntary mentors "
-                            ++ "and together we work towards a more educated world."
-        else
-            card <| div (Animation.render model.style2) <| card1
+        case model.chosenCard of
+            Teach Intize ->
+                card <|
+                    div (Animation.render model.style2) <|
+                        card2 "October 2016 – May 2017"
+                            "Intize, Gothenburg"
+                            "Intize Mentor"
+                        <|
+                            "Intize is a non-profit organisation that provides mentorship "
+                                ++ "in mathematics. I am one of these voluntary mentors "
+                                ++ "and together we work towards a more educated world."
+
+            _ ->
+                card <| div (Animation.render model.style2) <| card1
 
 
 siCell : Cell Msg

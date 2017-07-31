@@ -10,8 +10,6 @@ type alias Model =
     , mdl : Material.Model
     , style1 : Animation.State
     , style2 : Animation.Messenger.State Msg
-    , isIn : Bool
-    , newText : Bool
     }
 
 
@@ -36,8 +34,6 @@ initModel =
         Animation.style
             [ Animation.opacity 1.0
             ]
-    , isIn = True
-    , newText = False
     }
 
 
