@@ -1,4 +1,4 @@
-module CvView exposing (..)
+module Resume.CvView exposing (..)
 
 import Array
 import Html exposing (..)
@@ -6,19 +6,7 @@ import Html.Attributes exposing (attribute, href, style)
 import Material.Button as Button
 import Material.Grid exposing (Device(..), cell, grid, offset, size)
 import Material.Options as Options exposing (css)
-import Model exposing (..)
-import TeachingView exposing (teachView)
-import UpdateMsg exposing (..)
-
-
-cvView : Model -> Html Msg
-cvView model =
-    case model.selectedMore of
-        Teaching job ->
-            teachView model job
-
-        _ ->
-            cvGrid model
+import Resume.ModelMsg exposing (..)
 
 
 cvGrid : Model -> Html Msg
@@ -48,7 +36,7 @@ cvGrid model =
                     ]
                 )
               <|
-                case model.selectedMore of
+                case model.chosenCard of
                     School n ->
                         [ schoolText n
                         , div []
@@ -70,7 +58,7 @@ cvGrid model =
                     ]
                 )
               <|
-                if model.selectedMore /= Work then
+                if model.chosenCard /= Work then
                     [ workIntroText
                     , moreInfoButton model Work
                     ]
@@ -78,7 +66,7 @@ cvGrid model =
                     [ workText
                     , backButton model
                     ]
-            , if model.selectedMore /= Skills then
+            , if model.chosenCard /= Skills then
                 cell (cellStyle Skills) <|
                     [ swSkillIntroText
                     , guiPressGuide "(press me)"
@@ -96,8 +84,8 @@ cvGrid model =
                         ++ "learning or computer graphics. But whatevery I do, "
                         ++ "there is always a part about creative problem solving."
                 ]
-            , if model.selectedMore /= Teaching AllT then
-                cell (cellStyle <| Teaching AllT)
+            , if model.chosenCard /= Teach AllT then
+                cell (cellStyle <| Teach AllT)
                     [ teachingIntroText
                     , guiPressGuide "(press me)"
                     ]
@@ -131,7 +119,7 @@ cvGrid model =
 moreInfoButton : Model -> Info -> Html Msg
 moreInfoButton model info =
     Button.render
-        Mdl
+        MdlMsg
         [ 2 ]
         model.mdl
         [ Options.onClick <| ShowMore info
@@ -143,7 +131,7 @@ moreInfoButton model info =
 arrowButton : Int -> String -> Model -> Html Msg
 arrowButton n arrow model =
     Button.render
-        Mdl
+        MdlMsg
         [ 4 ]
         model.mdl
         [ Options.onClick <| ShowMore <| School n
@@ -155,7 +143,7 @@ arrowButton n arrow model =
 backButton : Model -> Html Msg
 backButton model =
     Button.render
-        Mdl
+        MdlMsg
         [ 3 ]
         model.mdl
         [ Options.onClick <| ShowMore None

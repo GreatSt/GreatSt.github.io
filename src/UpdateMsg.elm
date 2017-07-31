@@ -4,6 +4,8 @@ import Extra
 import Material
 import Model exposing (..)
 import Navigation exposing (newUrl)
+import Resume.ModelMsg as ResumeM
+import Resume
 
 
 type Msg
@@ -13,7 +15,7 @@ type Msg
     | Mdl (Material.Msg Msg)
     | ExtraMsg Extra.Msg
     | GoTo (Maybe Page)
-    | ShowMore Info
+    | ResumeMsg ResumeM.Msg
 
 
 type Page
@@ -39,7 +41,10 @@ update msg model =
         GoTo page ->
             case page of
                 Just (Tab index) ->
-                    ( { model | selectedTab = index }
+                    ( { model
+                        | selectedTab = index
+                        , resumeModel = ResumeM.initModel
+                      }
                     , Cmd.none
                     )
 
@@ -48,15 +53,19 @@ update msg model =
                     , Cmd.none
                     )
 
-        ShowMore m ->
-            ( { model | selectedMore = m }, Cmd.none )
-
         Mdl msg_ ->
             Material.update Mdl msg_ model
 
-        ExtraMsg msg ->
+        ResumeMsg msg_ ->
+            let
+                ( m, cmd ) =
+                    Resume.update msg_ model.resumeModel
+            in
+                ( { model | resumeModel = m }, Cmd.map (ResumeMsg) cmd )
+
+        ExtraMsg msg_ ->
             let
                 ( mdl, cmd ) =
-                    Extra.update msg model.extraModel
+                    Extra.update msg_ model.extraModel
             in
                 ( { model | extraModel = mdl }, Cmd.map (ExtraMsg) cmd )

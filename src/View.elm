@@ -1,6 +1,5 @@
 module View exposing (view)
 
-import CvView exposing (..)
 import Extra
 import Html exposing (..)
 import Html.Attributes exposing (class, href, style)
@@ -10,6 +9,7 @@ import Material.Color as Color
 import Material.Layout as Layout
 import Material.Options as Options exposing (css)
 import Model exposing (..)
+import Resume
 import UpdateMsg exposing (..)
 
 
@@ -56,7 +56,8 @@ viewBody model =
                 ]
 
         1 ->
-            cvView model
+            Resume.view model.resumeModel
+                |> Html.map (ResumeMsg)
 
         2 ->
             Extra.view model.extraModel

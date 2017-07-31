@@ -1,16 +1,20 @@
-module TeachingView exposing (..)
+module Resume.Teaching exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (style)
 import Material.Button as Button
 import Material.Grid exposing (..)
 import Material.Options as Options exposing (css)
-import Model exposing (..)
-import UpdateMsg exposing (..)
+import Resume.ModelMsg exposing (..)
 
 
-teachView : Model -> TeachJob -> Html Msg
-teachView model job =
+update : TeachJob -> Model -> ( Model, Cmd Msg )
+update job model =
+    ( { model | chosenCard = Teach job }, Cmd.none )
+
+
+teachView : TeachJob -> Model -> Html Msg
+teachView job model =
     case job of
         Intize ->
             intizeView
@@ -28,21 +32,36 @@ teachView model job =
 overview : Model -> Html Msg
 overview model =
     div []
-        [ grid []
-            [ cell
-                [ size All 4
-                , offset Desktop 4
-                , offset Tablet 2
-                , css "text-sizing" "border-box"
-                , css "overflow" "auto"
-                , css "padding-bottom" "2px"
-                , css "padding-top" "10px"
-                , css "text-align" "center"
-                ]
-                [ tBackButton model ]
-            , intizeCell
+        [ backButton model
+        , grid []
+            [ intizeCell
             , siCell
             , galarenCell
+            ]
+        ]
+
+
+backButton : Model -> Html Msg
+backButton model =
+    grid []
+        [ cell
+            [ size All 4
+            , offset Desktop 4
+            , offset Tablet 2
+            , css "text-sizing" "border-box"
+            , css "overflow" "auto"
+            , css "padding-bottom" "2px"
+            , css "padding-top" "10px"
+            , css "text-align" "center"
+            ]
+            [ Button.render
+                MdlMsg
+                [ 3 ]
+                model.mdl
+                [ Options.onClick <| ShowMore None
+                , Button.raised
+                ]
+                [ text "Back" ]
             ]
         ]
 
@@ -91,7 +110,7 @@ jobView period place role body =
             [ size All 4
             , offset Desktop 4
             , offset Tablet 2
-            , Options.onClick <| ShowMore <| Teaching AllT
+            , Options.onClick <| ShowMore <| Teach AllT
             , css "text-sizing" "border-box"
             , css "overflow" "auto"
             , css "background-color" "#DDDDEE"
@@ -111,18 +130,6 @@ jobView period place role body =
                 [ text "(press to return)" ]
             ]
         ]
-
-
-tBackButton : Model -> Html Msg
-tBackButton model =
-    Button.render
-        Mdl
-        [ 3 ]
-        model.mdl
-        [ Options.onClick <| ShowMore None
-        , Button.raised
-        ]
-        [ text "Back" ]
 
 
 intizeCell : Cell Msg
@@ -158,7 +165,7 @@ headerCell job place period role =
         [ size All 4
         , offset Desktop 4
         , offset Tablet 2
-        , Options.onClick <| ShowMore <| Teaching job
+        , Options.onClick <| ShowMore <| Teach job
         , css "text-sizing" "border-box"
         , css "overflow" "auto"
         , css "background-color" "#DDDDE5"

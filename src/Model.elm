@@ -2,30 +2,16 @@ module Model exposing (..)
 
 import Material
 import Extra
+import Resume.ModelMsg as Resume
 
 
 type alias Model =
     { count : Int
     , mdl : Material.Model
     , selectedTab : Int
-    , selectedMore : Info
+    , resumeModel : Resume.Model
     , extraModel : Extra.Model
     }
-
-
-type Info
-    = None
-    | School Int
-    | Work
-    | Skills
-    | Teaching TeachJob
-
-
-type TeachJob
-    = AllT
-    | Intize
-    | SI
-    | Galaren
 
 
 initModel : Int -> Model
@@ -33,6 +19,6 @@ initModel tabID =
     { count = 0
     , mdl = Material.model
     , selectedTab = tabID
-    , selectedMore = None
+    , resumeModel = Resume.initModel
     , extraModel = Extra.initModel
     }
