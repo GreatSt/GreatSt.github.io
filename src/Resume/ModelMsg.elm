@@ -20,6 +20,7 @@ type alias TransitionStyle =
 
 type alias TransitionStyles =
     { intize : TransitionStyle
+    , si : TransitionStyle
     }
 
 
@@ -27,8 +28,8 @@ type Msg
     = TeachMsg TeachJob
     | ShowMore Info
     | MdlMsg (Material.Msg Msg)
-    | FancyAnim
-    | SwitchText
+    | FancyAnim TeachJob
+    | SwitchText TeachJob
     | Animate Animation.Msg
 
 
@@ -41,6 +42,15 @@ initModel =
             { card =
                 Animation.style
                     [ Animation.height <| Animation.px 210
+                    ]
+            , text =
+                Animation.style
+                    [ Animation.opacity 1.0
+                    ]
+            }
+            { card =
+                Animation.style
+                    [ Animation.height <| Animation.px 260
                     ]
             , text =
                 Animation.style

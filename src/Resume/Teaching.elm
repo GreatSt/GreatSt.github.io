@@ -17,15 +17,15 @@ update job model =
 subscriptions : Model -> (Msg -> m) -> Sub m
 subscriptions model msgFn =
     Sub.map msgFn <|
-        Animation.subscription Animate [ model.style.intize.text ]
+        Animation.subscription Animate
+            [ model.style.intize.text
+            , model.style.si.text
+            ]
 
 
 teachView : TeachJob -> Model -> Html Msg
 teachView job model =
     case job of
-        SI ->
-            siView
-
         Galaren ->
             galarenView
 
@@ -39,7 +39,7 @@ overview model =
         [ backButton model
         , grid []
             [ intizeCell model
-            , siCell
+            , siCell model
             , galarenCell
             ]
         ]
@@ -68,17 +68,6 @@ backButton model =
                 [ text "Back" ]
             ]
         ]
-
-
-siView : Html Msg
-siView =
-    jobView
-        "August 2014 – November 2014"
-        "Chalmers University of Technology, Gothenburg"
-        "Supplementary Instructor (SI leader)"
-    <|
-        "A leader of SI (supplemental instruction) in linear algebra "
-            ++ "at Chalmers."
 
 
 galarenView : Html Msg
@@ -140,7 +129,7 @@ intizeCell model =
                 ([ size All 4
                  , offset Desktop 4
                  , offset Tablet 2
-                 , Options.onClick FancyAnim
+                 , Options.onClick <| FancyAnim Intize
                  , css "text-sizing" "border-box"
                  , css "overflow" "auto"
                  , css "background-color" "#DDDDE5"
@@ -166,10 +155,10 @@ intizeCell model =
                 [ text "(press to return)" ]
             ]
     in
-        case model.chosenCard of
-            Teach Intize ->
-                card <|
-                    div (Animation.render model.style.intize.text) <|
+        card <|
+            div (Animation.render model.style.intize.text) <|
+                case model.chosenCard of
+                    Teach Intize ->
                         card2 "October 2016 – May 2017"
                             "Intize, Gothenburg"
                             "Intize Mentor"
@@ -178,17 +167,65 @@ intizeCell model =
                                 ++ "in mathematics. I am one of these voluntary mentors "
                                 ++ "and together we work towards a more educated world."
 
-            _ ->
-                card <| div (Animation.render model.style.intize.text) <| card1
+                    _ ->
+                        card1
 
 
-siCell : Cell Msg
-siCell =
-    headerCell
-        SI
-        "Chalmers University of Technology, Gothenburg"
-        "August 2014 – November 2014"
-        "Supplementary Instructor (SI leader)"
+siCell : Model -> Cell Msg
+siCell model =
+    let
+        card1 =
+            [ h4 [] [ text "Chalmers University of Technology, Gothenburg" ]
+            , p [] [ text "August 2014 – November 2014" ]
+            , h5 [] [ text "Supplementary Instructor (SI leader)" ]
+            , p [ style [ ( "color", "#AAAAAA" ) ] ]
+                [ text "(press me)" ]
+            ]
+
+        card content =
+            cell
+                ([ size All 4
+                 , offset Desktop 4
+                 , offset Tablet 2
+                 , Options.onClick <| FancyAnim SI
+                 , css "text-sizing" "border-box"
+                 , css "overflow" "auto"
+                 , css "background-color" "#DDDDE5"
+                 , css "padding-left" "8px"
+                 , css "padding-top" "10px"
+                 , css "text-align" "center"
+                 ]
+                    ++ List.map (Options.attribute)
+                        (Animation.render model.style.si.card)
+                )
+                [ content ]
+
+        card2 period place role body =
+            [ p []
+                [ text period
+                , br [] []
+                , text place
+                , br [] []
+                , text role
+                ]
+            , text body
+            , p [ style [ ( "color", "#AAAAAA" ) ] ]
+                [ text "(press to return)" ]
+            ]
+    in
+        card <|
+            div (Animation.render model.style.si.text) <|
+                case model.chosenCard of
+                    Teach SI ->
+                        card2 "August 2014 – November 2014"
+                            "Chalmers University of Technology, Gothenburg"
+                            "Supplementary Instructor (SI leader)"
+                        <|
+                            "A leader of SI (supplemental instruction) in linear algebra "
+                                ++ "at Chalmers."
+
+                    _ ->
+                        card1
 
 
 galarenCell : Cell Msg

@@ -41,51 +41,61 @@ update msg model =
                 , ease = Ease.outQuad
                 }
 
-        isIn =
-            model.chosenCard /= (Teach Intize)
+        animation h0 h1 job mdl =
+            let
+                isIn ifT ifF =
+                    if model.chosenCard /= (Teach job) then
+                        ifT
+                    else
+                        ifF
+            in
+                { card =
+                    Animation.interrupt
+                        [ Animation.toWith smoothFn
+                            [ Animation.height <|
+                                Animation.px <|
+                                    isIn h1 h0
+                            ]
+                        ]
+                        mdl.card
+                , text =
+                    Animation.interrupt
+                        [ Animation.toWith halfSmoothFn
+                            [ Animation.opacity <| 0.0
+                            ]
+                        , Animation.Messenger.send <| SwitchText job
+                        , Animation.toWith halfSmoothFn
+                            [ Animation.opacity <| 1.0
+                            ]
+                        ]
+                        mdl.text
+                }
     in
         case msg of
-            FancyAnim ->
+            FancyAnim job ->
                 ( { model
                     | style =
-                        TransitionStyles
-                            { card =
-                                Animation.interrupt
-                                    [ Animation.toWith smoothFn
-                                        [ Animation.height <|
-                                            Animation.px <|
-                                                if isIn then
-                                                    220
-                                                else
-                                                    210
-                                        ]
-                                    ]
-                                    model.style.intize.card
-                            , text =
-                                Animation.interrupt
-                                    [ Animation.toWith halfSmoothFn
-                                        [ Animation.opacity <| 0.0
-                                        ]
-                                    , Animation.Messenger.send SwitchText
-                                    , Animation.toWith halfSmoothFn
-                                        [ Animation.opacity <| 1.0
-                                        ]
-                                    ]
-                                    model.style.intize.text
-                            }
+                        case job of
+                            Intize ->
+                                TransitionStyles
+                                    (animation 210 220 Intize model.style.intize)
+                                    model.style.si
+
+                            _ ->
+                                TransitionStyles
+                                    model.style.intize
+                                    (animation 260 205 SI model.style.si)
                   }
                 , Cmd.none
                 )
 
-            SwitchText ->
+            SwitchText job ->
                 case model.chosenCard of
-                    Teach teachJob ->
-                        case teachJob of
-                            Intize ->
-                                ( { model | chosenCard = Teach AllT }, Cmd.none )
-
-                            _ ->
-                                ( { model | chosenCard = Teach Intize }, Cmd.none )
+                    Teach currentJob ->
+                        if job == currentJob then
+                            ( { model | chosenCard = Teach AllT }, Cmd.none )
+                        else
+                            ( { model | chosenCard = Teach job }, Cmd.none )
 
                     _ ->
                         ( model, Cmd.none )
@@ -97,11 +107,20 @@ update msg model =
 
                     ( newStyle2, cmd2 ) =
                         Animation.Messenger.update animMsg model.style.intize.text
+
+                    newStyle3 =
+                        Animation.update animMsg model.style.si.card
+
+                    ( newStyle4, cmd4 ) =
+                        Animation.Messenger.update animMsg model.style.si.text
                 in
                     ( { model
-                        | style = TransitionStyles { card = newStyle1, text = newStyle2 }
+                        | style =
+                            TransitionStyles
+                                { card = newStyle1, text = newStyle2 }
+                                { card = newStyle3, text = newStyle4 }
                       }
-                    , cmd2
+                    , Cmd.batch [ cmd2, cmd4 ]
                     )
 
             TeachMsg job ->
