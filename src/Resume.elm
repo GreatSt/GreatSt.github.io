@@ -6,9 +6,10 @@ import Ease exposing (..)
 import Html exposing (Html, div, h1, text)
 import Material
 import Resume.CvView as CvView
-import Resume.Teaching as Teaching
 import Resume.ModelMsg exposing (..)
 import Resume.SoftwareSkills as Skills
+import Resume.Teaching as Teaching
+import Resume.WorkExp as WorkExp
 import Time exposing (..)
 
 
@@ -18,6 +19,9 @@ view model =
         [ case model.chosenCard of
             Teach _ ->
                 Teaching.overview model
+
+            Work ->
+                WorkExp.overview
 
             Skills ->
                 Skills.overview model

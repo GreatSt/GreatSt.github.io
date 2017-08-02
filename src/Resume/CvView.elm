@@ -50,32 +50,14 @@ cvGrid model =
                         [ schoolIntroText
                         , moreInfoButton model <| School 0
                         ]
-            , cell
-                (bStyle
-                    [ size Desktop 4
-                    , size Tablet 4
-                    , size Phone 4
-                    ]
-                )
-              <|
-                if model.chosenCard /= Work then
-                    [ workIntroText
-                    , moreInfoButton model Work
-                    ]
-                else
-                    [ workText
-                    , backButton model
-                    ]
-            , if model.chosenCard /= Skills then
-                cell (cellStyle Skills) <|
-                    [ swSkillIntroText
-                    , guiPressGuide "(press me)"
-                    ]
-              else
-                cell (cellStyle None) <|
-                    [ softwareSkillText
-                    , guiPressGuide "(press to return)"
-                    ]
+            , cell (cellStyle Work) <|
+                [ workIntroText
+                , guiPressGuide "(press me)"
+                ]
+            , cell (cellStyle Skills) <|
+                [ swSkillIntroText
+                , guiPressGuide "(press me)"
+                ]
             , cell (bStyle [ size Desktop 4, size Tablet 4, size Phone 4 ])
                 [ h3 [] [ text "Interests" ]
                 , text <|
@@ -84,16 +66,10 @@ cvGrid model =
                         ++ "learning or computer graphics. But whatevery I do, "
                         ++ "there is always a part about creative problem solving."
                 ]
-            , if model.chosenCard /= Teach AllT then
-                cell (cellStyle <| Teach AllT)
-                    [ teachingIntroText
-                    , guiPressGuide "(press me)"
-                    ]
-              else
-                cell (cellStyle None)
-                    [ teachingText
-                    , guiPressGuide "(press to return)"
-                    ]
+            , cell (cellStyle <| Teach AllT)
+                [ teachingIntroText
+                , guiPressGuide "(press me)"
+                ]
             , cell (bStyle [ size Desktop 4, size Tablet 4, size Phone 4 ])
                 [ h3 [] [ text "Public Projects" ]
                 , text "2016:"
@@ -235,38 +211,6 @@ workIntroText =
         ]
 
 
-workText : Html Msg
-workText =
-    div []
-        [ p []
-            [ text "June 2014 – August 2014"
-            , br [] []
-            , text "Zogaj of Sweden, Gothenburg"
-            , br [] []
-            , text "Game programmer"
-            ]
-        , text "Porting of "
-        , em [] [ text "Zogaj Memo Gym" ]
-        , text <|
-            " from iOS to Android. The port could be considered a remaster "
-                ++ "of the original game as everything was rewritten in "
-                ++ "LibGDX. Employed by "
-        , a [ href "http://www.zogaj.se/" ] [ text "Idriz Zogaj." ]
-        , br [] []
-        , br [] []
-        , p []
-            [ text "June 2015 – August 2015"
-            , br [] []
-            , text "Zogaj of Sweden, Gothenburg"
-            , br [] []
-            , text "Game programmer"
-            ]
-        , text "Continuing work on the game "
-        , em [] [ text "Zogaj Memo Gym" ]
-        , text " while expanding to iOS using RoboVM."
-        ]
-
-
 swSkillIntroText : Html msg
 swSkillIntroText =
     div []
@@ -279,30 +223,6 @@ swSkillIntroText =
         ]
 
 
-softwareSkillText : Html msg
-softwareSkillText =
-    div []
-        [ p [] [ b [] [ text "Advanced:" ] ]
-        , text "Java"
-        , br [] []
-        , text "Haskell"
-        , br [] []
-        , br [] []
-        , p [] [ b [] [ text "Intermediate:" ] ]
-        , text <|
-            "C, C#, C++, CSS, Elm, git, HTML, LaTeX, "
-                ++ "LibGDX, PostgreSQL, OpenGL, Scala"
-        , br [] []
-        , br [] []
-        , p [] [ b [] [ text "Basic:" ] ]
-        , text <|
-            "Assembly, Android, AngularJS, Bootstrap, Erlang, "
-                ++ "iOS, Javascript, JSON, Kotlin, Linux, MacOS, "
-                ++ "Mathematica, MATLAB, MySQL, PHP, Python, Rust, "
-                ++ "Unity 3D, Windows"
-        ]
-
-
 teachingIntroText : Html msg
 teachingIntroText =
     div []
@@ -312,48 +232,4 @@ teachingIntroText =
             , br [] []
             , text "Programming Teacher – Galären"
             ]
-        ]
-
-
-teachingText : Html msg
-teachingText =
-    div []
-        [ p []
-            [ text "April 2013 – May 2013"
-            , br [] []
-            , text "Galären (AcadeMedia Fria Grundskolor), Karskrona"
-            , br [] []
-            , text "Programming teacher"
-            ]
-        , text <|
-            "Teaching programming to curious kids from 12 to 16 years "
-                ++ "old. Got recommended by a math teacher as a talented "
-                ++ "guy and someone with spare time. All the pupils wished "
-                ++ "to try programming as a voluntary subject in the end "
-                ++ "of the school year and I made that possible."
-        , br [] []
-        , br [] []
-        , p []
-            [ text "August 2014 – November 2014"
-            , br [] []
-            , text "Chalmers University of Technology, Gothenburg"
-            , br [] []
-            , text "Supplementary Instructor (SI leader)"
-            ]
-        , text <|
-            "A leader of SI (supplemental instruction) in linear algebra "
-                ++ "at Chalmers."
-        , br [] []
-        , br [] []
-        , p []
-            [ text "October 2016 – May 2017"
-            , br [] []
-            , text "Intize, Gothenburg"
-            , br [] []
-            , text "Intize Mentor"
-            ]
-        , text <|
-            "Intize is a non-profit organisation that provides mentorship "
-                ++ "in mathematics. I am one of these voluntary mentors "
-                ++ "and together we work towards a more educated world."
         ]
