@@ -22,8 +22,12 @@ view model =
 
 
 subscriptions : Model -> (Msg -> m) -> Sub m
-subscriptions =
-    Teaching.subscriptions
+subscriptions model fun =
+    Sub.batch
+        [ Teaching.subscriptions model fun
+        , Sub.map fun <|
+            Animation.subscription Animate [ model.transition ]
+        ]
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -90,15 +94,16 @@ update msg model =
                 )
 
             SwitchText job ->
-                case model.chosenCard of
-                    Teach currentJob ->
-                        if job == currentJob then
-                            ( { model | chosenCard = Teach AllT }, Cmd.none )
-                        else
-                            ( { model | chosenCard = Teach job }, Cmd.none )
+                Debug.log "test" <|
+                    case model.chosenCard of
+                        Teach currentJob ->
+                            if job == currentJob then
+                                ( { model | chosenCard = Teach AllT }, Cmd.none )
+                            else
+                                ( { model | chosenCard = Teach job }, Cmd.none )
 
-                    _ ->
-                        ( model, Cmd.none )
+                        _ ->
+                            ( model, Cmd.none )
 
             Animate animMsg ->
                 let
@@ -113,20 +118,39 @@ update msg model =
 
                     ( newStyle4, cmd4 ) =
                         Animation.Messenger.update animMsg model.style.si.text
+
+                    ( newStyle5, cmd5 ) =
+                        Animation.Messenger.update animMsg model.transition
                 in
                     ( { model
                         | style =
                             TransitionStyles
                                 { card = newStyle1, text = newStyle2 }
                                 { card = newStyle3, text = newStyle4 }
+                        , transition = newStyle5
                       }
-                    , Cmd.batch [ cmd2, cmd4 ]
+                    , Cmd.batch [ cmd2, cmd4, cmd5 ]
                     )
 
             TeachMsg job ->
                 Teaching.update job model
 
             ShowMore info ->
+                ( { model
+                    | transition =
+                        Animation.interrupt
+                            [ Animation.toWith halfSmoothFn
+                                [ Animation.marginTop <| Animation.px -4000 ]
+                            , Animation.Messenger.send <| SwithToMore info
+                            , Animation.toWith smoothFn
+                                [ Animation.marginTop <| Animation.px 0 ]
+                            ]
+                            model.transition
+                  }
+                , Cmd.none
+                )
+
+            SwithToMore info ->
                 ( { model | chosenCard = info }, Cmd.none )
 
             MdlMsg msg_ ->

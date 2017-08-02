@@ -35,7 +35,7 @@ teachView job model =
 
 overview : Model -> Html Msg
 overview model =
-    div []
+    div (Animation.render model.transition)
         [ backButton model
         , grid []
             [ intizeCell model

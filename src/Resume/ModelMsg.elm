@@ -9,6 +9,7 @@ type alias Model =
     { chosenCard : Info
     , mdl : Material.Model
     , style : TransitionStyles
+    , transition : Animation.Messenger.State Msg
     }
 
 
@@ -27,6 +28,7 @@ type alias TransitionStyles =
 type Msg
     = TeachMsg TeachJob
     | ShowMore Info
+    | SwithToMore Info
     | MdlMsg (Material.Msg Msg)
     | FancyAnim TeachJob
     | SwitchText TeachJob
@@ -57,6 +59,9 @@ initModel =
                     [ Animation.opacity 1.0
                     ]
             }
+    , transition =
+        Animation.style
+            [ Animation.marginTop <| Animation.px 0.0 ]
     }
 
 
