@@ -8,17 +8,23 @@ import Material
 import Resume.CvView as CvView
 import Resume.Teaching as Teaching
 import Resume.ModelMsg exposing (..)
+import Resume.SoftwareSkills as Skills
 import Time exposing (..)
 
 
 view : Model -> Html Msg
 view model =
-    case model.chosenCard of
-        Teach _ ->
-            Teaching.overview model
+    div (Animation.render model.transition)
+        [ case model.chosenCard of
+            Teach _ ->
+                Teaching.overview model
 
-        _ ->
-            CvView.cvGrid model
+            Skills ->
+                Skills.overview model
+
+            _ ->
+                CvView.cvGrid model
+        ]
 
 
 subscriptions : Model -> (Msg -> m) -> Sub m

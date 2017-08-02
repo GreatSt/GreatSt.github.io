@@ -25,7 +25,7 @@ subscriptions model msgFn =
 
 overview : Model -> Html Msg
 overview model =
-    div (Animation.render model.transition)
+    div []
         [ backButton model
         , grid []
             [ intizeCell model

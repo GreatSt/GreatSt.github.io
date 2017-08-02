@@ -1,7 +1,6 @@
 module Resume.CvView exposing (..)
 
 import Array
-import Animation
 import Html exposing (..)
 import Html.Attributes exposing (attribute, href, style)
 import Material.Button as Button
@@ -26,7 +25,7 @@ cvGrid model =
             p [ style [ ( "color", "#AAAAAA" ) ] ]
                 [ text str ]
     in
-        grid (List.map (Options.attribute) <| Animation.render model.transition)
+        grid []
             [ cell [ size All 12, css "text-align" "center" ]
                 [ h1 [] [ text "W.I.P." ] ]
             , cell
