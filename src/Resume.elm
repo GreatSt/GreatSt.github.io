@@ -6,7 +6,7 @@ import Ease exposing (..)
 import Html exposing (Html, div, h1, text)
 import Material
 import Resume.CvView as CvView
-import Resume.Teaching as Teaching exposing (teachView)
+import Resume.Teaching as Teaching
 import Resume.ModelMsg exposing (..)
 import Time exposing (..)
 
@@ -14,8 +14,8 @@ import Time exposing (..)
 view : Model -> Html Msg
 view model =
     case model.chosenCard of
-        Teach job ->
-            teachView job model
+        Teach _ ->
+            Teaching.overview model
 
         _ ->
             CvView.cvGrid model

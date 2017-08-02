@@ -23,16 +23,6 @@ subscriptions model msgFn =
             ]
 
 
-teachView : TeachJob -> Model -> Html Msg
-teachView job model =
-    case job of
-        Galaren ->
-            galarenView
-
-        _ ->
-            overview model
-
-
 overview : Model -> Html Msg
 overview model =
     div (Animation.render model.transition)
@@ -40,7 +30,7 @@ overview model =
         , grid []
             [ intizeCell model
             , siCell model
-            , galarenCell
+            , galarenCell model
             ]
         ]
 
@@ -66,49 +56,6 @@ backButton model =
                 , Button.raised
                 ]
                 [ text "Back" ]
-            ]
-        ]
-
-
-galarenView : Html Msg
-galarenView =
-    jobView
-        "April 2013 – May 2013"
-        "Galären (AcadeMedia Fria Grundskolor), Karskrona"
-        "Programming teacher"
-    <|
-        "Teaching programming to curious kids from 12 to 16 years "
-            ++ "old. Got recommended by a math teacher as a talented "
-            ++ "guy and someone with spare time. All the pupils wished "
-            ++ "to try programming as a voluntary subject in the end "
-            ++ "of the school year and I made that possible."
-
-
-jobView : String -> String -> String -> String -> Html Msg
-jobView period place role body =
-    grid []
-        [ cell
-            [ size All 4
-            , offset Desktop 4
-            , offset Tablet 2
-            , Options.onClick <| ShowMore <| Teach AllT
-            , css "text-sizing" "border-box"
-            , css "overflow" "auto"
-            , css "background-color" "#DDDDEE"
-            , css "padding-left" "8px"
-            , css "padding-top" "10px"
-            , css "text-align" "center"
-            ]
-            [ p []
-                [ text period
-                , br [] []
-                , text place
-                , br [] []
-                , text role
-                ]
-            , text body
-            , p [ style [ ( "color", "#AAAAAA" ) ] ]
-                [ text "(press to return)" ]
             ]
         ]
 
@@ -228,32 +175,59 @@ siCell model =
                         card1
 
 
-galarenCell : Cell Msg
-galarenCell =
-    headerCell
-        Galaren
-        "Galären (AcadeMedia Fria Grundskolor), Karskrona"
-        "April 2013 – May 2013"
-        "Programming teacher"
+galarenCell : Model -> Cell Msg
+galarenCell model =
+    let
+        card content =
+            cell
+                ([ size All 4
+                 , offset Desktop 4
+                 , offset Tablet 2
+                 , Options.onClick <| SwitchText Galaren
+                 , css "text-sizing" "border-box"
+                 , css "overflow" "auto"
+                 , css "background-color" "#DDDDE5"
+                 , css "padding-left" "8px"
+                 , css "padding-top" "10px"
+                 , css "text-align" "center"
+                 ]
+                )
+                [ content ]
 
+        card1 =
+            [ h4 [] [ text "Galären (AcadeMedia Fria Grundskolor), Karskrona" ]
+            , p [] [ text "April 2013 – May 2013" ]
+            , h5 [] [ text "Programming teacher" ]
+            , p [ style [ ( "color", "#AAAAAA" ) ] ]
+                [ text "(press me)" ]
+            ]
 
-headerCell : TeachJob -> String -> String -> String -> Cell Msg
-headerCell job place period role =
-    cell
-        [ size All 4
-        , offset Desktop 4
-        , offset Tablet 2
-        , Options.onClick <| ShowMore <| Teach job
-        , css "text-sizing" "border-box"
-        , css "overflow" "auto"
-        , css "background-color" "#DDDDE5"
-        , css "padding-left" "8px"
-        , css "padding-top" "10px"
-        , css "text-align" "center"
-        ]
-        [ h4 [] [ text place ]
-        , p [] [ text period ]
-        , h5 [] [ text role ]
-        , p [ style [ ( "color", "#AAAAAA" ) ] ]
-            [ text "(press me)" ]
-        ]
+        card2 period place role body =
+            [ p []
+                [ text period
+                , br [] []
+                , text place
+                , br [] []
+                , text role
+                ]
+            , text body
+            , p [ style [ ( "color", "#AAAAAA" ) ] ]
+                [ text "(press to return)" ]
+            ]
+    in
+        card <|
+            div [] <|
+                case model.chosenCard of
+                    Teach Galaren ->
+                        card2 "April 2013 – May 2013"
+                            "Galären (AcadeMedia Fria Grundskolor), Karskrona"
+                            "Programming teacher"
+                        <|
+                            "Teaching programming to curious kids from 12 to 16 years "
+                                ++ "old. Got recommended by a math teacher as a talented "
+                                ++ "guy and someone with spare time. All the pupils wished "
+                                ++ "to try programming as a voluntary subject in the end "
+                                ++ "of the school year and I made that possible."
+
+                    _ ->
+                        card1
