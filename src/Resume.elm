@@ -1,9 +1,12 @@
 module Resume exposing (..)
 
-import Animation exposing (px)
+import Animation
 import Animation.Messenger
+import DOM exposing (..)
 import Ease exposing (..)
 import Html exposing (Html, div, h1, text)
+import Html.Events exposing (on)
+import Json.Decode as Decoder
 import Material
 import Resume.CvView as CvView
 import Resume.Education as Edu
@@ -16,7 +19,16 @@ import Time exposing (..)
 
 view : Model -> Html Msg
 view model =
-    div (Animation.render model.transition)
+    div
+        ((on "click"
+            (Decoder.map (MeasureH) <|
+                DOM.target <|
+                    offsetParent 10 offsetHeight
+             -- 10 is supposed to be bigger then the current depth of the click in the DOM tree
+            )
+         )
+            :: (Animation.render model.transition)
+        )
         [ case model.chosenCard of
             School _ ->
                 Edu.overview model
@@ -57,6 +69,12 @@ update msg model =
             Animation.easing
                 { duration = 0.3 * Time.second
                 , ease = Ease.outQuad
+                }
+
+        transitionEase =
+            Animation.easing
+                { duration = 0.3 * Time.second
+                , ease = Ease.outQuart
                 }
 
         animation h0 h1 job mdl =
@@ -108,16 +126,15 @@ update msg model =
                 )
 
             SwitchText job ->
-                Debug.log "test" <|
-                    case model.chosenCard of
-                        Teach currentJob ->
-                            if job == currentJob then
-                                ( { model | chosenCard = Teach AllT }, Cmd.none )
-                            else
-                                ( { model | chosenCard = Teach job }, Cmd.none )
+                case model.chosenCard of
+                    Teach currentJob ->
+                        if job == currentJob then
+                            ( { model | chosenCard = Teach AllT }, Cmd.none )
+                        else
+                            ( { model | chosenCard = Teach job }, Cmd.none )
 
-                        _ ->
-                            ( model, Cmd.none )
+                    _ ->
+                        ( model, Cmd.none )
 
             Animate animMsg ->
                 let
@@ -149,17 +166,32 @@ update msg model =
             TeachMsg job ->
                 Teaching.update job model
 
+            MeasureH height ->
+                case model.hTransition of
+                    Nothing ->
+                        ( model, Cmd.none )
+
+                    Just fun ->
+                        ( { model
+                            | transition = fun height
+                            , hTransition = Nothing
+                          }
+                        , Cmd.none
+                        )
+
             ShowMore info ->
                 ( { model
-                    | transition =
-                        Animation.interrupt
-                            [ Animation.toWith halfSmoothFn
-                                [ Animation.marginTop <| Animation.px -4000 ]
-                            , Animation.Messenger.send <| SwithToMore info
-                            , Animation.toWith smoothFn
-                                [ Animation.marginTop <| Animation.px 0 ]
-                            ]
-                            model.transition
+                    | hTransition =
+                        Just <|
+                            \h ->
+                                Animation.interrupt
+                                    [ Animation.toWith transitionEase
+                                        [ Animation.marginTop <| Animation.px -h ]
+                                    , Animation.Messenger.send <| SwithToMore info
+                                    , Animation.toWith transitionEase
+                                        [ Animation.marginTop <| Animation.px 0 ]
+                                    ]
+                                    model.transition
                   }
                 , Cmd.none
                 )

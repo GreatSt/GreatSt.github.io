@@ -22646,9 +22646,9 @@ var _simsmith$doesnotexist$Extra$subscriptions = F2(
 			});
 	});
 
-var _simsmith$doesnotexist$Resume_ModelMsg$Model = F4(
-	function (a, b, c, d) {
-		return {chosenCard: a, mdl: b, style: c, transition: d};
+var _simsmith$doesnotexist$Resume_ModelMsg$Model = F5(
+	function (a, b, c, d, e) {
+		return {chosenCard: a, mdl: b, style: c, transition: d, hTransition: e};
 	});
 var _simsmith$doesnotexist$Resume_ModelMsg$TransitionStyle = F2(
 	function (a, b) {
@@ -22658,6 +22658,9 @@ var _simsmith$doesnotexist$Resume_ModelMsg$TransitionStyles = F2(
 	function (a, b) {
 		return {intize: a, si: b};
 	});
+var _simsmith$doesnotexist$Resume_ModelMsg$MeasureH = function (a) {
+	return {ctor: 'MeasureH', _0: a};
+};
 var _simsmith$doesnotexist$Resume_ModelMsg$Animate = function (a) {
 	return {ctor: 'Animate', _0: a};
 };
@@ -22729,7 +22732,8 @@ var _simsmith$doesnotexist$Resume_ModelMsg$initModel = {
 			_0: _mdgriffith$elm_style_animation$Animation$marginTop(
 				_mdgriffith$elm_style_animation$Animation$px(0.0)),
 			_1: {ctor: '[]'}
-		})
+		}),
+	hTransition: _elm_lang$core$Maybe$Nothing
 };
 var _simsmith$doesnotexist$Resume_ModelMsg$Galaren = {ctor: 'Galaren'};
 var _simsmith$doesnotexist$Resume_ModelMsg$SI = {ctor: 'SI'};
@@ -24677,6 +24681,8 @@ var _simsmith$doesnotexist$Resume_WorkExp$overview = function () {
 
 var _simsmith$doesnotexist$Resume$update = F2(
 	function (msg, model) {
+		var transitionEase = _mdgriffith$elm_style_animation$Animation$easing(
+			{duration: 0.3 * _elm_lang$core$Time$second, ease: _elm_community$easing_functions$Ease$outQuart});
 		var halfSmoothFn = _mdgriffith$elm_style_animation$Animation$easing(
 			{duration: 0.3 * _elm_lang$core$Time$second, ease: _elm_community$easing_functions$Ease$outQuad});
 		var smoothFn = _mdgriffith$elm_style_animation$Animation$easing(
@@ -24767,33 +24773,28 @@ var _simsmith$doesnotexist$Resume$update = F2(
 				};
 			case 'SwitchText':
 				var _p3 = _p0._0;
-				return A2(
-					_elm_lang$core$Debug$log,
-					'test',
-					function () {
-						var _p2 = model.chosenCard;
-						if (_p2.ctor === 'Teach') {
-							return _elm_lang$core$Native_Utils.eq(_p3, _p2._0) ? {
-								ctor: '_Tuple2',
-								_0: _elm_lang$core$Native_Utils.update(
-									model,
-									{
-										chosenCard: _simsmith$doesnotexist$Resume_ModelMsg$Teach(_simsmith$doesnotexist$Resume_ModelMsg$AllT)
-									}),
-								_1: _elm_lang$core$Platform_Cmd$none
-							} : {
-								ctor: '_Tuple2',
-								_0: _elm_lang$core$Native_Utils.update(
-									model,
-									{
-										chosenCard: _simsmith$doesnotexist$Resume_ModelMsg$Teach(_p3)
-									}),
-								_1: _elm_lang$core$Platform_Cmd$none
-							};
-						} else {
-							return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
-						}
-					}());
+				var _p2 = model.chosenCard;
+				if (_p2.ctor === 'Teach') {
+					return _elm_lang$core$Native_Utils.eq(_p3, _p2._0) ? {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Native_Utils.update(
+							model,
+							{
+								chosenCard: _simsmith$doesnotexist$Resume_ModelMsg$Teach(_simsmith$doesnotexist$Resume_ModelMsg$AllT)
+							}),
+						_1: _elm_lang$core$Platform_Cmd$none
+					} : {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Native_Utils.update(
+							model,
+							{
+								chosenCard: _simsmith$doesnotexist$Resume_ModelMsg$Teach(_p3)
+							}),
+						_1: _elm_lang$core$Platform_Cmd$none
+					};
+				} else {
+					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+				}
 			case 'Animate':
 				var _p7 = _p0._0;
 				var _p4 = A2(_mdgriffith$elm_style_animation$Animation_Messenger$update, _p7, model.transition);
@@ -24835,45 +24836,64 @@ var _simsmith$doesnotexist$Resume$update = F2(
 				};
 			case 'TeachMsg':
 				return A2(_simsmith$doesnotexist$Resume_Teaching$update, _p0._0, model);
+			case 'MeasureH':
+				var _p8 = model.hTransition;
+				if (_p8.ctor === 'Nothing') {
+					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+				} else {
+					return {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Native_Utils.update(
+							model,
+							{
+								transition: _p8._0(_p0._0),
+								hTransition: _elm_lang$core$Maybe$Nothing
+							}),
+						_1: _elm_lang$core$Platform_Cmd$none
+					};
+				}
 			case 'ShowMore':
 				return {
 					ctor: '_Tuple2',
 					_0: _elm_lang$core$Native_Utils.update(
 						model,
 						{
-							transition: A2(
-								_mdgriffith$elm_style_animation$Animation$interrupt,
-								{
-									ctor: '::',
-									_0: A2(
-										_mdgriffith$elm_style_animation$Animation$toWith,
-										halfSmoothFn,
+							hTransition: _elm_lang$core$Maybe$Just(
+								function (h) {
+									return A2(
+										_mdgriffith$elm_style_animation$Animation$interrupt,
 										{
-											ctor: '::',
-											_0: _mdgriffith$elm_style_animation$Animation$marginTop(
-												_mdgriffith$elm_style_animation$Animation$px(-4000)),
-											_1: {ctor: '[]'}
-										}),
-									_1: {
-										ctor: '::',
-										_0: _mdgriffith$elm_style_animation$Animation_Messenger$send(
-											_simsmith$doesnotexist$Resume_ModelMsg$SwithToMore(_p0._0)),
-										_1: {
 											ctor: '::',
 											_0: A2(
 												_mdgriffith$elm_style_animation$Animation$toWith,
-												smoothFn,
+												transitionEase,
 												{
 													ctor: '::',
 													_0: _mdgriffith$elm_style_animation$Animation$marginTop(
-														_mdgriffith$elm_style_animation$Animation$px(0)),
+														_mdgriffith$elm_style_animation$Animation$px(0 - h)),
 													_1: {ctor: '[]'}
 												}),
-											_1: {ctor: '[]'}
-										}
-									}
-								},
-								model.transition)
+											_1: {
+												ctor: '::',
+												_0: _mdgriffith$elm_style_animation$Animation_Messenger$send(
+													_simsmith$doesnotexist$Resume_ModelMsg$SwithToMore(_p0._0)),
+												_1: {
+													ctor: '::',
+													_0: A2(
+														_mdgriffith$elm_style_animation$Animation$toWith,
+														transitionEase,
+														{
+															ctor: '::',
+															_0: _mdgriffith$elm_style_animation$Animation$marginTop(
+																_mdgriffith$elm_style_animation$Animation$px(0)),
+															_1: {ctor: '[]'}
+														}),
+													_1: {ctor: '[]'}
+												}
+											}
+										},
+										model.transition);
+								})
 						}),
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
@@ -24915,12 +24935,23 @@ var _simsmith$doesnotexist$Resume$subscriptions = F2(
 var _simsmith$doesnotexist$Resume$view = function (model) {
 	return A2(
 		_elm_lang$html$Html$div,
-		_mdgriffith$elm_style_animation$Animation$render(model.transition),
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html_Events$on,
+				'click',
+				A2(
+					_elm_lang$core$Json_Decode$map,
+					_simsmith$doesnotexist$Resume_ModelMsg$MeasureH,
+					_debois$elm_dom$DOM$target(
+						A2(_debois$elm_dom$DOM$offsetParent, 10, _debois$elm_dom$DOM$offsetHeight)))),
+			_1: _mdgriffith$elm_style_animation$Animation$render(model.transition)
+		},
 		{
 			ctor: '::',
 			_0: function () {
-				var _p8 = model.chosenCard;
-				switch (_p8.ctor) {
+				var _p9 = model.chosenCard;
+				switch (_p9.ctor) {
 					case 'School':
 						return _simsmith$doesnotexist$Resume_Education$overview(model);
 					case 'Teach':

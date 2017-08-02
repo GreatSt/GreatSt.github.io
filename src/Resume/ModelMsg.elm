@@ -10,6 +10,10 @@ type alias Model =
     , mdl : Material.Model
     , style : TransitionStyles
     , transition : Animation.Messenger.State Msg
+
+    -- This transition is later paired with the MeasureH message
+    -- to set the real transition. If Nothing, MeasureH will nothing.
+    , hTransition : Maybe (Float -> Animation.Messenger.State Msg)
     }
 
 
@@ -33,6 +37,7 @@ type Msg
     | FancyAnim TeachJob
     | SwitchText TeachJob
     | Animate Animation.Msg
+    | MeasureH Float
 
 
 initModel : Model
@@ -62,6 +67,7 @@ initModel =
     , transition =
         Animation.style
             [ Animation.marginTop <| Animation.px 0.0 ]
+    , hTransition = Nothing
     }
 
 
