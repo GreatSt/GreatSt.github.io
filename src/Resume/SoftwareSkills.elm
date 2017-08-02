@@ -7,8 +7,8 @@ import Material.Options as Options exposing (css)
 import Resume.ModelMsg exposing (..)
 
 
-overview : Model -> Html Msg
-overview model =
+overview : Html Msg
+overview =
     let
         cellStyle =
             [ size All 4

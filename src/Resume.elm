@@ -6,6 +6,7 @@ import Ease exposing (..)
 import Html exposing (Html, div, h1, text)
 import Material
 import Resume.CvView as CvView
+import Resume.Education as Edu
 import Resume.ModelMsg exposing (..)
 import Resume.SoftwareSkills as Skills
 import Resume.Teaching as Teaching
@@ -17,6 +18,9 @@ view : Model -> Html Msg
 view model =
     div (Animation.render model.transition)
         [ case model.chosenCard of
+            School _ ->
+                Edu.overview model
+
             Teach _ ->
                 Teaching.overview model
 
@@ -24,7 +28,7 @@ view model =
                 WorkExp.overview
 
             Skills ->
-                Skills.overview model
+                Skills.overview
 
             _ ->
                 CvView.cvGrid model

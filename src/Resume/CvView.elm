@@ -1,9 +1,7 @@
 module Resume.CvView exposing (..)
 
-import Array
 import Html exposing (..)
 import Html.Attributes exposing (attribute, href, style)
-import Material.Button as Button
 import Material.Grid exposing (Device(..), cell, grid, offset, size)
 import Material.Options as Options exposing (css)
 import Resume.ModelMsg exposing (..)
@@ -28,28 +26,10 @@ cvGrid model =
         grid []
             [ cell [ size All 12, css "text-align" "center" ]
                 [ h1 [] [ text "W.I.P." ] ]
-            , cell
-                (bStyle
-                    [ size Desktop 4
-                    , size Tablet 4
-                    , size Phone 4
-                    ]
-                )
-              <|
-                case model.chosenCard of
-                    School n ->
-                        [ schoolText n
-                        , div []
-                            [ arrowButton ((n - 1) % 3) "<" model
-                            , backButton model
-                            , arrowButton ((n + 1) % 3) ">" model
-                            ]
-                        ]
-
-                    _ ->
-                        [ schoolIntroText
-                        , moreInfoButton model <| School 0
-                        ]
+            , cell (cellStyle <| School 0) <|
+                [ schoolIntroText
+                , guiPressGuide "(press me)"
+                ]
             , cell (cellStyle Work) <|
                 [ workIntroText
                 , guiPressGuide "(press me)"
@@ -92,42 +72,6 @@ cvGrid model =
             ]
 
 
-moreInfoButton : Model -> Info -> Html Msg
-moreInfoButton model info =
-    Button.render
-        MdlMsg
-        [ 2 ]
-        model.mdl
-        [ Options.onClick <| ShowMore info
-        , Button.raised
-        ]
-        [ text "More" ]
-
-
-arrowButton : Int -> String -> Model -> Html Msg
-arrowButton n arrow model =
-    Button.render
-        MdlMsg
-        [ 4 ]
-        model.mdl
-        [ Options.onClick <| ShowMore <| School n
-        , Button.raised
-        ]
-        [ text arrow ]
-
-
-backButton : Model -> Html Msg
-backButton model =
-    Button.render
-        MdlMsg
-        [ 3 ]
-        model.mdl
-        [ Options.onClick <| ShowMore None
-        , Button.raised
-        ]
-        [ text "Back" ]
-
-
 bStyle : List (Options.Style a) -> List (Options.Style a)
 bStyle more =
     List.append
@@ -151,51 +95,6 @@ schoolIntroText =
             , br [] []
             , text "Matematisk spetsutbildning Leonardo"
             ]
-        ]
-
-
-schoolText : Int -> Html Msg
-schoolText i =
-    let
-        arr =
-            Array.fromList
-                [ schoolText1
-                , schoolText2
-                , schoolText3
-                ]
-    in
-        case Array.get i arr of
-            Nothing ->
-                schoolText1
-
-            Just school ->
-                school
-
-
-schoolText1 : Html Msg
-schoolText1 =
-    div []
-        [ h4 [] [ text "2016 – present:" ]
-        , p [] [ text "Computer Science – algorithms, languages and logic" ]
-        , p [] [ text "Master program at Chalmers University of Technology, Gothenborg" ]
-        ]
-
-
-schoolText2 : Html Msg
-schoolText2 =
-    div []
-        [ h4 [] [ text "2013 – present:" ]
-        , p [] [ text "Datateknik (300 hp)" ]
-        , p [] [ text "Chalmers University of Technology, Gothenbrg" ]
-        ]
-
-
-schoolText3 : Html Msg
-schoolText3 =
-    div []
-        [ h4 [] [ text "2010 – 2013:" ]
-        , p [] [ text "Matematisk spetsutbildning Leonardo" ]
-        , p [] [ text "Ehrensvärdska gymnasiet, Karlskrona" ]
         ]
 
 
