@@ -3,6 +3,8 @@ module Resume.Education exposing (..)
 import Array
 import Html exposing (Html, b, br, button, div, h4, p, text)
 import Html.Attributes exposing (style)
+import Html.Events exposing (..)
+import Json.Decode as Decode
 import Material.Button as Button
 import Material.Grid as Grid exposing (Device(..), offset, size)
 import Material.Options as Options exposing (css)
@@ -16,6 +18,7 @@ overview model =
             [ size All 4
             , offset Desktop 4
             , offset Tablet 2
+            , Options.onClick <| ShowMore None
             , css "text-sizing" "border-box"
             , css "overflow" "auto"
             , css "background-color" "#E0DDDD"
@@ -26,7 +29,12 @@ overview model =
             ]
 
         guiPressGuide =
-            p [ style [ ( "color", "#AAAAAA" ) ] ]
+            b
+                [ style
+                    [ ( "color", "#AAAAAA" )
+                    , ( "margin", "10px" )
+                    ]
+                ]
                 [ text "(press to return)" ]
     in
         Grid.grid []
@@ -36,7 +44,7 @@ overview model =
                         [ schoolText n
                         , div []
                             [ arrowButton ((n - 1) % 3) "<" model
-                            , backButton model
+                            , guiPressGuide
                             , arrowButton ((n + 1) % 3) ">" model
                             ]
                         ]
@@ -97,7 +105,12 @@ arrowButton n arrow model =
         MdlMsg
         [ n ]
         model.mdl
-        [ Options.onClick <| SwithToMore <| School n
+        [ Options.onWithOptions "click"
+            { stopPropagation = True, preventDefault = False }
+          <|
+            Decode.succeed <|
+                SwithToMore <|
+                    School n
         , Button.raised
         , Button.ripple
         ]

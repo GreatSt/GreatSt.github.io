@@ -23283,9 +23283,13 @@ var _simsmith$doesnotexist$Resume_Education$arrowButton = F3(
 			model.mdl,
 			{
 				ctor: '::',
-				_0: _debois$elm_mdl$Material_Options$onClick(
-					_simsmith$doesnotexist$Resume_ModelMsg$SwithToMore(
-						_simsmith$doesnotexist$Resume_ModelMsg$School(n))),
+				_0: A3(
+					_debois$elm_mdl$Material_Options$onWithOptions,
+					'click',
+					{stopPropagation: true, preventDefault: false},
+					_elm_lang$core$Json_Decode$succeed(
+						_simsmith$doesnotexist$Resume_ModelMsg$SwithToMore(
+							_simsmith$doesnotexist$Resume_ModelMsg$School(n)))),
 				_1: {
 					ctor: '::',
 					_0: _debois$elm_mdl$Material_Button$raised,
@@ -23437,14 +23441,18 @@ var _simsmith$doesnotexist$Resume_Education$schoolText = function (i) {
 };
 var _simsmith$doesnotexist$Resume_Education$overview = function (model) {
 	var guiPressGuide = A2(
-		_elm_lang$html$Html$p,
+		_elm_lang$html$Html$b,
 		{
 			ctor: '::',
 			_0: _elm_lang$html$Html_Attributes$style(
 				{
 					ctor: '::',
 					_0: {ctor: '_Tuple2', _0: 'color', _1: '#AAAAAA'},
-					_1: {ctor: '[]'}
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'margin', _1: '10px'},
+						_1: {ctor: '[]'}
+					}
 				}),
 			_1: {ctor: '[]'}
 		},
@@ -23464,26 +23472,31 @@ var _simsmith$doesnotexist$Resume_Education$overview = function (model) {
 				_0: A2(_debois$elm_mdl$Material_Grid$offset, _debois$elm_mdl$Material_Grid$Tablet, 2),
 				_1: {
 					ctor: '::',
-					_0: A2(_debois$elm_mdl$Material_Options$css, 'text-sizing', 'border-box'),
+					_0: _debois$elm_mdl$Material_Options$onClick(
+						_simsmith$doesnotexist$Resume_ModelMsg$ShowMore(_simsmith$doesnotexist$Resume_ModelMsg$None)),
 					_1: {
 						ctor: '::',
-						_0: A2(_debois$elm_mdl$Material_Options$css, 'overflow', 'auto'),
+						_0: A2(_debois$elm_mdl$Material_Options$css, 'text-sizing', 'border-box'),
 						_1: {
 							ctor: '::',
-							_0: A2(_debois$elm_mdl$Material_Options$css, 'background-color', '#E0DDDD'),
+							_0: A2(_debois$elm_mdl$Material_Options$css, 'overflow', 'auto'),
 							_1: {
 								ctor: '::',
-								_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-left', '8px'),
+								_0: A2(_debois$elm_mdl$Material_Options$css, 'background-color', '#E0DDDD'),
 								_1: {
 									ctor: '::',
-									_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-top', '10px'),
+									_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-left', '8px'),
 									_1: {
 										ctor: '::',
-										_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-bottom', '10px'),
+										_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-top', '10px'),
 										_1: {
 											ctor: '::',
-											_0: A2(_debois$elm_mdl$Material_Options$css, 'text-align', 'center'),
-											_1: {ctor: '[]'}
+											_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-bottom', '10px'),
+											_1: {
+												ctor: '::',
+												_0: A2(_debois$elm_mdl$Material_Options$css, 'text-align', 'center'),
+												_1: {ctor: '[]'}
+											}
 										}
 									}
 								}
@@ -23523,7 +23536,7 @@ var _simsmith$doesnotexist$Resume_Education$overview = function (model) {
 											model),
 										_1: {
 											ctor: '::',
-											_0: _simsmith$doesnotexist$Resume_Education$backButton(model),
+											_0: guiPressGuide,
 											_1: {
 												ctor: '::',
 												_0: A3(
