@@ -22648,7 +22648,7 @@ var _simsmith$doesnotexist$Extra$subscriptions = F2(
 
 var _simsmith$doesnotexist$Resume_ModelMsg$Model = F5(
 	function (a, b, c, d, e) {
-		return {chosenCard: a, mdl: b, style: c, transition: d, hTransition: e};
+		return {chosenCard: a, mdl: b, style: c, transition: d, wTransition: e};
 	});
 var _simsmith$doesnotexist$Resume_ModelMsg$TransitionStyle = F2(
 	function (a, b) {
@@ -22658,8 +22658,8 @@ var _simsmith$doesnotexist$Resume_ModelMsg$TransitionStyles = F2(
 	function (a, b) {
 		return {intize: a, si: b};
 	});
-var _simsmith$doesnotexist$Resume_ModelMsg$MeasureH = function (a) {
-	return {ctor: 'MeasureH', _0: a};
+var _simsmith$doesnotexist$Resume_ModelMsg$MeasureW = function (a) {
+	return {ctor: 'MeasureW', _0: a};
 };
 var _simsmith$doesnotexist$Resume_ModelMsg$Animate = function (a) {
 	return {ctor: 'Animate', _0: a};
@@ -22729,11 +22729,13 @@ var _simsmith$doesnotexist$Resume_ModelMsg$initModel = {
 	transition: _mdgriffith$elm_style_animation$Animation$style(
 		{
 			ctor: '::',
-			_0: _mdgriffith$elm_style_animation$Animation$marginTop(
+			_0: A2(
+				_mdgriffith$elm_style_animation$Animation$translate,
+				_mdgriffith$elm_style_animation$Animation$px(0.0),
 				_mdgriffith$elm_style_animation$Animation$px(0.0)),
 			_1: {ctor: '[]'}
 		}),
-	hTransition: _elm_lang$core$Maybe$Nothing
+	wTransition: _elm_lang$core$Maybe$Nothing
 };
 var _simsmith$doesnotexist$Resume_ModelMsg$Galaren = {ctor: 'Galaren'};
 var _simsmith$doesnotexist$Resume_ModelMsg$SI = {ctor: 'SI'};
@@ -24849,8 +24851,8 @@ var _simsmith$doesnotexist$Resume$update = F2(
 				};
 			case 'TeachMsg':
 				return A2(_simsmith$doesnotexist$Resume_Teaching$update, _p0._0, model);
-			case 'MeasureH':
-				var _p8 = model.hTransition;
+			case 'MeasureW':
+				var _p8 = model.wTransition;
 				if (_p8.ctor === 'Nothing') {
 					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 				} else {
@@ -24860,7 +24862,7 @@ var _simsmith$doesnotexist$Resume$update = F2(
 							model,
 							{
 								transition: _p8._0(_p0._0),
-								hTransition: _elm_lang$core$Maybe$Nothing
+								wTransition: _elm_lang$core$Maybe$Nothing
 							}),
 						_1: _elm_lang$core$Platform_Cmd$none
 					};
@@ -24871,7 +24873,7 @@ var _simsmith$doesnotexist$Resume$update = F2(
 					_0: _elm_lang$core$Native_Utils.update(
 						model,
 						{
-							hTransition: _elm_lang$core$Maybe$Just(
+							wTransition: _elm_lang$core$Maybe$Just(
 								function (h) {
 									return A2(
 										_mdgriffith$elm_style_animation$Animation$interrupt,
@@ -24882,8 +24884,10 @@ var _simsmith$doesnotexist$Resume$update = F2(
 												transitionEase,
 												{
 													ctor: '::',
-													_0: _mdgriffith$elm_style_animation$Animation$marginTop(
-														_mdgriffith$elm_style_animation$Animation$px(0 - h)),
+													_0: A2(
+														_mdgriffith$elm_style_animation$Animation$translate,
+														_mdgriffith$elm_style_animation$Animation$px(0 - h),
+														_mdgriffith$elm_style_animation$Animation$px(0.0)),
 													_1: {ctor: '[]'}
 												}),
 											_1: {
@@ -24892,16 +24896,30 @@ var _simsmith$doesnotexist$Resume$update = F2(
 													_simsmith$doesnotexist$Resume_ModelMsg$SwithToMore(_p0._0)),
 												_1: {
 													ctor: '::',
-													_0: A2(
-														_mdgriffith$elm_style_animation$Animation$toWith,
-														transitionEase,
+													_0: _mdgriffith$elm_style_animation$Animation$set(
 														{
 															ctor: '::',
-															_0: _mdgriffith$elm_style_animation$Animation$marginTop(
-																_mdgriffith$elm_style_animation$Animation$px(0)),
+															_0: A2(
+																_mdgriffith$elm_style_animation$Animation$translate,
+																_mdgriffith$elm_style_animation$Animation$px(h),
+																_mdgriffith$elm_style_animation$Animation$px(0.0)),
 															_1: {ctor: '[]'}
 														}),
-													_1: {ctor: '[]'}
+													_1: {
+														ctor: '::',
+														_0: A2(
+															_mdgriffith$elm_style_animation$Animation$toWith,
+															transitionEase,
+															{
+																ctor: '::',
+																_0: A2(
+																	_mdgriffith$elm_style_animation$Animation$translate,
+																	_mdgriffith$elm_style_animation$Animation$px(0.0),
+																	_mdgriffith$elm_style_animation$Animation$px(0.0)),
+																_1: {ctor: '[]'}
+															}),
+														_1: {ctor: '[]'}
+													}
 												}
 											}
 										},
@@ -24955,9 +24973,9 @@ var _simsmith$doesnotexist$Resume$view = function (model) {
 				'click',
 				A2(
 					_elm_lang$core$Json_Decode$map,
-					_simsmith$doesnotexist$Resume_ModelMsg$MeasureH,
+					_simsmith$doesnotexist$Resume_ModelMsg$MeasureW,
 					_debois$elm_dom$DOM$target(
-						A2(_debois$elm_dom$DOM$offsetParent, 10, _debois$elm_dom$DOM$offsetHeight)))),
+						A2(_debois$elm_dom$DOM$offsetParent, 10, _debois$elm_dom$DOM$offsetWidth)))),
 			_1: _mdgriffith$elm_style_animation$Animation$render(model.transition)
 		},
 		{

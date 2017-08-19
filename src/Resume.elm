@@ -21,9 +21,9 @@ view : Model -> Html Msg
 view model =
     div
         ((on "click"
-            (Decoder.map (MeasureH) <|
+            (Decoder.map (MeasureW) <|
                 DOM.target <|
-                    offsetParent 10 offsetHeight
+                    offsetParent 10 offsetWidth
              -- 10 is supposed to be bigger then the current depth of the click in the DOM tree
             )
          )
@@ -166,30 +166,32 @@ update msg model =
             TeachMsg job ->
                 Teaching.update job model
 
-            MeasureH height ->
-                case model.hTransition of
+            MeasureW width ->
+                case model.wTransition of
                     Nothing ->
                         ( model, Cmd.none )
 
                     Just fun ->
                         ( { model
-                            | transition = fun height
-                            , hTransition = Nothing
+                            | transition = fun width
+                            , wTransition = Nothing
                           }
                         , Cmd.none
                         )
 
             ShowMore info ->
                 ( { model
-                    | hTransition =
+                    | wTransition =
                         Just <|
                             \h ->
                                 Animation.interrupt
                                     [ Animation.toWith transitionEase
-                                        [ Animation.marginTop <| Animation.px -h ]
+                                        [ Animation.translate (Animation.px -h) (Animation.px 0.0) ]
                                     , Animation.Messenger.send <| SwithToMore info
+                                    , Animation.set
+                                        [ Animation.translate (Animation.px h) (Animation.px 0.0) ]
                                     , Animation.toWith transitionEase
-                                        [ Animation.marginTop <| Animation.px 0 ]
+                                        [ Animation.translate (Animation.px 0.0) (Animation.px 0.0) ]
                                     ]
                                     model.transition
                   }
