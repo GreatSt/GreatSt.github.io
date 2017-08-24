@@ -4,6 +4,7 @@ import Html exposing (Html, b, br, div, p, text)
 import Html.Attributes exposing (style)
 import Material.Grid as Grid exposing (Device(..), offset, size)
 import Material.Options as Options exposing (css)
+import Material.Table as Table
 import Resume.ModelMsg exposing (..)
 
 
@@ -50,4 +51,59 @@ overview =
                 , br [] []
                 , guiPressGuide
                 ]
+            , Grid.cell
+                [ size All 4
+                , offset Desktop 4
+                , offset Tablet 2
+                ]
+                [ table
+                ]
             ]
+
+
+type alias Data =
+    { language : String
+    , level : String
+    , score : String
+    }
+
+
+data : List Data
+data =
+    [ { language = "Java"
+      , level = "4"
+      , score = "3"
+      }
+    , { language = "Rust"
+      , level = "4"
+      , score = "5"
+      }
+    , { language = "Elm"
+      , level = "5"
+      , score = "4"
+      }
+    ]
+
+
+table : Html Msg
+table =
+    Table.table [ css "margin" "auto" ]
+        [ Table.thead []
+            [ Table.tr []
+                [ Table.th [] [ text "Language" ]
+                , Table.th [] [ text "Level" ]
+                , Table.th [] [ text "Score" ]
+                ]
+            ]
+        , Table.tbody []
+            (data
+                |> List.map
+                    (\item ->
+                        Table.tr []
+                            [ Table.td [] [ text item.language ]
+                            , Table.td [ Table.numeric ] [ text item.level ]
+                            , Table.td [ Table.numeric ] [ text item.score ]
+                            ]
+                    )
+            )
+        ]
