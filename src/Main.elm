@@ -16,8 +16,8 @@ main =
         { init =
             \location ->
                 let
-                    model =
-                        init location
+                    ( model, _ ) =
+                        update (initLoc location) initModel
                 in
                     ( { model
                         -- tab width of 240 is an empirical value
@@ -43,22 +43,14 @@ locFor location =
         |> GoTo
 
 
-init : Location -> Model
-init location =
-    let
-        tabID =
-            case parseHash route location of
-                Nothing ->
-                    0
-
-                Just (Tab index) ->
-                    index
-    in
-        initModel tabID
+initLoc : Location -> Msg
+initLoc =
+    GoTo << parseHash route
 
 
-route : Parser (Page -> a) a
+route : Parser (PageMsg -> a) a
 route =
     oneOf
-        [ UrlParser.map Tab (int)
+        [ UrlParser.map GetTab int
+        , UrlParser.map GetCatergory string
         ]

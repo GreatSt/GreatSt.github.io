@@ -24,7 +24,7 @@ view model =
         [ Layout.fixedHeader
         , Layout.scrolling
         , Layout.selectedTab model.selectedTab
-        , Layout.onSelectTab SelectTab
+        , Layout.onSelectTab setTab
         ]
         { header =
             [ p

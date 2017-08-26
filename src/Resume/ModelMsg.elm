@@ -33,6 +33,7 @@ type Msg
     = TeachMsg TeachJob
     | ShowMore Info
     | SwithToMore Info
+    | SetUrl Info
     | MdlMsg (Material.Msg Msg)
     | FancyAnim TeachJob
     | SwitchText TeachJob
@@ -40,9 +41,9 @@ type Msg
     | MeasureW Float
 
 
-initModel : Model
-initModel =
-    { chosenCard = None
+initModel1 : Info -> Model
+initModel1 info =
+    { chosenCard = info
     , mdl = Material.model
     , style =
         TransitionStyles
@@ -69,6 +70,11 @@ initModel =
             [ Animation.translate (Animation.px 0.0) (Animation.px 0.0) ]
     , wTransition = Nothing
     }
+
+
+initModel : Model
+initModel =
+    initModel1 None
 
 
 type Info

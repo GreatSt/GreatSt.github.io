@@ -14,11 +14,11 @@ type alias Model =
     }
 
 
-initModel : Int -> Model
-initModel tabID =
+initModel : Model
+initModel =
     { count = 0
     , mdl = Material.model
-    , selectedTab = tabID
+    , selectedTab = 0
     , resumeModel = Resume.initModel
     , extraModel = Extra.initModel
     }

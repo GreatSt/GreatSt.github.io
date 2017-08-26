@@ -15419,6 +15419,183 @@ var _debois$elm_mdl$Material_Grid$Bottom = {ctor: 'Bottom'};
 var _debois$elm_mdl$Material_Grid$Middle = {ctor: 'Middle'};
 var _debois$elm_mdl$Material_Grid$Top = {ctor: 'Top'};
 
+var _debois$elm_mdl$Material_Table$defaultCell = {numeric: false};
+var _debois$elm_mdl$Material_Table$td = F2(
+	function (options, html) {
+		var _p0 = A2(_debois$elm_mdl$Material_Options_Internal$collect, _debois$elm_mdl$Material_Table$defaultCell, options);
+		var summary = _p0;
+		var config = _p0.config;
+		return A5(
+			_debois$elm_mdl$Material_Options_Internal$apply,
+			summary,
+			_elm_lang$html$Html$td,
+			{
+				ctor: '::',
+				_0: A2(
+					_debois$elm_mdl$Material_Options$when,
+					config.numeric,
+					_debois$elm_mdl$Material_Options$cs('mdl-data-table__cell--non-numeric')),
+				_1: {ctor: '[]'}
+			},
+			{ctor: '[]'},
+			html);
+	});
+var _debois$elm_mdl$Material_Table$sorted = function (order) {
+	return _debois$elm_mdl$Material_Options_Internal$option(
+		function (self) {
+			return _elm_lang$core$Native_Utils.update(
+				self,
+				{
+					sorted: _elm_lang$core$Maybe$Just(order)
+				});
+		});
+};
+var _debois$elm_mdl$Material_Table$numeric = _debois$elm_mdl$Material_Options_Internal$option(
+	function (self) {
+		return _elm_lang$core$Native_Utils.update(
+			self,
+			{numeric: true});
+	});
+var _debois$elm_mdl$Material_Table$defaultHeader = {numeric: false, sorted: _elm_lang$core$Maybe$Nothing};
+var _debois$elm_mdl$Material_Table$th = F2(
+	function (options, html) {
+		var _p1 = A2(_debois$elm_mdl$Material_Options_Internal$collect, _debois$elm_mdl$Material_Table$defaultHeader, options);
+		var summary = _p1;
+		var config = _p1.config;
+		return A5(
+			_debois$elm_mdl$Material_Options_Internal$apply,
+			summary,
+			_elm_lang$html$Html$th,
+			{
+				ctor: '::',
+				_0: A2(
+					_debois$elm_mdl$Material_Options$when,
+					config.numeric,
+					_debois$elm_mdl$Material_Options$cs('mdl-data-table__cell--non-numeric')),
+				_1: {
+					ctor: '::',
+					_0: function () {
+						var _p2 = config.sorted;
+						if (_p2.ctor === 'Just') {
+							if (_p2._0.ctor === 'Ascending') {
+								return _debois$elm_mdl$Material_Options$cs('mdl-data-table__header--sorted-ascending');
+							} else {
+								return _debois$elm_mdl$Material_Options$cs('mdl-data-table__header--sorted-descending');
+							}
+						} else {
+							return _debois$elm_mdl$Material_Options$nop;
+						}
+					}(),
+					_1: {ctor: '[]'}
+				}
+			},
+			{ctor: '[]'},
+			html);
+	});
+var _debois$elm_mdl$Material_Table$selected = _debois$elm_mdl$Material_Options_Internal$option(
+	function (self) {
+		return _elm_lang$core$Native_Utils.update(
+			self,
+			{selected: true});
+	});
+var _debois$elm_mdl$Material_Table$defaultRow = {selected: false};
+var _debois$elm_mdl$Material_Table$tr = F2(
+	function (options, html) {
+		var _p3 = A2(_debois$elm_mdl$Material_Options_Internal$collect, _debois$elm_mdl$Material_Table$defaultRow, options);
+		var summary = _p3;
+		var config = _p3.config;
+		return A5(
+			_debois$elm_mdl$Material_Options_Internal$apply,
+			summary,
+			_elm_lang$html$Html$tr,
+			{
+				ctor: '::',
+				_0: A2(
+					_debois$elm_mdl$Material_Options$when,
+					config.selected,
+					_debois$elm_mdl$Material_Options$cs('is-selected')),
+				_1: {ctor: '[]'}
+			},
+			{ctor: '[]'},
+			html);
+	});
+var _debois$elm_mdl$Material_Table$tfoot = F2(
+	function (options, html) {
+		var summary = A2(
+			_debois$elm_mdl$Material_Options_Internal$collect,
+			{},
+			options);
+		return A5(
+			_debois$elm_mdl$Material_Options_Internal$apply,
+			summary,
+			_elm_lang$html$Html$tfoot,
+			{ctor: '[]'},
+			{ctor: '[]'},
+			html);
+	});
+var _debois$elm_mdl$Material_Table$tbody = F2(
+	function (options, html) {
+		var summary = A2(
+			_debois$elm_mdl$Material_Options_Internal$collect,
+			{},
+			options);
+		return A5(
+			_debois$elm_mdl$Material_Options_Internal$apply,
+			summary,
+			_elm_lang$html$Html$tbody,
+			{ctor: '[]'},
+			{ctor: '[]'},
+			html);
+	});
+var _debois$elm_mdl$Material_Table$thead = F2(
+	function (options, html) {
+		var summary = A2(
+			_debois$elm_mdl$Material_Options_Internal$collect,
+			{},
+			options);
+		return A5(
+			_debois$elm_mdl$Material_Options_Internal$apply,
+			summary,
+			_elm_lang$html$Html$thead,
+			{ctor: '[]'},
+			{ctor: '[]'},
+			html);
+	});
+var _debois$elm_mdl$Material_Table$table = F2(
+	function (options, nodes) {
+		return A3(
+			_debois$elm_mdl$Material_Options$styled,
+			_elm_lang$html$Html$table,
+			{
+				ctor: '::',
+				_0: _debois$elm_mdl$Material_Options$cs('mdl-data-table'),
+				_1: {
+					ctor: '::',
+					_0: _debois$elm_mdl$Material_Options$cs('mdl-js-data-table'),
+					_1: {
+						ctor: '::',
+						_0: _debois$elm_mdl$Material_Options$cs('is-upgraded'),
+						_1: options
+					}
+				}
+			},
+			nodes);
+	});
+var _debois$elm_mdl$Material_Table$Row = function (a) {
+	return {selected: a};
+};
+var _debois$elm_mdl$Material_Table$Header = F2(
+	function (a, b) {
+		return {numeric: a, sorted: b};
+	});
+var _debois$elm_mdl$Material_Table$Cell = function (a) {
+	return {numeric: a};
+};
+var _debois$elm_mdl$Material_Table$Descending = {ctor: 'Descending'};
+var _debois$elm_mdl$Material_Table$descending = _debois$elm_mdl$Material_Table$sorted(_debois$elm_mdl$Material_Table$Descending);
+var _debois$elm_mdl$Material_Table$Ascending = {ctor: 'Ascending'};
+var _debois$elm_mdl$Material_Table$ascending = _debois$elm_mdl$Material_Table$sorted(_debois$elm_mdl$Material_Table$Ascending);
+
 var _elm_community$easing_functions$Ease$reverse = F2(
 	function (easing, time) {
 		return easing(1 - time);
@@ -22658,6 +22835,54 @@ var _simsmith$doesnotexist$Resume_ModelMsg$TransitionStyles = F2(
 	function (a, b) {
 		return {intize: a, si: b};
 	});
+var _simsmith$doesnotexist$Resume_ModelMsg$initModel1 = function (info) {
+	return {
+		chosenCard: info,
+		mdl: _debois$elm_mdl$Material$model,
+		style: A2(
+			_simsmith$doesnotexist$Resume_ModelMsg$TransitionStyles,
+			{
+				card: _mdgriffith$elm_style_animation$Animation$style(
+					{
+						ctor: '::',
+						_0: _mdgriffith$elm_style_animation$Animation$height(
+							_mdgriffith$elm_style_animation$Animation$px(210)),
+						_1: {ctor: '[]'}
+					}),
+				text: _mdgriffith$elm_style_animation$Animation$style(
+					{
+						ctor: '::',
+						_0: _mdgriffith$elm_style_animation$Animation$opacity(1.0),
+						_1: {ctor: '[]'}
+					})
+			},
+			{
+				card: _mdgriffith$elm_style_animation$Animation$style(
+					{
+						ctor: '::',
+						_0: _mdgriffith$elm_style_animation$Animation$height(
+							_mdgriffith$elm_style_animation$Animation$px(260)),
+						_1: {ctor: '[]'}
+					}),
+				text: _mdgriffith$elm_style_animation$Animation$style(
+					{
+						ctor: '::',
+						_0: _mdgriffith$elm_style_animation$Animation$opacity(1.0),
+						_1: {ctor: '[]'}
+					})
+			}),
+		transition: _mdgriffith$elm_style_animation$Animation$style(
+			{
+				ctor: '::',
+				_0: A2(
+					_mdgriffith$elm_style_animation$Animation$translate,
+					_mdgriffith$elm_style_animation$Animation$px(0.0),
+					_mdgriffith$elm_style_animation$Animation$px(0.0)),
+				_1: {ctor: '[]'}
+			}),
+		wTransition: _elm_lang$core$Maybe$Nothing
+	};
+};
 var _simsmith$doesnotexist$Resume_ModelMsg$MeasureW = function (a) {
 	return {ctor: 'MeasureW', _0: a};
 };
@@ -22672,6 +22897,9 @@ var _simsmith$doesnotexist$Resume_ModelMsg$FancyAnim = function (a) {
 };
 var _simsmith$doesnotexist$Resume_ModelMsg$MdlMsg = function (a) {
 	return {ctor: 'MdlMsg', _0: a};
+};
+var _simsmith$doesnotexist$Resume_ModelMsg$SetUrl = function (a) {
+	return {ctor: 'SetUrl', _0: a};
 };
 var _simsmith$doesnotexist$Resume_ModelMsg$SwithToMore = function (a) {
 	return {ctor: 'SwithToMore', _0: a};
@@ -22691,61 +22919,14 @@ var _simsmith$doesnotexist$Resume_ModelMsg$School = function (a) {
 	return {ctor: 'School', _0: a};
 };
 var _simsmith$doesnotexist$Resume_ModelMsg$None = {ctor: 'None'};
-var _simsmith$doesnotexist$Resume_ModelMsg$initModel = {
-	chosenCard: _simsmith$doesnotexist$Resume_ModelMsg$None,
-	mdl: _debois$elm_mdl$Material$model,
-	style: A2(
-		_simsmith$doesnotexist$Resume_ModelMsg$TransitionStyles,
-		{
-			card: _mdgriffith$elm_style_animation$Animation$style(
-				{
-					ctor: '::',
-					_0: _mdgriffith$elm_style_animation$Animation$height(
-						_mdgriffith$elm_style_animation$Animation$px(210)),
-					_1: {ctor: '[]'}
-				}),
-			text: _mdgriffith$elm_style_animation$Animation$style(
-				{
-					ctor: '::',
-					_0: _mdgriffith$elm_style_animation$Animation$opacity(1.0),
-					_1: {ctor: '[]'}
-				})
-		},
-		{
-			card: _mdgriffith$elm_style_animation$Animation$style(
-				{
-					ctor: '::',
-					_0: _mdgriffith$elm_style_animation$Animation$height(
-						_mdgriffith$elm_style_animation$Animation$px(260)),
-					_1: {ctor: '[]'}
-				}),
-			text: _mdgriffith$elm_style_animation$Animation$style(
-				{
-					ctor: '::',
-					_0: _mdgriffith$elm_style_animation$Animation$opacity(1.0),
-					_1: {ctor: '[]'}
-				})
-		}),
-	transition: _mdgriffith$elm_style_animation$Animation$style(
-		{
-			ctor: '::',
-			_0: A2(
-				_mdgriffith$elm_style_animation$Animation$translate,
-				_mdgriffith$elm_style_animation$Animation$px(0.0),
-				_mdgriffith$elm_style_animation$Animation$px(0.0)),
-			_1: {ctor: '[]'}
-		}),
-	wTransition: _elm_lang$core$Maybe$Nothing
-};
+var _simsmith$doesnotexist$Resume_ModelMsg$initModel = _simsmith$doesnotexist$Resume_ModelMsg$initModel1(_simsmith$doesnotexist$Resume_ModelMsg$None);
 var _simsmith$doesnotexist$Resume_ModelMsg$Galaren = {ctor: 'Galaren'};
 var _simsmith$doesnotexist$Resume_ModelMsg$SI = {ctor: 'SI'};
 var _simsmith$doesnotexist$Resume_ModelMsg$Intize = {ctor: 'Intize'};
 var _simsmith$doesnotexist$Resume_ModelMsg$BackHome = {ctor: 'BackHome'};
 var _simsmith$doesnotexist$Resume_ModelMsg$AllT = {ctor: 'AllT'};
 
-var _simsmith$doesnotexist$Model$initModel = function (tabID) {
-	return {count: 0, mdl: _debois$elm_mdl$Material$model, selectedTab: tabID, resumeModel: _simsmith$doesnotexist$Resume_ModelMsg$initModel, extraModel: _simsmith$doesnotexist$Extra$initModel};
-};
+var _simsmith$doesnotexist$Model$initModel = {count: 0, mdl: _debois$elm_mdl$Material$model, selectedTab: 0, resumeModel: _simsmith$doesnotexist$Resume_ModelMsg$initModel, extraModel: _simsmith$doesnotexist$Extra$initModel};
 var _simsmith$doesnotexist$Model$Model = F5(
 	function (a, b, c, d, e) {
 		return {count: a, mdl: b, selectedTab: c, resumeModel: d, extraModel: e};
@@ -23561,6 +23742,130 @@ var _simsmith$doesnotexist$Resume_Education$overview = function (model) {
 		});
 };
 
+var _simsmith$doesnotexist$Resume_SoftwareSkills$data = {
+	ctor: '::',
+	_0: {language: 'Java', level: '4', score: '3'},
+	_1: {
+		ctor: '::',
+		_0: {language: 'Rust', level: '4', score: '5'},
+		_1: {
+			ctor: '::',
+			_0: {language: 'Elm', level: '5', score: '4'},
+			_1: {ctor: '[]'}
+		}
+	}
+};
+var _simsmith$doesnotexist$Resume_SoftwareSkills$table = A2(
+	_debois$elm_mdl$Material_Table$table,
+	{
+		ctor: '::',
+		_0: A2(_debois$elm_mdl$Material_Options$css, 'margin', 'auto'),
+		_1: {ctor: '[]'}
+	},
+	{
+		ctor: '::',
+		_0: A2(
+			_debois$elm_mdl$Material_Table$thead,
+			{ctor: '[]'},
+			{
+				ctor: '::',
+				_0: A2(
+					_debois$elm_mdl$Material_Table$tr,
+					{ctor: '[]'},
+					{
+						ctor: '::',
+						_0: A2(
+							_debois$elm_mdl$Material_Table$th,
+							{ctor: '[]'},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text('Language'),
+								_1: {ctor: '[]'}
+							}),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_debois$elm_mdl$Material_Table$th,
+								{ctor: '[]'},
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html$text('Level'),
+									_1: {ctor: '[]'}
+								}),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_debois$elm_mdl$Material_Table$th,
+									{ctor: '[]'},
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html$text('Score'),
+										_1: {ctor: '[]'}
+									}),
+								_1: {ctor: '[]'}
+							}
+						}
+					}),
+				_1: {ctor: '[]'}
+			}),
+		_1: {
+			ctor: '::',
+			_0: A2(
+				_debois$elm_mdl$Material_Table$tbody,
+				{ctor: '[]'},
+				A2(
+					_elm_lang$core$List$map,
+					function (item) {
+						return A2(
+							_debois$elm_mdl$Material_Table$tr,
+							{ctor: '[]'},
+							{
+								ctor: '::',
+								_0: A2(
+									_debois$elm_mdl$Material_Table$td,
+									{ctor: '[]'},
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html$text(item.language),
+										_1: {ctor: '[]'}
+									}),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_debois$elm_mdl$Material_Table$td,
+										{
+											ctor: '::',
+											_0: _debois$elm_mdl$Material_Table$numeric,
+											_1: {ctor: '[]'}
+										},
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html$text(item.level),
+											_1: {ctor: '[]'}
+										}),
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_debois$elm_mdl$Material_Table$td,
+											{
+												ctor: '::',
+												_0: _debois$elm_mdl$Material_Table$numeric,
+												_1: {ctor: '[]'}
+											},
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html$text(item.score),
+												_1: {ctor: '[]'}
+											}),
+										_1: {ctor: '[]'}
+									}
+								}
+							});
+					},
+					_simsmith$doesnotexist$Resume_SoftwareSkills$data)),
+			_1: {ctor: '[]'}
+		}
+	});
 var _simsmith$doesnotexist$Resume_SoftwareSkills$overview = function () {
 	var guiPressGuide = A2(
 		_elm_lang$html$Html$p,
@@ -23754,9 +24059,36 @@ var _simsmith$doesnotexist$Resume_SoftwareSkills$overview = function () {
 						}
 					}
 				}),
-			_1: {ctor: '[]'}
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_debois$elm_mdl$Material_Grid$cell,
+					{
+						ctor: '::',
+						_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$All, 4),
+						_1: {
+							ctor: '::',
+							_0: A2(_debois$elm_mdl$Material_Grid$offset, _debois$elm_mdl$Material_Grid$Desktop, 4),
+							_1: {
+								ctor: '::',
+								_0: A2(_debois$elm_mdl$Material_Grid$offset, _debois$elm_mdl$Material_Grid$Tablet, 2),
+								_1: {ctor: '[]'}
+							}
+						}
+					},
+					{
+						ctor: '::',
+						_0: _simsmith$doesnotexist$Resume_SoftwareSkills$table,
+						_1: {ctor: '[]'}
+					}),
+				_1: {ctor: '[]'}
+			}
 		});
 }();
+var _simsmith$doesnotexist$Resume_SoftwareSkills$Data = F3(
+	function (a, b, c) {
+		return {language: a, level: b, score: c};
+	});
 
 var _simsmith$doesnotexist$Resume_Teaching$galarenCell = function (model) {
 	var card2 = F4(
@@ -24868,6 +25200,7 @@ var _simsmith$doesnotexist$Resume$update = F2(
 					};
 				}
 			case 'ShowMore':
+				var _p9 = _p0._0;
 				return {
 					ctor: '_Tuple2',
 					_0: _elm_lang$core$Native_Utils.update(
@@ -24893,7 +25226,7 @@ var _simsmith$doesnotexist$Resume$update = F2(
 											_1: {
 												ctor: '::',
 												_0: _mdgriffith$elm_style_animation$Animation_Messenger$send(
-													_simsmith$doesnotexist$Resume_ModelMsg$SwithToMore(_p0._0)),
+													_simsmith$doesnotexist$Resume_ModelMsg$SwithToMore(_p9)),
 												_1: {
 													ctor: '::',
 													_0: _mdgriffith$elm_style_animation$Animation$set(
@@ -24918,7 +25251,12 @@ var _simsmith$doesnotexist$Resume$update = F2(
 																	_mdgriffith$elm_style_animation$Animation$px(0.0)),
 																_1: {ctor: '[]'}
 															}),
-														_1: {ctor: '[]'}
+														_1: {
+															ctor: '::',
+															_0: _mdgriffith$elm_style_animation$Animation_Messenger$send(
+																_simsmith$doesnotexist$Resume_ModelMsg$SetUrl(_p9)),
+															_1: {ctor: '[]'}
+														}
 													}
 												}
 											}
@@ -24935,6 +25273,28 @@ var _simsmith$doesnotexist$Resume$update = F2(
 						model,
 						{chosenCard: _p0._0}),
 					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'SetUrl':
+				var url = function () {
+					var _p10 = _p0._0;
+					switch (_p10.ctor) {
+						case 'None':
+							return '1';
+						case 'School':
+							return 'school';
+						case 'Work':
+							return 'work';
+						case 'Skills':
+							return 'skills';
+						default:
+							return 'teach';
+					}
+				}();
+				return {
+					ctor: '_Tuple2',
+					_0: model,
+					_1: _elm_lang$navigation$Navigation$newUrl(
+						A2(_elm_lang$core$Basics_ops['++'], '#', url))
 				};
 			default:
 				return A3(_debois$elm_mdl$Material$update, _simsmith$doesnotexist$Resume_ModelMsg$MdlMsg, _p0._0, model);
@@ -24981,8 +25341,8 @@ var _simsmith$doesnotexist$Resume$view = function (model) {
 		{
 			ctor: '::',
 			_0: function () {
-				var _p9 = model.chosenCard;
-				switch (_p9.ctor) {
+				var _p11 = model.chosenCard;
+				switch (_p11.ctor) {
 					case 'School':
 						return _simsmith$doesnotexist$Resume_Education$overview(model);
 					case 'Teach':
@@ -25031,41 +25391,64 @@ var _simsmith$doesnotexist$UpdateMsg$update = F2(
 						{count: 0}),
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
-			case 'SelectTab':
-				var _p1 = _p0._0;
-				return A2(
-					_elm_lang$core$Platform_Cmd_ops['!'],
-					_elm_lang$core$Native_Utils.update(
-						model,
-						{selectedTab: _p1}),
-					{
-						ctor: '::',
-						_0: _elm_lang$navigation$Navigation$newUrl(
-							A2(
-								_elm_lang$core$Basics_ops['++'],
-								'#',
-								_elm_lang$core$Basics$toString(_p1))),
-						_1: {ctor: '[]'}
-					});
 			case 'GoTo':
-				var _p2 = _p0._0;
-				if (_p2.ctor === 'Just') {
-					return {
-						ctor: '_Tuple2',
-						_0: _elm_lang$core$Native_Utils.update(
-							model,
-							{selectedTab: _p2._0._0, resumeModel: _simsmith$doesnotexist$Resume_ModelMsg$initModel}),
-						_1: _elm_lang$core$Platform_Cmd$none
-					};
-				} else {
-					return {
-						ctor: '_Tuple2',
-						_0: _elm_lang$core$Native_Utils.update(
-							model,
-							{selectedTab: 0}),
-						_1: _elm_lang$core$Platform_Cmd$none
-					};
-				}
+				var _p1 = _p0._0;
+				_v1_3:
+				do {
+					if (_p1.ctor === 'Just') {
+						switch (_p1._0.ctor) {
+							case 'GetTab':
+								return {
+									ctor: '_Tuple2',
+									_0: _elm_lang$core$Native_Utils.update(
+										model,
+										{selectedTab: _p1._0._0, resumeModel: _simsmith$doesnotexist$Resume_ModelMsg$initModel}),
+									_1: _elm_lang$core$Platform_Cmd$none
+								};
+							case 'SetTab':
+								return {
+									ctor: '_Tuple2',
+									_0: model,
+									_1: _elm_lang$navigation$Navigation$newUrl(
+										A2(
+											_elm_lang$core$Basics_ops['++'],
+											'#',
+											_elm_lang$core$Basics$toString(_p1._0._0)))
+								};
+							case 'GetCatergory':
+								return {
+									ctor: '_Tuple2',
+									_0: _elm_lang$core$Native_Utils.update(
+										model,
+										{
+											selectedTab: 1,
+											resumeModel: _simsmith$doesnotexist$Resume_ModelMsg$initModel1(
+												function () {
+													var _p2 = _p1._0._0;
+													switch (_p2) {
+														case 'school':
+															return _simsmith$doesnotexist$Resume_ModelMsg$School(0);
+														case 'work':
+															return _simsmith$doesnotexist$Resume_ModelMsg$Work;
+														case 'skills':
+															return _simsmith$doesnotexist$Resume_ModelMsg$Skills;
+														case 'teach':
+															return _simsmith$doesnotexist$Resume_ModelMsg$Teach(_simsmith$doesnotexist$Resume_ModelMsg$AllT);
+														default:
+															return _simsmith$doesnotexist$Resume_ModelMsg$None;
+													}
+												}())
+										}),
+									_1: _elm_lang$core$Platform_Cmd$none
+								};
+							default:
+								break _v1_3;
+						}
+					} else {
+						break _v1_3;
+					}
+				} while(false);
+				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 			case 'Mdl':
 				return A3(_debois$elm_mdl$Material$update, _simsmith$doesnotexist$UpdateMsg$Mdl, _p0._0, model);
 			case 'ResumeMsg':
@@ -25092,13 +25475,24 @@ var _simsmith$doesnotexist$UpdateMsg$update = F2(
 				};
 		}
 	});
-var _simsmith$doesnotexist$UpdateMsg$SelectTab = function (a) {
-	return {ctor: 'SelectTab', _0: a};
-};
 var _simsmith$doesnotexist$UpdateMsg$Reset = {ctor: 'Reset'};
 var _simsmith$doesnotexist$UpdateMsg$Increase = {ctor: 'Increase'};
-var _simsmith$doesnotexist$UpdateMsg$Tab = function (a) {
-	return {ctor: 'Tab', _0: a};
+var _simsmith$doesnotexist$UpdateMsg$SetCatergory = function (a) {
+	return {ctor: 'SetCatergory', _0: a};
+};
+var _simsmith$doesnotexist$UpdateMsg$GetCatergory = function (a) {
+	return {ctor: 'GetCatergory', _0: a};
+};
+var _simsmith$doesnotexist$UpdateMsg$SetTab = function (a) {
+	return {ctor: 'SetTab', _0: a};
+};
+var _simsmith$doesnotexist$UpdateMsg$setTab = function (_p5) {
+	return _simsmith$doesnotexist$UpdateMsg$GoTo(
+		_elm_lang$core$Maybe$Just(
+			_simsmith$doesnotexist$UpdateMsg$SetTab(_p5)));
+};
+var _simsmith$doesnotexist$UpdateMsg$GetTab = function (a) {
+	return {ctor: 'GetTab', _0: a};
 };
 
 var _simsmith$doesnotexist$View$margin = F2(
@@ -25307,7 +25701,7 @@ var _simsmith$doesnotexist$View$view = function (model) {
 					_0: _debois$elm_mdl$Material_Layout$selectedTab(model.selectedTab),
 					_1: {
 						ctor: '::',
-						_0: _debois$elm_mdl$Material_Layout$onSelectTab(_simsmith$doesnotexist$UpdateMsg$SelectTab),
+						_0: _debois$elm_mdl$Material_Layout$onSelectTab(_simsmith$doesnotexist$UpdateMsg$setTab),
 						_1: {ctor: '[]'}
 					}
 				}
@@ -25377,19 +25771,16 @@ var _simsmith$doesnotexist$View$view = function (model) {
 var _simsmith$doesnotexist$Main$route = _evancz$url_parser$UrlParser$oneOf(
 	{
 		ctor: '::',
-		_0: A2(_evancz$url_parser$UrlParser$map, _simsmith$doesnotexist$UpdateMsg$Tab, _evancz$url_parser$UrlParser$int),
-		_1: {ctor: '[]'}
-	});
-var _simsmith$doesnotexist$Main$init = function (location) {
-	var tabID = function () {
-		var _p0 = A2(_evancz$url_parser$UrlParser$parseHash, _simsmith$doesnotexist$Main$route, location);
-		if (_p0.ctor === 'Nothing') {
-			return 0;
-		} else {
-			return _p0._0._0;
+		_0: A2(_evancz$url_parser$UrlParser$map, _simsmith$doesnotexist$UpdateMsg$GetTab, _evancz$url_parser$UrlParser$int),
+		_1: {
+			ctor: '::',
+			_0: A2(_evancz$url_parser$UrlParser$map, _simsmith$doesnotexist$UpdateMsg$GetCatergory, _evancz$url_parser$UrlParser$string),
+			_1: {ctor: '[]'}
 		}
-	}();
-	return _simsmith$doesnotexist$Model$initModel(tabID);
+	});
+var _simsmith$doesnotexist$Main$initLoc = function (_p0) {
+	return _simsmith$doesnotexist$UpdateMsg$GoTo(
+		A2(_evancz$url_parser$UrlParser$parseHash, _simsmith$doesnotexist$Main$route, _p0));
 };
 var _simsmith$doesnotexist$Main$locFor = function (location) {
 	return _simsmith$doesnotexist$UpdateMsg$GoTo(
@@ -25400,7 +25791,11 @@ var _simsmith$doesnotexist$Main$main = A2(
 	_simsmith$doesnotexist$Main$locFor,
 	{
 		init: function (location) {
-			var model = _simsmith$doesnotexist$Main$init(location);
+			var _p1 = A2(
+				_simsmith$doesnotexist$UpdateMsg$update,
+				_simsmith$doesnotexist$Main$initLoc(location),
+				_simsmith$doesnotexist$Model$initModel);
+			var model = _p1._0;
 			return {
 				ctor: '_Tuple2',
 				_0: _elm_lang$core$Native_Utils.update(

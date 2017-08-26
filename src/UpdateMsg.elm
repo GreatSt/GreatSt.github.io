@@ -11,15 +11,22 @@ import Resume
 type Msg
     = Increase
     | Reset
-    | SelectTab Int
     | Mdl (Material.Msg Msg)
     | ExtraMsg Extra.Msg
-    | GoTo (Maybe Page)
+    | GoTo (Maybe PageMsg)
     | ResumeMsg ResumeM.Msg
 
 
-type Page
-    = Tab Int
+type PageMsg
+    = GetTab Int
+    | SetTab Int
+    | GetCatergory String
+    | SetCatergory String
+
+
+setTab : Int -> Msg
+setTab =
+    GoTo << Just << SetTab
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -35,12 +42,9 @@ update msg model =
             , Cmd.none
             )
 
-        SelectTab num ->
-            { model | selectedTab = num } ! [ newUrl <| "#" ++ (toString num) ]
-
         GoTo page ->
             case page of
-                Just (Tab index) ->
+                Just (GetTab index) ->
                     ( { model
                         | selectedTab = index
                         , resumeModel = ResumeM.initModel
@@ -48,10 +52,36 @@ update msg model =
                     , Cmd.none
                     )
 
-                Nothing ->
-                    ( { model | selectedTab = 0 }
+                Just (SetTab i) ->
+                    ( model, newUrl <| "#" ++ (toString i) )
+
+                -- I don't like this:
+                Just (GetCatergory str) ->
+                    ( { model
+                        | selectedTab = 1
+                        , resumeModel =
+                            ResumeM.initModel1 <|
+                                case str of
+                                    "school" ->
+                                        ResumeM.School 0
+
+                                    "work" ->
+                                        ResumeM.Work
+
+                                    "skills" ->
+                                        ResumeM.Skills
+
+                                    "teach" ->
+                                        ResumeM.Teach ResumeM.AllT
+
+                                    _ ->
+                                        ResumeM.None
+                      }
                     , Cmd.none
                     )
+
+                _ ->
+                    ( model, Cmd.none )
 
         Mdl msg_ ->
             Material.update Mdl msg_ model

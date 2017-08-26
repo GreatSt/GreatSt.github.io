@@ -8,6 +8,7 @@ import Html exposing (Html, div, h1, text)
 import Html.Events exposing (on)
 import Json.Decode as Decoder
 import Material
+import Navigation exposing (newUrl)
 import Resume.CvView as CvView
 import Resume.Education as Edu
 import Resume.ModelMsg exposing (..)
@@ -192,6 +193,7 @@ update msg model =
                                         [ Animation.translate (Animation.px h) (Animation.px 0.0) ]
                                     , Animation.toWith transitionEase
                                         [ Animation.translate (Animation.px 0.0) (Animation.px 0.0) ]
+                                    , Animation.Messenger.send <| SetUrl info
                                     ]
                                     model.transition
                   }
@@ -200,6 +202,27 @@ update msg model =
 
             SwithToMore info ->
                 ( { model | chosenCard = info }, Cmd.none )
+
+            SetUrl info ->
+                let
+                    url =
+                        case info of
+                            None ->
+                                "1"
+
+                            School _ ->
+                                "school"
+
+                            Work ->
+                                "work"
+
+                            Skills ->
+                                "skills"
+
+                            Teach _ ->
+                                "teach"
+                in
+                    ( model, newUrl <| "#" ++ url )
 
             MdlMsg msg_ ->
                 Material.update MdlMsg msg_ model
