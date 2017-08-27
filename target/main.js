@@ -15263,6 +15263,71 @@ var _debois$elm_mdl$Material_Color$primaryContrast = _debois$elm_mdl$Material_Co
 var _debois$elm_mdl$Material_Color$accent = _debois$elm_mdl$Material_Color$C('accent');
 var _debois$elm_mdl$Material_Color$accentContrast = _debois$elm_mdl$Material_Color$C('accent-contrast');
 
+var _debois$elm_mdl$Material_Elevation$transition = function (duration) {
+	return A2(
+		_debois$elm_mdl$Material_Options$css,
+		'transition',
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			'box-shadow ',
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				_elm_lang$core$Basics$toString(duration),
+				'ms ease-in-out 0s')));
+};
+var _debois$elm_mdl$Material_Elevation$e0 = _debois$elm_mdl$Material_Options$nop;
+var _debois$elm_mdl$Material_Elevation$shadow = function (z) {
+	return _debois$elm_mdl$Material_Options$cs(
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			'mdl-shadow--',
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				_elm_lang$core$Basics$toString(z),
+				'dp')));
+};
+var _debois$elm_mdl$Material_Elevation$e2 = _debois$elm_mdl$Material_Elevation$shadow(2);
+var _debois$elm_mdl$Material_Elevation$e3 = _debois$elm_mdl$Material_Elevation$shadow(3);
+var _debois$elm_mdl$Material_Elevation$e4 = _debois$elm_mdl$Material_Elevation$shadow(4);
+var _debois$elm_mdl$Material_Elevation$e6 = _debois$elm_mdl$Material_Elevation$shadow(6);
+var _debois$elm_mdl$Material_Elevation$e8 = _debois$elm_mdl$Material_Elevation$shadow(8);
+var _debois$elm_mdl$Material_Elevation$e16 = _debois$elm_mdl$Material_Elevation$shadow(16);
+var _debois$elm_mdl$Material_Elevation$e24 = _debois$elm_mdl$Material_Elevation$shadow(24);
+var _debois$elm_mdl$Material_Elevation$elevations = _elm_lang$core$Array$fromList(
+	{
+		ctor: '::',
+		_0: {ctor: '_Tuple2', _0: _debois$elm_mdl$Material_Elevation$e0, _1: 0},
+		_1: {
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: _debois$elm_mdl$Material_Elevation$e2, _1: 2},
+			_1: {
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: _debois$elm_mdl$Material_Elevation$e3, _1: 3},
+				_1: {
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: _debois$elm_mdl$Material_Elevation$e4, _1: 4},
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: _debois$elm_mdl$Material_Elevation$e6, _1: 6},
+						_1: {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: _debois$elm_mdl$Material_Elevation$e8, _1: 8},
+							_1: {
+								ctor: '::',
+								_0: {ctor: '_Tuple2', _0: _debois$elm_mdl$Material_Elevation$e16, _1: 16},
+								_1: {
+									ctor: '::',
+									_0: {ctor: '_Tuple2', _0: _debois$elm_mdl$Material_Elevation$e24, _1: 24},
+									_1: {ctor: '[]'}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	});
+
 var _debois$elm_mdl$Material_Grid$clip = F3(
 	function (lower, upper, k) {
 		return A2(
@@ -23156,7 +23221,11 @@ var _simsmith$doesnotexist$Resume_CvView$cvGrid = function (model) {
 							ctor: '::',
 							_0: _debois$elm_mdl$Material_Options$onClick(
 								_simsmith$doesnotexist$Resume_ModelMsg$ShowMore(action)),
-							_1: {ctor: '[]'}
+							_1: {
+								ctor: '::',
+								_0: _debois$elm_mdl$Material_Elevation$e2,
+								_1: {ctor: '[]'}
+							}
 						}
 					}
 				}
@@ -23659,26 +23728,30 @@ var _simsmith$doesnotexist$Resume_Education$overview = function (model) {
 						_simsmith$doesnotexist$Resume_ModelMsg$ShowMore(_simsmith$doesnotexist$Resume_ModelMsg$None)),
 					_1: {
 						ctor: '::',
-						_0: A2(_debois$elm_mdl$Material_Options$css, 'text-sizing', 'border-box'),
+						_0: _debois$elm_mdl$Material_Elevation$e2,
 						_1: {
 							ctor: '::',
-							_0: A2(_debois$elm_mdl$Material_Options$css, 'overflow', 'auto'),
+							_0: A2(_debois$elm_mdl$Material_Options$css, 'text-sizing', 'border-box'),
 							_1: {
 								ctor: '::',
-								_0: A2(_debois$elm_mdl$Material_Options$css, 'background-color', '#E0DDDD'),
+								_0: A2(_debois$elm_mdl$Material_Options$css, 'overflow', 'auto'),
 								_1: {
 									ctor: '::',
-									_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-left', '8px'),
+									_0: A2(_debois$elm_mdl$Material_Options$css, 'background-color', '#E0DDDD'),
 									_1: {
 										ctor: '::',
-										_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-top', '10px'),
+										_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-left', '8px'),
 										_1: {
 											ctor: '::',
-											_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-bottom', '10px'),
+											_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-top', '10px'),
 											_1: {
 												ctor: '::',
-												_0: A2(_debois$elm_mdl$Material_Options$css, 'text-align', 'center'),
-												_1: {ctor: '[]'}
+												_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-bottom', '10px'),
+												_1: {
+													ctor: '::',
+													_0: A2(_debois$elm_mdl$Material_Options$css, 'text-align', 'center'),
+													_1: {ctor: '[]'}
+												}
 											}
 										}
 									}
@@ -23899,23 +23972,27 @@ var _simsmith$doesnotexist$Resume_SoftwareSkills$overview = function () {
 						_simsmith$doesnotexist$Resume_ModelMsg$ShowMore(_simsmith$doesnotexist$Resume_ModelMsg$None)),
 					_1: {
 						ctor: '::',
-						_0: A2(_debois$elm_mdl$Material_Options$css, 'text-sizing', 'border-box'),
+						_0: _debois$elm_mdl$Material_Elevation$e2,
 						_1: {
 							ctor: '::',
-							_0: A2(_debois$elm_mdl$Material_Options$css, 'overflow', 'auto'),
+							_0: A2(_debois$elm_mdl$Material_Options$css, 'text-sizing', 'border-box'),
 							_1: {
 								ctor: '::',
-								_0: A2(_debois$elm_mdl$Material_Options$css, 'background-color', '#DDE0DD'),
+								_0: A2(_debois$elm_mdl$Material_Options$css, 'overflow', 'auto'),
 								_1: {
 									ctor: '::',
-									_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-left', '8px'),
+									_0: A2(_debois$elm_mdl$Material_Options$css, 'background-color', '#DDE0DD'),
 									_1: {
 										ctor: '::',
-										_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-top', '10px'),
+										_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-left', '8px'),
 										_1: {
 											ctor: '::',
-											_0: A2(_debois$elm_mdl$Material_Options$css, 'text-align', 'center'),
-											_1: {ctor: '[]'}
+											_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-top', '10px'),
+											_1: {
+												ctor: '::',
+												_0: A2(_debois$elm_mdl$Material_Options$css, 'text-align', 'center'),
+												_1: {ctor: '[]'}
+											}
 										}
 									}
 								}
@@ -24090,6 +24167,64 @@ var _simsmith$doesnotexist$Resume_SoftwareSkills$Data = F3(
 		return {language: a, level: b, score: c};
 	});
 
+var _simsmith$doesnotexist$Resume_Teaching$card = F3(
+	function (onClick, extraCSS, content) {
+		return A2(
+			_debois$elm_mdl$Material_Grid$cell,
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				{
+					ctor: '::',
+					_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$All, 4),
+					_1: {
+						ctor: '::',
+						_0: A2(_debois$elm_mdl$Material_Grid$offset, _debois$elm_mdl$Material_Grid$Desktop, 4),
+						_1: {
+							ctor: '::',
+							_0: A2(_debois$elm_mdl$Material_Grid$offset, _debois$elm_mdl$Material_Grid$Tablet, 2),
+							_1: {
+								ctor: '::',
+								_0: _debois$elm_mdl$Material_Options$onClick(onClick),
+								_1: {
+									ctor: '::',
+									_0: _debois$elm_mdl$Material_Elevation$e2,
+									_1: {
+										ctor: '::',
+										_0: A2(_debois$elm_mdl$Material_Options$css, 'text-sizing', 'border-box'),
+										_1: {
+											ctor: '::',
+											_0: A2(_debois$elm_mdl$Material_Options$css, 'overflow', 'auto'),
+											_1: {
+												ctor: '::',
+												_0: A2(_debois$elm_mdl$Material_Options$css, 'background-color', '#DDDDE5'),
+												_1: {
+													ctor: '::',
+													_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-left', '8px'),
+													_1: {
+														ctor: '::',
+														_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-top', '10px'),
+														_1: {
+															ctor: '::',
+															_0: A2(_debois$elm_mdl$Material_Options$css, 'text-align', 'center'),
+															_1: {ctor: '[]'}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				extraCSS),
+			{
+				ctor: '::',
+				_0: content,
+				_1: {ctor: '[]'}
+			});
+	});
 var _simsmith$doesnotexist$Resume_Teaching$galarenCell = function (model) {
 	var card2 = F4(
 		function (period, place, role, body) {
@@ -24206,58 +24341,10 @@ var _simsmith$doesnotexist$Resume_Teaching$galarenCell = function (model) {
 			}
 		}
 	};
-	var card = function (content) {
-		return A2(
-			_debois$elm_mdl$Material_Grid$cell,
-			{
-				ctor: '::',
-				_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$All, 4),
-				_1: {
-					ctor: '::',
-					_0: A2(_debois$elm_mdl$Material_Grid$offset, _debois$elm_mdl$Material_Grid$Desktop, 4),
-					_1: {
-						ctor: '::',
-						_0: A2(_debois$elm_mdl$Material_Grid$offset, _debois$elm_mdl$Material_Grid$Tablet, 2),
-						_1: {
-							ctor: '::',
-							_0: _debois$elm_mdl$Material_Options$onClick(
-								_simsmith$doesnotexist$Resume_ModelMsg$SwitchText(_simsmith$doesnotexist$Resume_ModelMsg$Galaren)),
-							_1: {
-								ctor: '::',
-								_0: A2(_debois$elm_mdl$Material_Options$css, 'text-sizing', 'border-box'),
-								_1: {
-									ctor: '::',
-									_0: A2(_debois$elm_mdl$Material_Options$css, 'overflow', 'auto'),
-									_1: {
-										ctor: '::',
-										_0: A2(_debois$elm_mdl$Material_Options$css, 'background-color', '#DDDDE5'),
-										_1: {
-											ctor: '::',
-											_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-left', '8px'),
-											_1: {
-												ctor: '::',
-												_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-top', '10px'),
-												_1: {
-													ctor: '::',
-													_0: A2(_debois$elm_mdl$Material_Options$css, 'text-align', 'center'),
-													_1: {ctor: '[]'}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			},
-			{
-				ctor: '::',
-				_0: content,
-				_1: {ctor: '[]'}
-			});
-	};
-	return card(
+	return A3(
+		_simsmith$doesnotexist$Resume_Teaching$card,
+		_simsmith$doesnotexist$Resume_ModelMsg$SwitchText(_simsmith$doesnotexist$Resume_ModelMsg$Galaren),
+		{ctor: '[]'},
 		A2(
 			_elm_lang$html$Html$div,
 			{ctor: '[]'},
@@ -24285,6 +24372,10 @@ var _simsmith$doesnotexist$Resume_Teaching$galarenCell = function (model) {
 			}()));
 };
 var _simsmith$doesnotexist$Resume_Teaching$siCell = function (model) {
+	var animationCss = A2(
+		_elm_lang$core$List$map,
+		_debois$elm_mdl$Material_Options$attribute,
+		_mdgriffith$elm_style_animation$Animation$render(model.style.si.card));
 	var card2 = F4(
 		function (period, place, role, body) {
 			return {
@@ -24346,63 +24437,6 @@ var _simsmith$doesnotexist$Resume_Teaching$siCell = function (model) {
 				}
 			};
 		});
-	var card = function (content) {
-		return A2(
-			_debois$elm_mdl$Material_Grid$cell,
-			A2(
-				_elm_lang$core$Basics_ops['++'],
-				{
-					ctor: '::',
-					_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$All, 4),
-					_1: {
-						ctor: '::',
-						_0: A2(_debois$elm_mdl$Material_Grid$offset, _debois$elm_mdl$Material_Grid$Desktop, 4),
-						_1: {
-							ctor: '::',
-							_0: A2(_debois$elm_mdl$Material_Grid$offset, _debois$elm_mdl$Material_Grid$Tablet, 2),
-							_1: {
-								ctor: '::',
-								_0: _debois$elm_mdl$Material_Options$onClick(
-									_simsmith$doesnotexist$Resume_ModelMsg$FancyAnim(_simsmith$doesnotexist$Resume_ModelMsg$SI)),
-								_1: {
-									ctor: '::',
-									_0: A2(_debois$elm_mdl$Material_Options$css, 'text-sizing', 'border-box'),
-									_1: {
-										ctor: '::',
-										_0: A2(_debois$elm_mdl$Material_Options$css, 'overflow', 'auto'),
-										_1: {
-											ctor: '::',
-											_0: A2(_debois$elm_mdl$Material_Options$css, 'background-color', '#DDDDE5'),
-											_1: {
-												ctor: '::',
-												_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-left', '8px'),
-												_1: {
-													ctor: '::',
-													_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-top', '10px'),
-													_1: {
-														ctor: '::',
-														_0: A2(_debois$elm_mdl$Material_Options$css, 'text-align', 'center'),
-														_1: {ctor: '[]'}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				},
-				A2(
-					_elm_lang$core$List$map,
-					_debois$elm_mdl$Material_Options$attribute,
-					_mdgriffith$elm_style_animation$Animation$render(model.style.si.card))),
-			{
-				ctor: '::',
-				_0: content,
-				_1: {ctor: '[]'}
-			});
-	};
 	var card1 = {
 		ctor: '::',
 		_0: A2(
@@ -24457,7 +24491,10 @@ var _simsmith$doesnotexist$Resume_Teaching$siCell = function (model) {
 			}
 		}
 	};
-	return card(
+	return A3(
+		_simsmith$doesnotexist$Resume_Teaching$card,
+		_simsmith$doesnotexist$Resume_ModelMsg$FancyAnim(_simsmith$doesnotexist$Resume_ModelMsg$SI),
+		animationCss,
 		A2(
 			_elm_lang$html$Html$div,
 			_mdgriffith$elm_style_animation$Animation$render(model.style.si.text),
@@ -24476,6 +24513,10 @@ var _simsmith$doesnotexist$Resume_Teaching$siCell = function (model) {
 			}()));
 };
 var _simsmith$doesnotexist$Resume_Teaching$intizeCell = function (model) {
+	var animationCss = A2(
+		_elm_lang$core$List$map,
+		_debois$elm_mdl$Material_Options$attribute,
+		_mdgriffith$elm_style_animation$Animation$render(model.style.intize.card));
 	var card2 = F4(
 		function (period, place, role, body) {
 			return {
@@ -24537,63 +24578,6 @@ var _simsmith$doesnotexist$Resume_Teaching$intizeCell = function (model) {
 				}
 			};
 		});
-	var card = function (content) {
-		return A2(
-			_debois$elm_mdl$Material_Grid$cell,
-			A2(
-				_elm_lang$core$Basics_ops['++'],
-				{
-					ctor: '::',
-					_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$All, 4),
-					_1: {
-						ctor: '::',
-						_0: A2(_debois$elm_mdl$Material_Grid$offset, _debois$elm_mdl$Material_Grid$Desktop, 4),
-						_1: {
-							ctor: '::',
-							_0: A2(_debois$elm_mdl$Material_Grid$offset, _debois$elm_mdl$Material_Grid$Tablet, 2),
-							_1: {
-								ctor: '::',
-								_0: _debois$elm_mdl$Material_Options$onClick(
-									_simsmith$doesnotexist$Resume_ModelMsg$FancyAnim(_simsmith$doesnotexist$Resume_ModelMsg$Intize)),
-								_1: {
-									ctor: '::',
-									_0: A2(_debois$elm_mdl$Material_Options$css, 'text-sizing', 'border-box'),
-									_1: {
-										ctor: '::',
-										_0: A2(_debois$elm_mdl$Material_Options$css, 'overflow', 'auto'),
-										_1: {
-											ctor: '::',
-											_0: A2(_debois$elm_mdl$Material_Options$css, 'background-color', '#DDDDE5'),
-											_1: {
-												ctor: '::',
-												_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-left', '8px'),
-												_1: {
-													ctor: '::',
-													_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-top', '10px'),
-													_1: {
-														ctor: '::',
-														_0: A2(_debois$elm_mdl$Material_Options$css, 'text-align', 'center'),
-														_1: {ctor: '[]'}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				},
-				A2(
-					_elm_lang$core$List$map,
-					_debois$elm_mdl$Material_Options$attribute,
-					_mdgriffith$elm_style_animation$Animation$render(model.style.intize.card))),
-			{
-				ctor: '::',
-				_0: content,
-				_1: {ctor: '[]'}
-			});
-	};
 	var card1 = {
 		ctor: '::',
 		_0: A2(
@@ -24648,7 +24632,10 @@ var _simsmith$doesnotexist$Resume_Teaching$intizeCell = function (model) {
 			}
 		}
 	};
-	return card(
+	return A3(
+		_simsmith$doesnotexist$Resume_Teaching$card,
+		_simsmith$doesnotexist$Resume_ModelMsg$FancyAnim(_simsmith$doesnotexist$Resume_ModelMsg$Intize),
+		animationCss,
 		A2(
 			_elm_lang$html$Html$div,
 			_mdgriffith$elm_style_animation$Animation$render(model.style.intize.text),
@@ -24834,23 +24821,27 @@ var _simsmith$doesnotexist$Resume_WorkExp$overview = function () {
 						_simsmith$doesnotexist$Resume_ModelMsg$ShowMore(_simsmith$doesnotexist$Resume_ModelMsg$None)),
 					_1: {
 						ctor: '::',
-						_0: A2(_debois$elm_mdl$Material_Options$css, 'text-sizing', 'border-box'),
+						_0: _debois$elm_mdl$Material_Elevation$e2,
 						_1: {
 							ctor: '::',
-							_0: A2(_debois$elm_mdl$Material_Options$css, 'overflow', 'auto'),
+							_0: A2(_debois$elm_mdl$Material_Options$css, 'text-sizing', 'border-box'),
 							_1: {
 								ctor: '::',
-								_0: A2(_debois$elm_mdl$Material_Options$css, 'background-color', '#E5DDE5'),
+								_0: A2(_debois$elm_mdl$Material_Options$css, 'overflow', 'auto'),
 								_1: {
 									ctor: '::',
-									_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-left', '8px'),
+									_0: A2(_debois$elm_mdl$Material_Options$css, 'background-color', '#E5DDE5'),
 									_1: {
 										ctor: '::',
-										_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-top', '10px'),
+										_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-left', '8px'),
 										_1: {
 											ctor: '::',
-											_0: A2(_debois$elm_mdl$Material_Options$css, 'text-align', 'center'),
-											_1: {ctor: '[]'}
+											_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-top', '10px'),
+											_1: {
+												ctor: '::',
+												_0: A2(_debois$elm_mdl$Material_Options$css, 'text-align', 'center'),
+												_1: {ctor: '[]'}
+											}
 										}
 									}
 								}

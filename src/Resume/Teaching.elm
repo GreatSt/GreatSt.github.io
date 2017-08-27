@@ -4,6 +4,7 @@ import Animation
 import Html exposing (..)
 import Html.Attributes exposing (style)
 import Material.Button as Button
+import Material.Elevation as Elevation
 import Material.Grid exposing (..)
 import Material.Options as Options exposing (css)
 import Resume.ModelMsg exposing (..)
@@ -71,24 +72,6 @@ intizeCell model =
                 [ text "(press me)" ]
             ]
 
-        card content =
-            cell
-                ([ size All 4
-                 , offset Desktop 4
-                 , offset Tablet 2
-                 , Options.onClick <| FancyAnim Intize
-                 , css "text-sizing" "border-box"
-                 , css "overflow" "auto"
-                 , css "background-color" "#DDDDE5"
-                 , css "padding-left" "8px"
-                 , css "padding-top" "10px"
-                 , css "text-align" "center"
-                 ]
-                    ++ List.map (Options.attribute)
-                        (Animation.render model.style.intize.card)
-                )
-                [ content ]
-
         card2 period place role body =
             [ p []
                 [ text period
@@ -101,8 +84,12 @@ intizeCell model =
             , p [ style [ ( "color", "#AAAAAA" ) ] ]
                 [ text "(press to return)" ]
             ]
+
+        animationCss =
+            List.map (Options.attribute) <|
+                Animation.render model.style.intize.card
     in
-        card <|
+        card (FancyAnim Intize) animationCss <|
             div (Animation.render model.style.intize.text) <|
                 case model.chosenCard of
                     Teach Intize ->
@@ -129,24 +116,6 @@ siCell model =
                 [ text "(press me)" ]
             ]
 
-        card content =
-            cell
-                ([ size All 4
-                 , offset Desktop 4
-                 , offset Tablet 2
-                 , Options.onClick <| FancyAnim SI
-                 , css "text-sizing" "border-box"
-                 , css "overflow" "auto"
-                 , css "background-color" "#DDDDE5"
-                 , css "padding-left" "8px"
-                 , css "padding-top" "10px"
-                 , css "text-align" "center"
-                 ]
-                    ++ List.map (Options.attribute)
-                        (Animation.render model.style.si.card)
-                )
-                [ content ]
-
         card2 period place role body =
             [ p []
                 [ text period
@@ -159,8 +128,12 @@ siCell model =
             , p [ style [ ( "color", "#AAAAAA" ) ] ]
                 [ text "(press to return)" ]
             ]
+
+        animationCss =
+            List.map (Options.attribute) <|
+                Animation.render model.style.si.card
     in
-        card <|
+        card (FancyAnim SI) animationCss <|
             div (Animation.render model.style.si.text) <|
                 case model.chosenCard of
                     Teach SI ->
@@ -178,22 +151,6 @@ siCell model =
 galarenCell : Model -> Cell Msg
 galarenCell model =
     let
-        card content =
-            cell
-                ([ size All 4
-                 , offset Desktop 4
-                 , offset Tablet 2
-                 , Options.onClick <| SwitchText Galaren
-                 , css "text-sizing" "border-box"
-                 , css "overflow" "auto"
-                 , css "background-color" "#DDDDE5"
-                 , css "padding-left" "8px"
-                 , css "padding-top" "10px"
-                 , css "text-align" "center"
-                 ]
-                )
-                [ content ]
-
         card1 =
             [ h4 [] [ text "Galären (AcadeMedia Fria Grundskolor), Karskrona" ]
             , p [] [ text "April 2013 – May 2013" ]
@@ -215,7 +172,7 @@ galarenCell model =
                 [ text "(press to return)" ]
             ]
     in
-        card <|
+        card (SwitchText Galaren) [] <|
             div [] <|
                 case model.chosenCard of
                     Teach Galaren ->
@@ -231,3 +188,23 @@ galarenCell model =
 
                     _ ->
                         card1
+
+
+card : m -> List (Options.Property () m) -> Html m -> Cell m
+card onClick extraCSS content =
+    cell
+        ([ size All 4
+         , offset Desktop 4
+         , offset Tablet 2
+         , Options.onClick onClick
+         , Elevation.e2
+         , css "text-sizing" "border-box"
+         , css "overflow" "auto"
+         , css "background-color" "#DDDDE5"
+         , css "padding-left" "8px"
+         , css "padding-top" "10px"
+         , css "text-align" "center"
+         ]
+            ++ extraCSS
+        )
+        [ content ]

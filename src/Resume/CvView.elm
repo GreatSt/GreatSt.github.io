@@ -2,6 +2,7 @@ module Resume.CvView exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (attribute, href, style)
+import Material.Elevation as Elevation
 import Material.Grid exposing (Device(..), cell, grid, offset, size)
 import Material.Options as Options exposing (css)
 import Resume.ModelMsg exposing (..)
@@ -16,6 +17,7 @@ cvGrid model =
                 , size Tablet 4
                 , size Phone 4
                 , Options.onClick <| ShowMore action
+                , Elevation.e2
                 ]
             )
 

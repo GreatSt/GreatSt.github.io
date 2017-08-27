@@ -3,9 +3,9 @@ module Resume.Education exposing (..)
 import Array
 import Html exposing (Html, b, br, button, div, h4, p, text)
 import Html.Attributes exposing (style)
-import Html.Events exposing (..)
 import Json.Decode as Decode
 import Material.Button as Button
+import Material.Elevation as Elevation
 import Material.Grid as Grid exposing (Device(..), offset, size)
 import Material.Options as Options exposing (css)
 import Resume.ModelMsg exposing (..)
@@ -19,6 +19,7 @@ overview model =
             , offset Desktop 4
             , offset Tablet 2
             , Options.onClick <| ShowMore None
+            , Elevation.e2
             , css "text-sizing" "border-box"
             , css "overflow" "auto"
             , css "background-color" "#E0DDDD"

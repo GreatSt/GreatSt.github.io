@@ -3,6 +3,7 @@ module Resume.WorkExp exposing (..)
 import Html exposing (Html, a, br, div, em, p, text)
 import Html.Attributes exposing (href)
 import Html.Attributes exposing (style)
+import Material.Elevation as Elevation
 import Material.Grid as Grid exposing (Device(..), offset, size)
 import Material.Options as Options exposing (css)
 import Resume.ModelMsg exposing (..)
@@ -16,6 +17,7 @@ overview =
             , offset Desktop 4
             , offset Tablet 2
             , Options.onClick <| ShowMore None
+            , Elevation.e2
             , css "text-sizing" "border-box"
             , css "overflow" "auto"
             , css "background-color" "#E5DDE5"
