@@ -20,37 +20,23 @@ overview =
             , Elevation.e2
             , css "text-sizing" "border-box"
             , css "overflow" "auto"
-            , css "background-color" "#DDE0DD"
+            , css "background-color" "#DDDDEE"
             , css "padding-left" "8px"
             , css "padding-top" "10px"
-            , css "text-align" "center"
             ]
 
         guiPressGuide =
-            p [ style [ ( "color", "#AAAAAA" ) ] ]
+            p [ style [ ( "color", "#AAAAAA" ), ( "text-align", "center" ) ] ]
                 [ text "(press to return)" ]
     in
         Grid.grid []
             [ Grid.cell cellStyle
-                [ p [] [ b [] [ text "Advanced:" ] ]
-                , text "Java"
-                , br [] []
-                , text "Haskell"
-                , br [] []
-                , br [] []
-                , p [] [ b [] [ text "Intermediate:" ] ]
-                , text <|
-                    "C, C#, C++, CSS, Elm, git, HTML, LaTeX, "
-                        ++ "LibGDX, PostgreSQL, OpenGL, Scala"
-                , br [] []
-                , br [] []
-                , p [] [ b [] [ text "Basic:" ] ]
-                , text <|
-                    "Assembly, Android, AngularJS, Bootstrap, Erlang, "
-                        ++ "iOS, Javascript, JSON, Kotlin, Linux, MacOS, "
-                        ++ "Mathematica, MATLAB, MySQL, PHP, Python, Rust, "
-                        ++ "Unity 3D, Windows"
-                , br [] []
+                [ p [ style [ ( "font-size", "large" ) ] ] [ text """
+                I am facinated by designs and programming languages are not
+                an exception(). Below you can see a list of languages I remember
+                using. Those that I fancy the most are: Rust, Haskell, Elm,
+                Scala, Kotlin.
+                """ ]
                 , guiPressGuide
                 ]
             , Grid.cell
@@ -65,26 +51,8 @@ overview =
 
 type alias Data =
     { language : String
-    , level : String
     , score : String
     }
-
-
-data : List Data
-data =
-    [ { language = "Java"
-      , level = "4"
-      , score = "3"
-      }
-    , { language = "Rust"
-      , level = "4"
-      , score = "5"
-      }
-    , { language = "Elm"
-      , level = "5"
-      , score = "4"
-      }
-    ]
 
 
 table : Html Msg
@@ -93,7 +61,6 @@ table =
         [ Table.thead []
             [ Table.tr []
                 [ Table.th [] [ text "Language" ]
-                , Table.th [] [ text "Level" ]
                 , Table.th [] [ text "Score" ]
                 ]
             ]
@@ -103,9 +70,77 @@ table =
                     (\item ->
                         Table.tr []
                             [ Table.td [] [ text item.language ]
-                            , Table.td [ Table.numeric ] [ text item.level ]
-                            , Table.td [ Table.numeric ] [ text item.score ]
+                            , Table.td [] [ text item.score ]
                             ]
                     )
             )
         ]
+
+
+data : List Data
+data =
+    [ { language = "Java"
+      , score = "Okej"
+      }
+    , { language = "Rust"
+      , score = "Great"
+      }
+    , { language = "Elm"
+      , score = "Good"
+      }
+    , { language = "Haskell"
+      , score = "Good"
+      }
+    , { language = "C"
+      , score = "Okej"
+      }
+    , { language = "C++"
+      , score = "Okej"
+      }
+    , { language = "C#"
+      , score = "Good"
+      }
+    , { language = "Python"
+      , score = "Good"
+      }
+    , { language = "Assembly"
+      , score = "Essential"
+      }
+    , { language = "Javascript"
+      , score = "Bad"
+      }
+    , { language = "Scala"
+      , score = "Good"
+      }
+    , { language = "CSS"
+      , score = "Bad"
+      }
+    , { language = "HTML"
+      , score = "Bad"
+      }
+    , { language = "PostgreSQL"
+      , score = "Okej"
+      }
+    , { language = "Erlang"
+      , score = "Okej"
+      }
+    , { language = "Kotlin"
+      , score = "Good"
+      }
+    , { language = "Mathematica"
+      , score = "Okej"
+      }
+    , { language = "MATLAB"
+      , score = "Okej"
+      }
+    , { language = "PHP"
+      , score = "Bad"
+      }
+    , { language = "LaTeX"
+      , score = "Unclear"
+      }
+    ]
+
+
+
+{- Extra: Git, OpenGL, Android, Bootstrap, Unity3D, Windows, Linux, MacOS -}

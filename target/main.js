@@ -23817,14 +23817,82 @@ var _simsmith$doesnotexist$Resume_Education$overview = function (model) {
 
 var _simsmith$doesnotexist$Resume_SoftwareSkills$data = {
 	ctor: '::',
-	_0: {language: 'Java', level: '4', score: '3'},
+	_0: {language: 'Java', score: 'Okej'},
 	_1: {
 		ctor: '::',
-		_0: {language: 'Rust', level: '4', score: '5'},
+		_0: {language: 'Rust', score: 'Great'},
 		_1: {
 			ctor: '::',
-			_0: {language: 'Elm', level: '5', score: '4'},
-			_1: {ctor: '[]'}
+			_0: {language: 'Elm', score: 'Good'},
+			_1: {
+				ctor: '::',
+				_0: {language: 'Haskell', score: 'Good'},
+				_1: {
+					ctor: '::',
+					_0: {language: 'C', score: 'Okej'},
+					_1: {
+						ctor: '::',
+						_0: {language: 'C++', score: 'Okej'},
+						_1: {
+							ctor: '::',
+							_0: {language: 'C#', score: 'Good'},
+							_1: {
+								ctor: '::',
+								_0: {language: 'Python', score: 'Good'},
+								_1: {
+									ctor: '::',
+									_0: {language: 'Assembly', score: 'Essential'},
+									_1: {
+										ctor: '::',
+										_0: {language: 'Javascript', score: 'Bad'},
+										_1: {
+											ctor: '::',
+											_0: {language: 'Scala', score: 'Good'},
+											_1: {
+												ctor: '::',
+												_0: {language: 'CSS', score: 'Bad'},
+												_1: {
+													ctor: '::',
+													_0: {language: 'HTML', score: 'Bad'},
+													_1: {
+														ctor: '::',
+														_0: {language: 'PostgreSQL', score: 'Okej'},
+														_1: {
+															ctor: '::',
+															_0: {language: 'Erlang', score: 'Okej'},
+															_1: {
+																ctor: '::',
+																_0: {language: 'Kotlin', score: 'Good'},
+																_1: {
+																	ctor: '::',
+																	_0: {language: 'Mathematica', score: 'Okej'},
+																	_1: {
+																		ctor: '::',
+																		_0: {language: 'MATLAB', score: 'Okej'},
+																		_1: {
+																			ctor: '::',
+																			_0: {language: 'PHP', score: 'Bad'},
+																			_1: {
+																				ctor: '::',
+																				_0: {language: 'LaTeX', score: 'Unclear'},
+																				_1: {ctor: '[]'}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 };
@@ -23862,21 +23930,10 @@ var _simsmith$doesnotexist$Resume_SoftwareSkills$table = A2(
 								{ctor: '[]'},
 								{
 									ctor: '::',
-									_0: _elm_lang$html$Html$text('Level'),
+									_0: _elm_lang$html$Html$text('Score'),
 									_1: {ctor: '[]'}
 								}),
-							_1: {
-								ctor: '::',
-								_0: A2(
-									_debois$elm_mdl$Material_Table$th,
-									{ctor: '[]'},
-									{
-										ctor: '::',
-										_0: _elm_lang$html$Html$text('Score'),
-										_1: {ctor: '[]'}
-									}),
-								_1: {ctor: '[]'}
-							}
+							_1: {ctor: '[]'}
 						}
 					}),
 				_1: {ctor: '[]'}
@@ -23906,32 +23963,13 @@ var _simsmith$doesnotexist$Resume_SoftwareSkills$table = A2(
 									ctor: '::',
 									_0: A2(
 										_debois$elm_mdl$Material_Table$td,
+										{ctor: '[]'},
 										{
 											ctor: '::',
-											_0: _debois$elm_mdl$Material_Table$numeric,
-											_1: {ctor: '[]'}
-										},
-										{
-											ctor: '::',
-											_0: _elm_lang$html$Html$text(item.level),
+											_0: _elm_lang$html$Html$text(item.score),
 											_1: {ctor: '[]'}
 										}),
-									_1: {
-										ctor: '::',
-										_0: A2(
-											_debois$elm_mdl$Material_Table$td,
-											{
-												ctor: '::',
-												_0: _debois$elm_mdl$Material_Table$numeric,
-												_1: {ctor: '[]'}
-											},
-											{
-												ctor: '::',
-												_0: _elm_lang$html$Html$text(item.score),
-												_1: {ctor: '[]'}
-											}),
-										_1: {ctor: '[]'}
-									}
+									_1: {ctor: '[]'}
 								}
 							});
 					},
@@ -23948,7 +23986,11 @@ var _simsmith$doesnotexist$Resume_SoftwareSkills$overview = function () {
 				{
 					ctor: '::',
 					_0: {ctor: '_Tuple2', _0: 'color', _1: '#AAAAAA'},
-					_1: {ctor: '[]'}
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'text-align', _1: 'center'},
+						_1: {ctor: '[]'}
+					}
 				}),
 			_1: {ctor: '[]'}
 		},
@@ -23981,18 +24023,14 @@ var _simsmith$doesnotexist$Resume_SoftwareSkills$overview = function () {
 								_0: A2(_debois$elm_mdl$Material_Options$css, 'overflow', 'auto'),
 								_1: {
 									ctor: '::',
-									_0: A2(_debois$elm_mdl$Material_Options$css, 'background-color', '#DDE0DD'),
+									_0: A2(_debois$elm_mdl$Material_Options$css, 'background-color', '#DDDDEE'),
 									_1: {
 										ctor: '::',
 										_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-left', '8px'),
 										_1: {
 											ctor: '::',
 											_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-top', '10px'),
-											_1: {
-												ctor: '::',
-												_0: A2(_debois$elm_mdl$Material_Options$css, 'text-align', 'center'),
-												_1: {ctor: '[]'}
-											}
+											_1: {ctor: '[]'}
 										}
 									}
 								}
@@ -24015,125 +24053,25 @@ var _simsmith$doesnotexist$Resume_SoftwareSkills$overview = function () {
 					ctor: '::',
 					_0: A2(
 						_elm_lang$html$Html$p,
-						{ctor: '[]'},
 						{
 							ctor: '::',
-							_0: A2(
-								_elm_lang$html$Html$b,
-								{ctor: '[]'},
+							_0: _elm_lang$html$Html_Attributes$style(
 								{
 									ctor: '::',
-									_0: _elm_lang$html$Html$text('Advanced:'),
+									_0: {ctor: '_Tuple2', _0: 'font-size', _1: 'large'},
 									_1: {ctor: '[]'}
 								}),
+							_1: {ctor: '[]'}
+						},
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html$text('\n                I am facinated by designs and programming languages are not\n                an exception(). Below you can see a list of languages I remember\n                using. Those that I fancy the most are: Rust, Haskell, Elm,\n                Scala, Kotlin.\n                '),
 							_1: {ctor: '[]'}
 						}),
 					_1: {
 						ctor: '::',
-						_0: _elm_lang$html$Html$text('Java'),
-						_1: {
-							ctor: '::',
-							_0: A2(
-								_elm_lang$html$Html$br,
-								{ctor: '[]'},
-								{ctor: '[]'}),
-							_1: {
-								ctor: '::',
-								_0: _elm_lang$html$Html$text('Haskell'),
-								_1: {
-									ctor: '::',
-									_0: A2(
-										_elm_lang$html$Html$br,
-										{ctor: '[]'},
-										{ctor: '[]'}),
-									_1: {
-										ctor: '::',
-										_0: A2(
-											_elm_lang$html$Html$br,
-											{ctor: '[]'},
-											{ctor: '[]'}),
-										_1: {
-											ctor: '::',
-											_0: A2(
-												_elm_lang$html$Html$p,
-												{ctor: '[]'},
-												{
-													ctor: '::',
-													_0: A2(
-														_elm_lang$html$Html$b,
-														{ctor: '[]'},
-														{
-															ctor: '::',
-															_0: _elm_lang$html$Html$text('Intermediate:'),
-															_1: {ctor: '[]'}
-														}),
-													_1: {ctor: '[]'}
-												}),
-											_1: {
-												ctor: '::',
-												_0: _elm_lang$html$Html$text(
-													A2(_elm_lang$core$Basics_ops['++'], 'C, C#, C++, CSS, Elm, git, HTML, LaTeX, ', 'LibGDX, PostgreSQL, OpenGL, Scala')),
-												_1: {
-													ctor: '::',
-													_0: A2(
-														_elm_lang$html$Html$br,
-														{ctor: '[]'},
-														{ctor: '[]'}),
-													_1: {
-														ctor: '::',
-														_0: A2(
-															_elm_lang$html$Html$br,
-															{ctor: '[]'},
-															{ctor: '[]'}),
-														_1: {
-															ctor: '::',
-															_0: A2(
-																_elm_lang$html$Html$p,
-																{ctor: '[]'},
-																{
-																	ctor: '::',
-																	_0: A2(
-																		_elm_lang$html$Html$b,
-																		{ctor: '[]'},
-																		{
-																			ctor: '::',
-																			_0: _elm_lang$html$Html$text('Basic:'),
-																			_1: {ctor: '[]'}
-																		}),
-																	_1: {ctor: '[]'}
-																}),
-															_1: {
-																ctor: '::',
-																_0: _elm_lang$html$Html$text(
-																	A2(
-																		_elm_lang$core$Basics_ops['++'],
-																		'Assembly, Android, AngularJS, Bootstrap, Erlang, ',
-																		A2(
-																			_elm_lang$core$Basics_ops['++'],
-																			'iOS, Javascript, JSON, Kotlin, Linux, MacOS, ',
-																			A2(_elm_lang$core$Basics_ops['++'], 'Mathematica, MATLAB, MySQL, PHP, Python, Rust, ', 'Unity 3D, Windows')))),
-																_1: {
-																	ctor: '::',
-																	_0: A2(
-																		_elm_lang$html$Html$br,
-																		{ctor: '[]'},
-																		{ctor: '[]'}),
-																	_1: {
-																		ctor: '::',
-																		_0: guiPressGuide,
-																		_1: {ctor: '[]'}
-																	}
-																}
-															}
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
+						_0: guiPressGuide,
+						_1: {ctor: '[]'}
 					}
 				}),
 			_1: {
@@ -24162,9 +24100,9 @@ var _simsmith$doesnotexist$Resume_SoftwareSkills$overview = function () {
 			}
 		});
 }();
-var _simsmith$doesnotexist$Resume_SoftwareSkills$Data = F3(
-	function (a, b, c) {
-		return {language: a, level: b, score: c};
+var _simsmith$doesnotexist$Resume_SoftwareSkills$Data = F2(
+	function (a, b) {
+		return {language: a, score: b};
 	});
 
 var _simsmith$doesnotexist$Resume_Teaching$card = F3(
