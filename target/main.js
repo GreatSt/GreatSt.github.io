@@ -24867,7 +24867,7 @@ var _simsmith$doesnotexist$Resume_WorkExp$overview = function () {
 						{ctor: '[]'},
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html$text('June 2014 – August 2014'),
+							_0: _elm_lang$html$Html$text('June 2017 – July 2017'),
 							_1: {
 								ctor: '::',
 								_0: A2(
@@ -24876,7 +24876,7 @@ var _simsmith$doesnotexist$Resume_WorkExp$overview = function () {
 									{ctor: '[]'}),
 								_1: {
 									ctor: '::',
-									_0: _elm_lang$html$Html$text('Zogaj of Sweden, Gothenburg'),
+									_0: _elm_lang$html$Html$text('FCC (Fraunhofer-Chalmers Centre), Gothenburg'),
 									_1: {
 										ctor: '::',
 										_0: A2(
@@ -24885,7 +24885,7 @@ var _simsmith$doesnotexist$Resume_WorkExp$overview = function () {
 											{ctor: '[]'}),
 										_1: {
 											ctor: '::',
-											_0: _elm_lang$html$Html$text('Game programmer'),
+											_0: _elm_lang$html$Html$text('Programmer'),
 											_1: {ctor: '[]'}
 										}
 									}
@@ -24894,51 +24894,17 @@ var _simsmith$doesnotexist$Resume_WorkExp$overview = function () {
 						}),
 					_1: {
 						ctor: '::',
-						_0: _elm_lang$html$Html$text('Porting of '),
+						_0: _elm_lang$html$Html$text('\n                  A very extensive work, where I did distributed networking,\n                  low-level programming, GUI, and neural networks.\n                  Languages included Erlang, C, Python, and Bash.\n                  '),
 						_1: {
 							ctor: '::',
 							_0: A2(
-								_elm_lang$html$Html$em,
+								_elm_lang$html$Html$br,
 								{ctor: '[]'},
-								{
-									ctor: '::',
-									_0: _elm_lang$html$Html$text('Zogaj Memo Gym'),
-									_1: {ctor: '[]'}
-								}),
+								{ctor: '[]'}),
 							_1: {
 								ctor: '::',
-								_0: _elm_lang$html$Html$text(
-									A2(
-										_elm_lang$core$Basics_ops['++'],
-										' from iOS to Android. The port could be considered a remaster ',
-										A2(_elm_lang$core$Basics_ops['++'], 'of the original game as everything was rewritten in ', 'LibGDX. Employed by '))),
-								_1: {
-									ctor: '::',
-									_0: A2(
-										_elm_lang$html$Html$a,
-										{
-											ctor: '::',
-											_0: _elm_lang$html$Html_Attributes$href('http://www.zogaj.se/'),
-											_1: {ctor: '[]'}
-										},
-										{
-											ctor: '::',
-											_0: _elm_lang$html$Html$text('Idriz Zogaj.'),
-											_1: {ctor: '[]'}
-										}),
-									_1: {
-										ctor: '::',
-										_0: A2(
-											_elm_lang$html$Html$br,
-											{ctor: '[]'},
-											{ctor: '[]'}),
-										_1: {
-											ctor: '::',
-											_0: guiPressGuide,
-											_1: {ctor: '[]'}
-										}
-									}
-								}
+								_0: guiPressGuide,
+								_1: {ctor: '[]'}
 							}
 						}
 					}
@@ -24955,7 +24921,7 @@ var _simsmith$doesnotexist$Resume_WorkExp$overview = function () {
 							{ctor: '[]'},
 							{
 								ctor: '::',
-								_0: _elm_lang$html$Html$text('June 2015 – August 2015'),
+								_0: _elm_lang$html$Html$text('June 2014 – August 2014'),
 								_1: {
 									ctor: '::',
 									_0: A2(
@@ -24982,7 +24948,7 @@ var _simsmith$doesnotexist$Resume_WorkExp$overview = function () {
 							}),
 						_1: {
 							ctor: '::',
-							_0: _elm_lang$html$Html$text('Continuing work on the game '),
+							_0: _elm_lang$html$Html$text('Porting of '),
 							_1: {
 								ctor: '::',
 								_0: A2(
@@ -24995,7 +24961,55 @@ var _simsmith$doesnotexist$Resume_WorkExp$overview = function () {
 									}),
 								_1: {
 									ctor: '::',
-									_0: _elm_lang$html$Html$text(' while expanding to iOS using RoboVM.'),
+									_0: _elm_lang$html$Html$text(
+										A2(
+											_elm_lang$core$Basics_ops['++'],
+											' from iOS to Android. The port could be considered a remaster ',
+											A2(_elm_lang$core$Basics_ops['++'], 'of the original game as everything was rewritten in ', 'LibGDX. Employed by '))),
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_elm_lang$html$Html$a,
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html_Attributes$href('http://www.zogaj.se/'),
+												_1: {ctor: '[]'}
+											},
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html$text('Idriz Zogaj.'),
+												_1: {ctor: '[]'}
+											}),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_elm_lang$html$Html$br,
+												{ctor: '[]'},
+												{ctor: '[]'}),
+											_1: {
+												ctor: '::',
+												_0: guiPressGuide,
+												_1: {ctor: '[]'}
+											}
+										}
+									}
+								}
+							}
+						}
+					}),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_debois$elm_mdl$Material_Grid$cell,
+						cellStyle,
+						{
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$p,
+								{ctor: '[]'},
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html$text('June 2015 – August 2015'),
 									_1: {
 										ctor: '::',
 										_0: A2(
@@ -25004,15 +25018,56 @@ var _simsmith$doesnotexist$Resume_WorkExp$overview = function () {
 											{ctor: '[]'}),
 										_1: {
 											ctor: '::',
-											_0: guiPressGuide,
+											_0: _elm_lang$html$Html$text('Zogaj of Sweden, Gothenburg'),
+											_1: {
+												ctor: '::',
+												_0: A2(
+													_elm_lang$html$Html$br,
+													{ctor: '[]'},
+													{ctor: '[]'}),
+												_1: {
+													ctor: '::',
+													_0: _elm_lang$html$Html$text('Game programmer'),
+													_1: {ctor: '[]'}
+												}
+											}
+										}
+									}
+								}),
+							_1: {
+								ctor: '::',
+								_0: _elm_lang$html$Html$text('Continuing work on the game '),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_elm_lang$html$Html$em,
+										{ctor: '[]'},
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html$text('Zogaj Memo Gym'),
 											_1: {ctor: '[]'}
+										}),
+									_1: {
+										ctor: '::',
+										_0: _elm_lang$html$Html$text(' while expanding to iOS using RoboVM.'),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_elm_lang$html$Html$br,
+												{ctor: '[]'},
+												{ctor: '[]'}),
+											_1: {
+												ctor: '::',
+												_0: guiPressGuide,
+												_1: {ctor: '[]'}
+											}
 										}
 									}
 								}
 							}
-						}
-					}),
-				_1: {ctor: '[]'}
+						}),
+					_1: {ctor: '[]'}
+				}
 			}
 		});
 }();

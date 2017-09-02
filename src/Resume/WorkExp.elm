@@ -33,6 +33,22 @@ overview =
         Grid.grid []
             [ Grid.cell cellStyle
                 [ p []
+                    [ text "June 2017 – July 2017"
+                    , br [] []
+                    , text "FCC (Fraunhofer-Chalmers Centre), Gothenburg"
+                    , br [] []
+                    , text "Programmer"
+                    ]
+                , text """
+                  A very extensive work, where I did distributed networking,
+                  low-level programming, GUI, and neural networks.
+                  Languages included Erlang, C, Python, and Bash.
+                  """
+                , br [] []
+                , guiPressGuide
+                ]
+            , Grid.cell cellStyle
+                [ p []
                     [ text "June 2014 – August 2014"
                     , br [] []
                     , text "Zogaj of Sweden, Gothenburg"
