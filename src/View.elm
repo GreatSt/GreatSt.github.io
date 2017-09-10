@@ -7,6 +7,7 @@ import Markdown
 import Material
 import Material.Button as Button
 import Material.Color as Color
+import Material.Grid as Grid exposing (Device(..), grid, cell)
 import Material.Layout as Layout
 import Material.Options as Options exposing (css)
 import Model exposing (..)
@@ -50,9 +51,16 @@ viewBody : Model -> Html Msg
 viewBody model =
     case model.selectedTab of
         0 ->
-            div []
-                [ homeText
-                , viewCounter model
+            grid []
+                [ cell
+                    [ Grid.offset Desktop 4
+                    , Grid.size All 4
+                    , Grid.offset Tablet 2
+                    ]
+                    [ homeText
+                    , br [] []
+                    , viewCounter model
+                    ]
                 ]
 
         1 ->
@@ -69,7 +77,7 @@ viewBody model =
 
 homeText : Html msg
 homeText =
-    Markdown.toHtml [ margin 24 24 ] """
+    Markdown.toHtml [] """
 ## Welcome to this humble page
 
 This little page is a project to evaluate [Elm](http://elm-lang.org/) and to
@@ -79,16 +87,11 @@ gander. Look at the source code
 """
 
 
-margin : Int -> Int -> Attribute msg
-margin top lef =
-    style [ ( "margin", toString top ++ "px " ++ toString lef ++ "px" ) ]
-
-
 viewCounter : Model -> Html Msg
 viewCounter model =
-    div
-        [ margin 24 24 ]
+    div []
         [ text ("Confusion count: " ++ toString model.count)
+        , br [] []
         , Button.render Mdl
             [ 0 ]
             model.mdl

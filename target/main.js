@@ -25623,36 +25623,10 @@ var _simsmith$doesnotexist$UpdateMsg$GetTab = function (a) {
 	return {ctor: 'GetTab', _0: a};
 };
 
-var _simsmith$doesnotexist$View$margin = F2(
-	function (top, lef) {
-		return _elm_lang$html$Html_Attributes$style(
-			{
-				ctor: '::',
-				_0: {
-					ctor: '_Tuple2',
-					_0: 'margin',
-					_1: A2(
-						_elm_lang$core$Basics_ops['++'],
-						_elm_lang$core$Basics$toString(top),
-						A2(
-							_elm_lang$core$Basics_ops['++'],
-							'px ',
-							A2(
-								_elm_lang$core$Basics_ops['++'],
-								_elm_lang$core$Basics$toString(lef),
-								'px')))
-				},
-				_1: {ctor: '[]'}
-			});
-	});
 var _simsmith$doesnotexist$View$viewCounter = function (model) {
 	return A2(
 		_elm_lang$html$Html$div,
-		{
-			ctor: '::',
-			_0: A2(_simsmith$doesnotexist$View$margin, 24, 24),
-			_1: {ctor: '[]'}
-		},
+		{ctor: '[]'},
 		{
 			ctor: '::',
 			_0: _elm_lang$html$Html$text(
@@ -25662,29 +25636,10 @@ var _simsmith$doesnotexist$View$viewCounter = function (model) {
 					_elm_lang$core$Basics$toString(model.count))),
 			_1: {
 				ctor: '::',
-				_0: A5(
-					_debois$elm_mdl$Material_Button$render,
-					_simsmith$doesnotexist$UpdateMsg$Mdl,
-					{
-						ctor: '::',
-						_0: 0,
-						_1: {ctor: '[]'}
-					},
-					model.mdl,
-					{
-						ctor: '::',
-						_0: _debois$elm_mdl$Material_Options$onClick(_simsmith$doesnotexist$UpdateMsg$Increase),
-						_1: {
-							ctor: '::',
-							_0: A2(_debois$elm_mdl$Material_Options$css, 'margin', '0 12px'),
-							_1: {ctor: '[]'}
-						}
-					},
-					{
-						ctor: '::',
-						_0: _elm_lang$html$Html$text('Increase'),
-						_1: {ctor: '[]'}
-					}),
+				_0: A2(
+					_elm_lang$html$Html$br,
+					{ctor: '[]'},
+					{ctor: '[]'}),
 				_1: {
 					ctor: '::',
 					_0: A5(
@@ -25692,91 +25647,96 @@ var _simsmith$doesnotexist$View$viewCounter = function (model) {
 						_simsmith$doesnotexist$UpdateMsg$Mdl,
 						{
 							ctor: '::',
-							_0: 1,
+							_0: 0,
 							_1: {ctor: '[]'}
 						},
 						model.mdl,
 						{
 							ctor: '::',
-							_0: _debois$elm_mdl$Material_Options$onClick(_simsmith$doesnotexist$UpdateMsg$Reset),
-							_1: {ctor: '[]'}
+							_0: _debois$elm_mdl$Material_Options$onClick(_simsmith$doesnotexist$UpdateMsg$Increase),
+							_1: {
+								ctor: '::',
+								_0: A2(_debois$elm_mdl$Material_Options$css, 'margin', '0 12px'),
+								_1: {ctor: '[]'}
+							}
 						},
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html$text('Reset'),
+							_0: _elm_lang$html$Html$text('Increase'),
 							_1: {ctor: '[]'}
 						}),
-					_1: {ctor: '[]'}
+					_1: {
+						ctor: '::',
+						_0: A5(
+							_debois$elm_mdl$Material_Button$render,
+							_simsmith$doesnotexist$UpdateMsg$Mdl,
+							{
+								ctor: '::',
+								_0: 1,
+								_1: {ctor: '[]'}
+							},
+							model.mdl,
+							{
+								ctor: '::',
+								_0: _debois$elm_mdl$Material_Options$onClick(_simsmith$doesnotexist$UpdateMsg$Reset),
+								_1: {ctor: '[]'}
+							},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text('Reset'),
+								_1: {ctor: '[]'}
+							}),
+						_1: {ctor: '[]'}
+					}
 				}
 			}
 		});
 };
-var _simsmith$doesnotexist$View$aboutMeText = {
-	ctor: '::',
-	_0: _elm_lang$html$Html$text('This little page is made with Elm! At the moment there is not much to see here. In the meantime take a look at '),
-	_1: {
-		ctor: '::',
-		_0: A2(
-			_elm_lang$html$Html$a,
-			{
-				ctor: '::',
-				_0: _elm_lang$html$Html_Attributes$href('https://www.dropbox.com/s/7jsn4f4n6a05jbh/resume.pdf?dl=0'),
-				_1: {ctor: '[]'}
-			},
-			{
-				ctor: '::',
-				_0: _elm_lang$html$Html$text('my resume'),
-				_1: {ctor: '[]'}
-			}),
-		_1: {
-			ctor: '::',
-			_0: _elm_lang$html$Html$text(' or maybe '),
-			_1: {
-				ctor: '::',
-				_0: A2(
-					_elm_lang$html$Html$a,
-					{
-						ctor: '::',
-						_0: _elm_lang$html$Html_Attributes$href('https://github.com/SimSmith/SimSmith.github.io'),
-						_1: {ctor: '[]'}
-					},
-					{
-						ctor: '::',
-						_0: _elm_lang$html$Html$text('the source code'),
-						_1: {ctor: '[]'}
-					}),
-				_1: {
-					ctor: '::',
-					_0: _elm_lang$html$Html$text(' for this page.'),
-					_1: {ctor: '[]'}
-				}
-			}
-		}
-	}
-};
 var _simsmith$doesnotexist$View$homeText = A2(
 	_evancz$elm_markdown$Markdown$toHtml,
-	{
-		ctor: '::',
-		_0: A2(_simsmith$doesnotexist$View$margin, 24, 24),
-		_1: {ctor: '[]'}
-	},
+	{ctor: '[]'},
 	'\n## Welcome to this humble page\n\nThis little page is a project to evaluate [Elm](http://elm-lang.org/) and to\npresent myself. The site is still under development, but by all means, have a\ngander. Look at the source code\n[here](https://github.com/SimSmith/SimSmith.github.io), if that is you butter.\n');
 var _simsmith$doesnotexist$View$viewBody = function (model) {
 	var _p0 = model.selectedTab;
 	switch (_p0) {
 		case 0:
 			return A2(
-				_elm_lang$html$Html$div,
+				_debois$elm_mdl$Material_Grid$grid,
 				{ctor: '[]'},
 				{
 					ctor: '::',
-					_0: _simsmith$doesnotexist$View$homeText,
-					_1: {
-						ctor: '::',
-						_0: _simsmith$doesnotexist$View$viewCounter(model),
-						_1: {ctor: '[]'}
-					}
+					_0: A2(
+						_debois$elm_mdl$Material_Grid$cell,
+						{
+							ctor: '::',
+							_0: A2(_debois$elm_mdl$Material_Grid$offset, _debois$elm_mdl$Material_Grid$Desktop, 4),
+							_1: {
+								ctor: '::',
+								_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$All, 4),
+								_1: {
+									ctor: '::',
+									_0: A2(_debois$elm_mdl$Material_Grid$offset, _debois$elm_mdl$Material_Grid$Tablet, 2),
+									_1: {ctor: '[]'}
+								}
+							}
+						},
+						{
+							ctor: '::',
+							_0: _simsmith$doesnotexist$View$homeText,
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$br,
+									{ctor: '[]'},
+									{ctor: '[]'}),
+								_1: {
+									ctor: '::',
+									_0: _simsmith$doesnotexist$View$viewCounter(model),
+									_1: {ctor: '[]'}
+								}
+							}
+						}),
+					_1: {ctor: '[]'}
 				});
 		case 1:
 			return A2(
