@@ -31,12 +31,13 @@ overview =
     in
         Grid.grid []
             [ Grid.cell cellStyle
-                [ p [ style [ ( "font-size", "large" ) ] ] [ text """
-                I am facinated by designs and programming languages are not
-                an exception(). Below you can see a list of languages I remember
-                using. Those that I fancy the most are: Rust, Haskell, Elm,
-                Scala, Kotlin.
-                """ ]
+                [ p [ style [ ( "font-size", "large" ) ] ]
+                    [ text """
+                    Designs are facinating and by implication so are
+                    programming languages. Below you can see a list of
+                    languages I remember using. Those that I fancy the
+                    most are: Rust, Haskell, Elm, Scala, and Kotlin.
+                    """ ]
                 , guiPressGuide
                 ]
             , Grid.cell
@@ -102,6 +103,9 @@ data =
       }
     , { language = "Python"
       , score = "Good"
+      }
+    , { language = "Bash"
+      , score = "Bad"
       }
     , { language = "Assembly"
       , score = "Essential"

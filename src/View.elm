@@ -3,6 +3,7 @@ module View exposing (view)
 import Extra
 import Html exposing (..)
 import Html.Attributes exposing (class, href, style)
+import Markdown
 import Material
 import Material.Button as Button
 import Material.Color as Color
@@ -50,8 +51,7 @@ viewBody model =
     case model.selectedTab of
         0 ->
             div []
-                [ h2 [ margin 10 24 ] [ text "Welcome to this humble page." ]
-                , p [ margin 24 24 ] aboutMeText
+                [ homeText
                 , viewCounter model
                 ]
 
@@ -67,15 +67,16 @@ viewBody model =
             h1 [] [ text "404" ]
 
 
-aboutMeText : List (Html msg)
-aboutMeText =
-    [ text "This little page is made with Elm! At the moment there is not much to see here. In the meantime take a look at "
-    , a [ href "https://www.dropbox.com/s/7jsn4f4n6a05jbh/resume.pdf?dl=0" ]
-        [ text "my resume" ]
-    , text " or maybe "
-    , a [ href "https://github.com/SimSmith/SimSmith.github.io" ] [ text "the source code" ]
-    , text " for this page."
-    ]
+homeText : Html msg
+homeText =
+    Markdown.toHtml [ margin 24 24 ] """
+## Welcome to this humble page
+
+This little page is a project to evaluate [Elm](http://elm-lang.org/) and to
+present myself. The site is still under development, but by all means, have a
+gander. Look at the source code
+[here](https://github.com/SimSmith/SimSmith.github.io), if that is you butter.
+"""
 
 
 margin : Int -> Int -> Attribute msg
