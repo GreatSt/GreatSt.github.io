@@ -45,7 +45,7 @@ cvGrid model =
                 , text <|
                     "I have a wide area of interests at the moment from "
                         ++ "functional programming to algorithms about machine "
-                        ++ "learning or computer graphics. But whatevery I do, "
+                        ++ "learning or computer graphics. But whatever I do, "
                         ++ "there is always a part about creative problem solving."
                 ]
             , cell (cellStyle <| Teach AllT)
